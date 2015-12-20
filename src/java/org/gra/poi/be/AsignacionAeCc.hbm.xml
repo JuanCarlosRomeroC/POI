@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 20-dic-2015 0:59:15 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="org.gra.poi.be.AsignacionAeCc" table="asignacion_ae_cc" schema="sbd" optimistic-lock="version">
+        <id name="idasignacionAeCc" type="long">
+            <column name="idasignacion_ae_cc" />
+            <generator class="sequence">
+                <param name="sequence">sbd.asignacion_ae_cc_idasignacion_ae_cc_seq</param>                
+            </generator>
+        </id>
+        <many-to-one name="accionEstrategica" class="org.gra.poi.be.AccionEstrategica" fetch="select">
+            <column name="id_accion_estrategica" />
+        </many-to-one>
+        <many-to-one name="centroCosto" class="org.gra.poi.be.CentroCosto" fetch="select">
+            <column name="id_centro_costo" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

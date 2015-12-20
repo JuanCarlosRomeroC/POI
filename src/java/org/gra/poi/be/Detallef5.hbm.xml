@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 20-dic-2015 0:59:15 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="org.gra.poi.be.Detallef5" table="detallef5" schema="sbd" optimistic-lock="version">
+        <id name="iddetallef5" type="long">
+            <column name="iddetallef5" />
+            <generator class="sequence">
+                <param name="sequence">sbd.detallef5_iddetallef5_seq</param>                
+            </generator>
+        </id>
+        <many-to-one name="especificaGasto" class="org.gra.poi.be.EspecificaGasto" fetch="select">
+            <column name="id_especifica_gasto" />
+        </many-to-one>
+        <many-to-one name="formato5" class="org.gra.poi.be.Formato5" fetch="select">
+            <column name="id_formato5" />
+        </many-to-one>
+        <many-to-one name="subgrupo" class="org.gra.poi.be.Subgrupo" fetch="select">
+            <column name="id_subgrupo" />
+        </many-to-one>
+        <property name="costo" type="java.lang.Double">
+            <column name="costo" precision="17" scale="17" />
+        </property>
+    </class>
+</hibernate-mapping>

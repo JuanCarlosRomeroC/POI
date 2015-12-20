@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 20-dic-2015 0:59:15 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="org.gra.poi.be.GastoPresupuestario" table="gasto_presupuestario" schema="sbd" optimistic-lock="version">
+        <id name="idgastoPresupuestario" type="long">
+            <column name="idgasto_presupuestario" />
+            <generator class="sequence">
+                <param name="sequence">sbd.gasto_presupuestario_idgasto_presupuestario_seq</param>                
+            </generator>
+        </id>
+        <property name="denominacion" type="string">
+            <column name="denominacion" />
+        </property>
+        <property name="genericaGasto" type="string">
+            <column name="generica_gasto" length="15" />
+        </property>
+        <set name="especificaGastos" table="especifica_gasto" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_gasto_presupuestario" />
+            </key>
+            <one-to-many class="org.gra.poi.be.EspecificaGasto" />
+        </set>
+    </class>
+</hibernate-mapping>

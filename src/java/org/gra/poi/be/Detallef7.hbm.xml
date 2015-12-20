@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 20-dic-2015 0:59:15 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="org.gra.poi.be.Detallef7" table="detallef7" schema="sbd" optimistic-lock="version">
+        <id name="iddetallef7" type="long">
+            <column name="iddetallef7" />
+            <generator class="sequence">
+                <param name="sequence">sbd.detallef7_iddetallef7_seq</param>                
+            </generator>
+        </id>
+        <many-to-one name="formato7" class="org.gra.poi.be.Formato7" fetch="select">
+            <column name="id_formato7" />
+        </many-to-one>
+        <many-to-one name="metaOperativa" class="org.gra.poi.be.MetaOperativa" fetch="select">
+            <column name="id_meta_operativa" />
+        </many-to-one>
+        <property name="unidadMedida" type="string">
+            <column name="unidad_medida" length="30" />
+        </property>
+        <property name="cantProgTrimestral" type="java.lang.Integer">
+            <column name="cant_prog_trimestral" />
+        </property>
+        <property name="cantidadEjecutadaEt" type="java.lang.Integer">
+            <column name="cantidad_ejecutada_et" />
+        </property>
+        <property name="cantidadEjecutadaEat" type="java.lang.Integer">
+            <column name="cantidad_ejecutada_eat" />
+        </property>
+        <property name="avanceFisicoEt" type="java.lang.Double">
+            <column name="avance_fisico_et" precision="17" scale="17" />
+        </property>
+        <property name="avanceFisicoEat" type="java.lang.Double">
+            <column name="avance_fisico_eat" precision="17" scale="17" />
+        </property>
+    </class>
+</hibernate-mapping>

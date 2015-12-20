@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 20-dic-2015 0:59:15 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="org.gra.poi.be.AccionEstrategica" table="accion_estrategica" schema="sbd" optimistic-lock="version">
+        <id name="idaccionEstrategica" type="long">
+            <column name="idaccion_estrategica" />
+            <generator class="sequence">
+                <param name="sequence">sbd.accion_estrategica_idaccion_estrategica_seq</param>                
+            </generator>
+        </id>
+        <property name="denominacion" type="string">
+            <column name="denominacion" length="200" />
+        </property>
+        <property name="codigo" type="string">
+            <column name="codigo" length="10" />
+        </property>
+        <set name="asignacionAeCcs" table="asignacion_ae_cc" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_accion_estrategica" />
+            </key>
+            <one-to-many class="org.gra.poi.be.AsignacionAeCc" />
+        </set>
+        <set name="programacionActividadeses" table="programacion_actividades" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_accion_estategica" />
+            </key>
+            <one-to-many class="org.gra.poi.be.ProgramacionActividades" />
+        </set>
+        <set name="asignacionAeCps" table="asignacion_ae_cp" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_accion_estrategica" />
+            </key>
+            <one-to-many class="org.gra.poi.be.AsignacionAeCp" />
+        </set>
+        <set name="asignacionAeOeis" table="asignacion_ae_oei" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_accion_estrategica" />
+            </key>
+            <one-to-many class="org.gra.poi.be.AsignacionAeOei" />
+        </set>
+    </class>
+</hibernate-mapping>

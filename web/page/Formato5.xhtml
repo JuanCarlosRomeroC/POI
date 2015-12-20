@@ -1,0 +1,180 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"      
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./../template/layout.xhtml">
+
+            <ui:define name="content">
+
+                <h:form>
+                    <p:dialog  widgetVar="dialog_nuevo" modal="true" height="170" resizable="false" draggable="false">
+                        <f:facet name="header">
+                            REGISTRAR ITEM
+                        </f:facet>
+
+                        <h:panelGrid columns="2" cellpadding="10">
+                            <div style="font-weight:bold;width: 170px;">GASTO PRESUPUESTARIO</div>
+                            <p:selectOneMenu id="gastoPres"  style="width: 800px;">
+                                <f:selectItem itemLabel="Select One" itemValue="" />
+                                <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
+                                <f:selectItem itemLabel="PS4" itemValue="PS4" />
+                                <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
+                            </p:selectOneMenu>
+                        </h:panelGrid>
+
+                        <h:panelGrid columns="2" cellpadding="10">
+                            <div style="font-weight:bold;width: 170px;">ESPECÌFICA DE GASTO</div>
+                            <p:selectOneMenu id="especGasto"  style="width: 800px;">
+                                <f:selectItem itemLabel="Select One" itemValue="" />
+                                <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
+                                <f:selectItem itemLabel="PS4" itemValue="PS4" />
+                                <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
+                            </p:selectOneMenu>
+                        </h:panelGrid>
+
+                        <h:panelGrid columns="2" cellpadding="10">
+                            <div style="font-weight:bold;width: 170px;">ACTIVIDAD/OBRA</div>
+                            <p:selectOneMenu id="actividad_obra"  style="width: 800px;">
+                                <f:selectItem itemLabel="Select One" itemValue="" />
+                                <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
+                                <f:selectItem itemLabel="PS4" itemValue="PS4" />
+                                <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
+                            </p:selectOneMenu>
+                        </h:panelGrid>
+                        
+                        <f:facet name="footer">
+                            <div style="width: 100%;text-align: right;">
+                                <p:commandButton value="GRABAR" icon="ui-icon-disk" style="margin-right: 5px;" />                            
+                                <p:commandButton value="CANCELAR" icon="ui-icon-closethick" onclick="PF('dialog_nuevo').hide();"/>
+                            </div>
+                        </f:facet>
+                    </p:dialog> 
+                </h:form>
+
+                <h:form>
+                    <p:panel id="basic" style="width: 1000px; margin: 0 auto; "> 
+                        <f:facet name="header">
+                            FORMATO N°5
+                        </f:facet>
+
+                        <h:panelGrid columns="2" cellpadding="10">
+                            <div style="font-weight:bold; margin-right: 60px">TÍTULO</div>
+                            <p:inputText id="titulo" style="width: 792px; resize: none;"/>
+                        </h:panelGrid>
+
+                        <h:panelGrid columns="2" cellpadding="10">
+                            <div style="font-weight:bold;width: 108px;">UNIDAD EJECUTORA</div>
+                            <p:selectOneMenu id="unidadEjecutora"  style="width: 800px;">
+                                <f:selectItem itemLabel="Select One" itemValue="" />
+                                <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
+                                <f:selectItem itemLabel="PS4" itemValue="PS4" />
+                                <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
+                            </p:selectOneMenu>
+                        </h:panelGrid>
+
+                        <h:panelGrid columns="2" cellpadding="10">
+                            <div style="font-weight:bold;width: 108px;">META</div>
+                            <p:selectOneMenu id="meta"  style="width: 800px;">
+                                <f:selectItem itemLabel="Select One" itemValue="" />
+                                <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
+                                <f:selectItem itemLabel="PS4" itemValue="PS4" />
+                                <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
+                            </p:selectOneMenu>
+                        </h:panelGrid>
+
+                        <h:panelGrid columns="2" cellpadding="10">
+                            <div style="font-weight:bold;width: 108px;">CATEGORÍA PRESUPUESTAL</div>
+                            <p:selectOneMenu id="categPres"  style="width: 800px;">
+                                <f:selectItem itemLabel="Select One" itemValue="" />
+                                <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
+                                <f:selectItem itemLabel="PS4" itemValue="PS4" />
+                                <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
+                            </p:selectOneMenu>
+                        </h:panelGrid>
+
+                        <h:panelGrid columns="2" cellpadding="10">
+                            <div style="font-weight:bold;width: 108px;">PROGRAMA PRESUPUESTAL</div>
+                            <p:selectOneMenu id="progPres"  style="width: 800px;">
+                                <f:selectItem itemLabel="Select One" itemValue="" />
+                                <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
+                                <f:selectItem itemLabel="PS4" itemValue="PS4" />
+                                <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
+                            </p:selectOneMenu>
+                        </h:panelGrid>
+
+                        <h:panelGrid columns="2" cellpadding="10">
+                            <div style="font-weight:bold;width: 108px;">ACCIÒN ESTRATÈGICA INSTITUCIONAL</div>
+                            <p:selectOneMenu id="accionEstr"  style="width: 800px;">
+                                <f:selectItem itemLabel="Select One" itemValue="" />
+                                <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
+                                <f:selectItem itemLabel="PS4" itemValue="PS4" />
+                                <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
+                            </p:selectOneMenu>
+                        </h:panelGrid>
+                        
+                        <h:panelGrid columns="2" cellpadding="10">
+                            <div style="font-weight:bold;width: 108px;">ACTIVIDAD/OBRA</div>
+                            <p:selectOneMenu id="actividad_obra"  style="width: 800px;">
+                                <f:selectItem itemLabel="Select One" itemValue="" />
+                                <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
+                                <f:selectItem itemLabel="PS4" itemValue="PS4" />
+                                <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
+                            </p:selectOneMenu>
+                        </h:panelGrid>
+                        
+                        <h:panelGrid columns="2" cellpadding="10">
+                            <div style="font-weight:bold; margin-right: 45px">FTE. FTO.</div>
+                            <p:inputText id="fteFto" style="width: 792px; resize: none;"/>
+                        </h:panelGrid>
+
+                        <div style="width: 100%;text-align: right;"> 
+                            <p:commandButton value="NUEVO" icon="ui-icon-plusthick" type="button" onclick="PF('dialog_nuevo').show();" />
+                        </div>
+
+                        <h:panelGrid columns="1" cellpadding="3">
+                            <div style="font-weight:bold;">ACTIVIDADES/OBRAS</div>
+                            <p:dataTable var="car" rows="3"
+                                         paginator="true" paginatorPosition="bottom"
+                                         paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                         rowsPerPageTemplate="5,10,15">
+                                <p:column headerText="GEN. GASTO" style="width: 70px; text-align: center;">
+                                    <h:outputText value="" />
+                                </p:column>
+
+                                <p:column headerText="ESPEC. GASTO" style="width: 70px; text-align: left;">
+                                    <h:outputText value="" />
+                                </p:column>
+
+                                <p:column headerText="DENOMINACIÒN" style="text-align: left;">
+                                    <h:outputText value="" />
+                                </p:column>
+
+                                <p:column headerText="ACTIVIDAD/ OBRA..." style="width: 100px; text-align: left;">
+                                    <h:outputText value="" />
+                                </p:column>
+
+                                <p:column headerText="TOTAL ACTIVIDAD/ OBRA" style="width: 70px; text-align: left;">
+                                    <h:outputText value="" />
+                                </p:column>
+                            </p:dataTable>
+                        </h:panelGrid>
+
+                        <f:facet name="footer">
+                            <div style="width: 100%;text-align: right;">
+                                <p:commandButton value="REGISTRAR" icon="ui-icon-disk" style="margin-right: 5px;" />                            
+                                <p:commandButton value="CANCELAR" icon="ui-icon-closethick" />
+                            </div>
+                        </f:facet>
+                    </p:panel>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>

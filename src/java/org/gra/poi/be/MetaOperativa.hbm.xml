@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 20-dic-2015 0:59:15 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="org.gra.poi.be.MetaOperativa" table="meta_operativa" schema="sbd" optimistic-lock="version">
+        <id name="idmetaOperativa" type="long">
+            <column name="idmeta_operativa" />
+            <generator class="sequence">
+                <param name="sequence">sbd.meta_operativa_idmeta_operativa_seq</param>                
+            </generator>
+        </id>
+        <many-to-one name="actividadOperativa" class="org.gra.poi.be.ActividadOperativa" fetch="select">
+            <column name="id_actividad_operativa" />
+        </many-to-one>
+        <property name="denominacion" type="string">
+            <column name="denominacion" length="300" />
+        </property>
+        <set name="detallef3s" table="detallef3" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_meta_operativa" />
+            </key>
+            <one-to-many class="org.gra.poi.be.Detallef3" />
+        </set>
+        <set name="detallef4s" table="detallef4" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_meta_operativa" />
+            </key>
+            <one-to-many class="org.gra.poi.be.Detallef4" />
+        </set>
+        <set name="detallef7s" table="detallef7" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_meta_operativa" />
+            </key>
+            <one-to-many class="org.gra.poi.be.Detallef7" />
+        </set>
+        <set name="detallef8s" table="detallef8" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_meta_operativa" />
+            </key>
+            <one-to-many class="org.gra.poi.be.Detallef8" />
+        </set>
+    </class>
+</hibernate-mapping>

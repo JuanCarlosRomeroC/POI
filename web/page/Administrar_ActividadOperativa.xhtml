@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"      
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./../template/layout.xhtml">
+            <ui:define name="content">
+
+                <h:form>
+                    <p:dialog  widgetVar="dialog_nuevo" modal="true" height="150" resizable="false" draggable="false">
+                        <f:facet name="header">
+                            REGISTRAR ACTIVIDAD OPERATIVA
+                        </f:facet>
+
+                        <h:panelGrid columns="2" cellpadding="10">   
+                            <h:panelGrid columns="2" cellpadding="10"> 
+                                <div style="font-weight:bold;">CÓDIGO</div>
+                                <p:inputText id="codigo" style="width: 80px; resize: none;"/>
+                            </h:panelGrid>
+
+                            <h:panelGrid columns="2" cellpadding="10"> 
+                                <div style="font-weight:bold;">DENOMINACIÓN</div>
+                                <h:inputTextarea id="denominacion" style="width: 600px; height: 30px; resize: none;"/>   
+                            </h:panelGrid>
+                        </h:panelGrid>
+
+                        <h:panelGrid columns="2" cellpadding="10">
+                            <div style="font-weight:bold;width: 160px;margin-left: 10px">ACTIVIDAD/OBRA</div>
+                            <p:selectOneMenu id="oeInst"  style="width: 765px;">
+                                <f:selectItem itemLabel="Select One" itemValue="" />
+                                <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
+                                <f:selectItem itemLabel="PS4" itemValue="PS4" />
+                                <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
+                            </p:selectOneMenu>
+                        </h:panelGrid>
+
+                        <f:facet name="footer">
+                            <div style="width: 100%;text-align: right;">
+                                <p:commandButton value="REGISTRAR" icon="ui-icon-disk" style="margin-right: 5px;" />                            
+                                <p:commandButton value="CANCELAR" icon="ui-icon-closethick" onclick="PF('dialog_nuevo').hide();"/>
+                            </div>
+                        </f:facet>
+                    </p:dialog> 
+                </h:form>
+
+                <h:form>
+                    <p:panel id="basic" style="width: 1000px; margin: 0 auto; "> 
+                        <f:facet name="header">
+                            ADMINISTRAR ACTIVIDAD OPERATIVA
+                        </f:facet>
+                        <div style="width: 100%;text-align: right;"> 
+                            <p:commandButton value="NUEVO" icon="ui-icon-plusthick" type="button" onclick="PF('dialog_nuevo').show();" />
+                        </div>
+
+                        <h:panelGrid columns="1" cellpadding="3">
+                            <div style="font-weight:bold;">LISTA DE ACTIVIDADES OPERATIVAS</div>
+                            <p:dataTable var="car" rows="10"
+                                         paginator="true" paginatorPosition="bottom"
+                                         paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                         rowsPerPageTemplate="5,10,15">
+                                <p:column headerText="N°" style="width: 30px;text-align: center;">
+                                    <h:outputText value="" />
+                                </p:column>
+
+                                <p:column headerText="CÓDIGO" style="width: 90px;text-align: center;">
+                                    <h:outputText value="" />
+                                </p:column>
+
+                                <p:column headerText="DENOMINACIÓN" style="text-align: left;">
+                                    <h:outputText value="" />
+                                </p:column>
+
+                            </p:dataTable>
+                        </h:panelGrid>
+
+                        <f:facet name="footer">
+                            GOBIERNO REGIONAL DE AYACUCHO
+                        </f:facet>
+                    </p:panel>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>

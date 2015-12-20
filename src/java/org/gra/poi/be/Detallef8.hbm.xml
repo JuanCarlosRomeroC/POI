@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 20-dic-2015 0:59:15 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="org.gra.poi.be.Detallef8" table="detallef8" schema="sbd" optimistic-lock="version">
+        <id name="iddetallef8" type="long">
+            <column name="iddetallef8" />
+            <generator class="sequence">
+                <param name="sequence">sbd.detallef8_iddetallef8_seq</param>                
+            </generator>
+        </id>
+        <many-to-one name="formato8" class="org.gra.poi.be.Formato8" fetch="select">
+            <column name="id_formato8" />
+        </many-to-one>
+        <many-to-one name="metaOperativa" class="org.gra.poi.be.MetaOperativa" fetch="select">
+            <column name="id_meta_operativa" />
+        </many-to-one>
+        <property name="unidadMedida" type="string">
+            <column name="unidad_medida" length="30" />
+        </property>
+        <property name="presupuestoAnual" type="java.lang.Double">
+            <column name="presupuesto_anual" precision="17" scale="17" />
+        </property>
+        <property name="pptoProgTrimestral" type="java.lang.Double">
+            <column name="ppto_prog_trimestral" precision="17" scale="17" />
+        </property>
+        <property name="pptoEjecutadoEt" type="java.lang.Double">
+            <column name="ppto_ejecutado_et" precision="17" scale="17" />
+        </property>
+        <property name="pptoEjecutadoEat" type="java.lang.Double">
+            <column name="ppto_ejecutado_eat" precision="17" scale="17" />
+        </property>
+        <property name="avanceFinancieroEt" type="java.lang.Double">
+            <column name="avance_financiero_et" precision="17" scale="17" />
+        </property>
+        <property name="avanceFinancieroEat" type="java.lang.Double">
+            <column name="avance_financiero_eat" precision="17" scale="17" />
+        </property>
+    </class>
+</hibernate-mapping>

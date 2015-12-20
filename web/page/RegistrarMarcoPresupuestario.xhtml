@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"      
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./../template/layout.xhtml">
+
+            <ui:define name="content">
+                <h:form>
+                    <p:panel id="basic" style="width: 1000px; margin: 0 auto; "> 
+                        <f:facet name="header">
+                            REGISTRAR INFORMACIÓN GENERAL POI
+                        </f:facet>
+
+                        <h:panelGrid columns="2" cellpadding="10">
+                            <div style="font-weight:bold;height: 100px;">IMTRODUCCIÓN</div>
+                            <h:inputTextarea id="introduccion" style="width: 800px; height: 100px; resize: none;"/> 
+
+                            <div style="font-weight:bold;height: 100px;">BASE LEGAL</div>
+                            <h:inputTextarea id="base_legal" style="width: 800px; height: 100px; resize: none;"/> 
+                        </h:panelGrid>
+                        
+                        <h:panelGrid columns="2" cellpadding="10">
+                            <h:panelGrid columns="2" cellpadding="10">
+                                <div style="font-weight:bold;height: 100px;width: 95px;">MISIÓN</div>
+                                <h:inputTextarea id="mision" style="width: 340px; height: 100px; resize: none;"/>  
+                            </h:panelGrid>
+
+                            <h:panelGrid columns="2" cellpadding="10">
+                                <div style="font-weight:bold;height: 100px;">VISIÓN</div>
+                                <h:inputTextarea id="vision" style="width: 340px; height: 100px; resize: none;"/>   
+                            </h:panelGrid>
+                        </h:panelGrid>
+                        
+                        <h:panelGrid columns="2" cellpadding="10">
+                            <div style="font-weight:bold;width: 108px;">ITEMS</div>
+                            <p:selectOneMenu id="items"  style="width: 800px;">
+                                <f:selectItem itemLabel="Select One" itemValue="" />
+                                <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
+                                <f:selectItem itemLabel="PS4" itemValue="PS4" />
+                                <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
+                            </p:selectOneMenu>
+                        </h:panelGrid>
+                        <h:panelGrid columns="2" cellpadding="10">
+                            <h:panelGrid columns="2" cellpadding="10">
+                                <div style="font-weight:bold;width: 90px;">ITEMS</div>
+                                <p:selectOneMenu id="items2"  style="width: 340px;">
+                                    <f:selectItem itemLabel="Select One" itemValue="" />
+                                    <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
+                                    <f:selectItem itemLabel="PS4" itemValue="PS4" />
+                                    <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
+                                </p:selectOneMenu>
+                            </h:panelGrid>
+
+                            <h:panelGrid columns="2" cellpadding="10">
+                                <div style="font-weight:bold;">ITEMS</div>
+                                <p:selectOneMenu id="items3"  style="width: 340px;">
+                                    <f:selectItem itemLabel="Select One" itemValue="" />
+                                    <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
+                                    <f:selectItem itemLabel="PS4" itemValue="PS4" />
+                                    <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
+                                </p:selectOneMenu> 
+                            </h:panelGrid>
+
+                        </h:panelGrid>
+                        <h:panelGrid columns="1" cellpadding="10">
+                            <div style="font-weight:bold;">OBJETIVOS ESTRAGICOS</div>
+                            <p:dataTable var="car" rows="10"
+                                         paginator="true" paginatorPosition="bottom"
+                                         paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                         rowsPerPageTemplate="5,10,15">
+                                <p:column headerText="N°" style="width: 70px;text-align: center;">
+                                    <h:outputText value="" />
+                                </p:column>
+
+                                <p:column headerText="ABREVIATURA" style="width: 120px;text-align: center;">
+                                    <h:outputText value="" />
+                                </p:column>
+
+                                <p:column headerText="CORRELATIVO" style="width: 120px;text-align: center;">
+                                    <h:outputText value="" />
+                                </p:column>
+
+                                <p:column headerText="DENOMINACION" style="text-align: left;">
+                                    <h:outputText value="" />
+                                </p:column>
+                            </p:dataTable>
+
+                        </h:panelGrid>
+
+                        <f:facet name="footer">
+                            <div style="width: 100%;text-align: right;">
+                                <p:commandButton value="REGISTRAR" icon="ui-icon-disk" style="margin-right: 5px;" />                            
+                                <p:commandButton value="CANCELAR" icon="ui-icon-closethick" />
+                            </div>
+                        </f:facet>
+                    </p:panel>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>

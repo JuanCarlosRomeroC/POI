@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 20-dic-2015 0:59:15 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="org.gra.poi.be.Detallef9" table="detallef9" schema="sbd" optimistic-lock="version">
+        <id name="iddetallef9" type="long">
+            <column name="iddetallef9" />
+            <generator class="sequence">
+                <param name="sequence">sbd.detallef9_iddetallef9_seq</param>                
+            </generator>
+        </id>
+        <many-to-one name="actividadOperativa" class="org.gra.poi.be.ActividadOperativa" fetch="select">
+            <column name="id_actividad_operativa" />
+        </many-to-one>
+        <many-to-one name="formato9" class="org.gra.poi.be.Formato9" fetch="select">
+            <column name="id_formato9" />
+        </many-to-one>
+        <property name="obsNegativa" type="string">
+            <column name="obs_negativa" />
+        </property>
+        <property name="accionesSoluciones" type="string">
+            <column name="acciones_soluciones" />
+        </property>
+        <property name="recomendaciones" type="string">
+            <column name="recomendaciones" />
+        </property>
+    </class>
+</hibernate-mapping>

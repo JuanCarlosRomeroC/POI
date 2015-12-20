@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 20-dic-2015 0:59:15 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="org.gra.poi.be.Detallef6" table="detallef6" schema="sbd" optimistic-lock="version">
+        <id name="iddetallef6Resultado" type="long">
+            <column name="iddetallef6_resultado" />
+            <generator class="sequence">
+                <param name="sequence">sbd.detallef6_resultado_iddetallef6_resultado_seq</param>                
+            </generator>
+        </id>
+        <many-to-one name="formato6" class="org.gra.poi.be.Formato6" fetch="select">
+            <column name="id_formato6" />
+        </many-to-one>
+        <property name="unidadMedida" type="string">
+            <column name="unidad_medida" length="50" />
+        </property>
+        <property name="lineaBase" type="string">
+            <column name="linea_base" length="30" />
+        </property>
+        <property name="cantidadProgramada" type="java.lang.Double">
+            <column name="cantidad_programada" precision="17" scale="17" />
+        </property>
+        <property name="cantidadEjecutadaEt" type="java.lang.Double">
+            <column name="cantidad_ejecutada_et" precision="17" scale="17" />
+        </property>
+        <property name="avanceFisicoEt" type="java.lang.Double">
+            <column name="avance_fisico_et" precision="17" scale="17" />
+        </property>
+        <property name="cantidadEjecutadaEat" type="java.lang.Double">
+            <column name="cantidad_ejecutada_eat" precision="17" scale="17" />
+        </property>
+        <property name="avanceFisicoEat" type="java.lang.Double">
+            <column name="avance_fisico_eat" precision="17" scale="17" />
+        </property>
+        <property name="denominacionNivelObjetivo" type="string">
+            <column name="denominacion_nivel_objetivo" />
+        </property>
+        <property name="indicador" type="string">
+            <column name="indicador" length="50" />
+        </property>
+        <property name="tipoNivelObjetivo" type="string">
+            <column name="tipo_nivel_objetivo" length="50" />
+        </property>
+    </class>
+</hibernate-mapping>

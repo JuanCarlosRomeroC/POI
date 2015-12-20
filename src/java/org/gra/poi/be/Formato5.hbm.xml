@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 20-dic-2015 0:59:15 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="org.gra.poi.be.Formato5" table="formato5" schema="sbd" optimistic-lock="version">
+        <id name="idformato5" type="long">
+            <column name="idformato5" />
+            <generator class="sequence">
+                <param name="sequence">sbd.formato5_idformato5_seq</param>                
+            </generator>
+        </id>
+        <property name="titulo" type="string">
+            <column name="titulo" length="50" />
+        </property>
+        <property name="fteFinanciamiento" type="string">
+            <column name="fte_financiamiento" length="50" />
+        </property>
+        <set name="detallef5s" table="detallef5" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_formato5" />
+            </key>
+            <one-to-many class="org.gra.poi.be.Detallef5" />
+        </set>
+        <set name="programacionActividadeses" table="programacion_actividades" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_f5" />
+            </key>
+            <one-to-many class="org.gra.poi.be.ProgramacionActividades" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 20-dic-2015 0:59:15 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="org.gra.poi.be.Detallef1" table="detallef1" schema="sbd" optimistic-lock="version">
+        <id name="iddetallef1" type="long">
+            <column name="iddetallef1" />
+            <generator class="sequence">
+                <param name="sequence">sbd.detallef1_iddetallef1_seq</param>                
+            </generator>
+        </id>
+        <many-to-one name="actividadOperativa" class="org.gra.poi.be.ActividadOperativa" fetch="select">
+            <column name="id_actividad_operativa" />
+        </many-to-one>
+        <many-to-one name="formato1" class="org.gra.poi.be.Formato1" fetch="select">
+            <column name="id_formato1" />
+        </many-to-one>
+        <many-to-one name="oePei" class="org.gra.poi.be.OePei" fetch="select">
+            <column name="id_oe_pei" />
+        </many-to-one>
+        <property name="programaPresupuestalResumen" type="string">
+            <column name="programa_presupuestal_resumen" />
+        </property>
+        <property name="idAccionEstrategica" type="java.lang.Long">
+            <column name="id_accion_estrategica" />
+        </property>
+        <property name="accionEstragicaResumen" type="string">
+            <column name="accion_estragica_resumen" />
+        </property>
+        <property name="subgrupoResumen" type="string">
+            <column name="subgrupo_resumen" />
+        </property>
+    </class>
+</hibernate-mapping>

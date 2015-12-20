@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 20-dic-2015 0:59:15 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="org.gra.poi.be.CentroCosto" table="centro_costo" schema="sbd" optimistic-lock="version">
+        <id name="idcentroCosto" type="long">
+            <column name="idcentro_costo" />
+            <generator class="sequence">
+                <param name="sequence">sbd.centro_costo_idcentro_costo_seq</param>                
+            </generator>
+        </id>
+        <property name="denominacion" type="string">
+            <column name="denominacion" length="100" />
+        </property>
+        <property name="abreviatura" type="string">
+            <column name="abreviatura" length="30" />
+        </property>
+        <set name="asignacionAeCcs" table="asignacion_ae_cc" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_centro_costo" />
+            </key>
+            <one-to-many class="org.gra.poi.be.AsignacionAeCc" />
+        </set>
+    </class>
+</hibernate-mapping>

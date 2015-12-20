@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 20-dic-2015 0:59:15 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="org.gra.poi.be.OePei" table="oe_pei" schema="sbd" optimistic-lock="version">
+        <id name="idoePei" type="long">
+            <column name="idoe_pei" />
+            <generator class="sequence">
+                <param name="sequence">sbd.oe_pei_idoe_pei_seq</param>                
+            </generator>
+        </id>
+        <property name="denominacion" type="string">
+            <column name="denominacion" length="200" />
+        </property>
+        <property name="abreviatura" type="string">
+            <column name="abreviatura" length="30" />
+        </property>
+        <property name="correlativo" type="string">
+            <column name="correlativo" length="10" />
+        </property>
+        <set name="asignacionAeOeis" table="asignacion_ae_oei" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_oe_pei" />
+            </key>
+            <one-to-many class="org.gra.poi.be.AsignacionAeOei" />
+        </set>
+        <set name="detallef1s" table="detallef1" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_oe_pei" />
+            </key>
+            <one-to-many class="org.gra.poi.be.Detallef1" />
+        </set>
+        <set name="pois" table="poi" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_oe_pei" />
+            </key>
+            <one-to-many class="org.gra.poi.be.Poi" />
+        </set>
+    </class>
+</hibernate-mapping>

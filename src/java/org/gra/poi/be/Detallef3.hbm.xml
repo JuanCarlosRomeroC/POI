@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 20-dic-2015 0:59:15 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="org.gra.poi.be.Detallef3" table="detallef3" schema="sbd" optimistic-lock="version">
+        <id name="iddetallef3" type="long">
+            <column name="iddetallef3" />
+            <generator class="sequence">
+                <param name="sequence">sbd.detallef3_iddetallef3_seq</param>                
+            </generator>
+        </id>
+        <many-to-one name="formato3" class="org.gra.poi.be.Formato3" fetch="select">
+            <column name="id_formato3" />
+        </many-to-one>
+        <many-to-one name="metaOperativa" class="org.gra.poi.be.MetaOperativa" fetch="select">
+            <column name="id_meta_operativa" />
+        </many-to-one>
+        <property name="responsable" type="string">
+            <column name="responsable" length="50" />
+        </property>
+        <property name="unidadMedida" type="string">
+            <column name="unidad_medida" length="30" />
+        </property>
+        <property name="trimestre1" type="java.lang.Integer">
+            <column name="trimestre1" />
+        </property>
+        <property name="trimestre2" type="java.lang.Integer">
+            <column name="trimestre2" />
+        </property>
+        <property name="trimestre3" type="java.lang.Integer">
+            <column name="trimestre3" />
+        </property>
+        <property name="trimestre4" type="java.lang.Integer">
+            <column name="trimestre4" />
+        </property>
+    </class>
+</hibernate-mapping>

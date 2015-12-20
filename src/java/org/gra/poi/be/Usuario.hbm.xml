@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 20-dic-2015 0:59:15 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="org.gra.poi.be.Usuario" table="usuario" schema="sbd" optimistic-lock="version">
+        <id name="idusuario" type="long">
+            <column name="idusuario" />
+            <generator class="sequence">
+                <param name="sequence">sbd.usuario_idusuario_seq</param>                
+            </generator>
+        </id>
+        <many-to-one name="empleado" class="org.gra.poi.be.Empleado" fetch="select">
+            <column name="id_empleado" />
+        </many-to-one>
+        <property name="nombre" type="string">
+            <column name="nombre" length="50" />
+        </property>
+        <property name="clave" type="string">
+            <column name="clave" length="50" />
+        </property>
+        <property name="estado" type="java.lang.Boolean">
+            <column name="estado" />
+        </property>
+        <property name="tipoUsuario" type="string">
+            <column name="tipo_usuario" length="100" />
+        </property>
+        <set name="rolUsuarios" table="rol_usuario" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_usuario" />
+            </key>
+            <one-to-many class="org.gra.poi.be.RolUsuario" />
+        </set>
+    </class>
+</hibernate-mapping>

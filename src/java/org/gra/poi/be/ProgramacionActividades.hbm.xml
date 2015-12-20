@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 20-dic-2015 0:59:15 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="org.gra.poi.be.ProgramacionActividades" table="programacion_actividades" schema="sbd" optimistic-lock="version">
+        <id name="idprogramacion" type="long">
+            <column name="idprogramacion" />
+            <generator class="sequence">
+                <param name="sequence">sbd.programacion_actividades_idprogramacion_seq</param>                
+            </generator>
+        </id>
+        <many-to-one name="accionEstrategica" class="org.gra.poi.be.AccionEstrategica" fetch="select">
+            <column name="id_accion_estategica" />
+        </many-to-one>
+        <many-to-one name="categoriaPresupuestal" class="org.gra.poi.be.CategoriaPresupuestal" fetch="select">
+            <column name="id_categoria_presupuestal" />
+        </many-to-one>
+        <many-to-one name="formato1" class="org.gra.poi.be.Formato1" fetch="select">
+            <column name="id_f1" />
+        </many-to-one>
+        <many-to-one name="formato2" class="org.gra.poi.be.Formato2" fetch="select">
+            <column name="id_f2" />
+        </many-to-one>
+        <many-to-one name="formato3" class="org.gra.poi.be.Formato3" fetch="select">
+            <column name="id_f3" />
+        </many-to-one>
+        <many-to-one name="formato4" class="org.gra.poi.be.Formato4" fetch="select">
+            <column name="id_f4" />
+        </many-to-one>
+        <many-to-one name="formato5" class="org.gra.poi.be.Formato5" fetch="select">
+            <column name="id_f5" />
+        </many-to-one>
+        <many-to-one name="formato6" class="org.gra.poi.be.Formato6" fetch="select">
+            <column name="id_f6" />
+        </many-to-one>
+        <many-to-one name="formato7" class="org.gra.poi.be.Formato7" fetch="select">
+            <column name="id_f7" />
+        </many-to-one>
+        <many-to-one name="formato8" class="org.gra.poi.be.Formato8" fetch="select">
+            <column name="id_f8" />
+        </many-to-one>
+        <many-to-one name="formato9" class="org.gra.poi.be.Formato9" fetch="select">
+            <column name="id_f9" />
+        </many-to-one>
+        <many-to-one name="organoUnidad" class="org.gra.poi.be.OrganoUnidad" fetch="select">
+            <column name="id_organo" />
+        </many-to-one>
+        <many-to-one name="poi" class="org.gra.poi.be.Poi" fetch="select">
+            <column name="id_poi" />
+        </many-to-one>
+        <many-to-one name="subgrupo" class="org.gra.poi.be.Subgrupo" fetch="select">
+            <column name="id_subgrupo" />
+        </many-to-one>
+        <property name="idMeta" type="java.lang.Long">
+            <column name="id_meta" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 20-dic-2015 0:59:15 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="org.gra.poi.be.Subgrupo" table="subgrupo" schema="sbd" optimistic-lock="version">
+        <id name="idsubgrupo" type="long">
+            <column name="idsubgrupo" />
+            <generator class="sequence">
+                <param name="sequence">sbd.actividad_obra_idactividad_obra_seq</param>                
+            </generator>
+        </id>
+        <many-to-one name="categoriaPresupuestal" class="org.gra.poi.be.CategoriaPresupuestal" fetch="select">
+            <column name="id_categoria_presupuestal" />
+        </many-to-one>
+        <property name="denominacion" type="string">
+            <column name="denominacion" length="250" />
+        </property>
+        <property name="numeracion" type="string">
+            <column name="numeracion" length="10" />
+        </property>
+        <set name="programacionActividadeses" table="programacion_actividades" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_subgrupo" />
+            </key>
+            <one-to-many class="org.gra.poi.be.ProgramacionActividades" />
+        </set>
+        <set name="detallef5s" table="detallef5" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_subgrupo" />
+            </key>
+            <one-to-many class="org.gra.poi.be.Detallef5" />
+        </set>
+        <set name="actividadOperativas" table="actividad_operativa" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_subgrupo" />
+            </key>
+            <one-to-many class="org.gra.poi.be.ActividadOperativa" />
+        </set>
+    </class>
+</hibernate-mapping>

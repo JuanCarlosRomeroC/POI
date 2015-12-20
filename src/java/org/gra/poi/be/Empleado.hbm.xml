@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 20-dic-2015 0:59:15 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="org.gra.poi.be.Empleado" table="empleado" schema="sbd" optimistic-lock="version">
+        <id name="idempleado" type="long">
+            <column name="idempleado" />
+            <generator class="sequence">
+                <param name="sequence">sbd.empleado_idempleado_seq</param>                
+            </generator>
+        </id>
+        <many-to-one name="organoUnidad" class="org.gra.poi.be.OrganoUnidad" fetch="select">
+            <column name="id_organo" />
+        </many-to-one>
+        <property name="nombre" type="string">
+            <column name="nombre" length="50" />
+        </property>
+        <property name="apellidoPaterno" type="string">
+            <column name="apellido_paterno" length="50" />
+        </property>
+        <property name="apellidoMaterno" type="string">
+            <column name="apellido_materno" length="50" />
+        </property>
+        <property name="dni" type="string">
+            <column name="dni" length="8" />
+        </property>
+        <property name="telefono" type="string">
+            <column name="telefono" length="10" />
+        </property>
+        <property name="condicion" type="string">
+            <column name="condicion" length="10">
+                <comment>contratado, nombrado, designado, previsto, vacante</comment>
+            </column>
+        </property>
+        <property name="abreviaturaProfesion" type="string">
+            <column name="abreviatura_profesion" length="30" />
+        </property>
+        <set name="usuarios" table="usuario" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_empleado" />
+            </key>
+            <one-to-many class="org.gra.poi.be.Usuario" />
+        </set>
+    </class>
+</hibernate-mapping>

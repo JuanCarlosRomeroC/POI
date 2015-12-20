@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 20-dic-2015 0:59:15 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="org.gra.poi.be.RolUsuario" table="rol_usuario" schema="sbd" optimistic-lock="version">
+        <id name="idrolUsuario" type="long">
+            <column name="idrol_usuario" />
+            <generator class="sequence">
+                <param name="sequence">sbd.rol_usuario_idrol_usuario_seq</param>                
+            </generator>
+        </id>
+        <many-to-one name="usuario" class="org.gra.poi.be.Usuario" fetch="select">
+            <column name="id_usuario" />
+        </many-to-one>
+        <property name="nombreModulo" type="string">
+            <column name="nombre_modulo" length="100" />
+        </property>
+    </class>
+</hibernate-mapping>

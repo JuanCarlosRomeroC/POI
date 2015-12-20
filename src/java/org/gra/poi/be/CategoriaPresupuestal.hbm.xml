@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 20-dic-2015 0:59:15 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="org.gra.poi.be.CategoriaPresupuestal" table="categoria_presupuestal" schema="sbd" optimistic-lock="version">
+        <id name="idcategoriaPresupuestal" type="long">
+            <column name="idcategoria_presupuestal" />
+            <generator class="sequence">
+                <param name="sequence">sbd.categoria_presupuestal_idcategoria_presupuestal_seq</param>                
+            </generator>
+        </id>
+        <property name="tipoCategoria" type="string">
+            <column name="tipo_categoria" length="30">
+                <comment>programa presupuestal, accion central, APNOP</comment>
+            </column>
+        </property>
+        <property name="denominacion" type="string">
+            <column name="denominacion" length="150" />
+        </property>
+        <property name="numeracion" type="string">
+            <column name="numeracion" length="10" />
+        </property>
+        <set name="programacionActividadeses" table="programacion_actividades" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_categoria_presupuestal" />
+            </key>
+            <one-to-many class="org.gra.poi.be.ProgramacionActividades" />
+        </set>
+        <set name="asignacionAeCps" table="asignacion_ae_cp" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_categoria_presupuestal" />
+            </key>
+            <one-to-many class="org.gra.poi.be.AsignacionAeCp" />
+        </set>
+        <set name="subgrupos" table="subgrupo" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_categoria_presupuestal" />
+            </key>
+            <one-to-many class="org.gra.poi.be.Subgrupo" />
+        </set>
+    </class>
+</hibernate-mapping>

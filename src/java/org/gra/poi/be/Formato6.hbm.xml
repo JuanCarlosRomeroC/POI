@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 20-dic-2015 0:59:15 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="org.gra.poi.be.Formato6" table="formato6" schema="sbd" optimistic-lock="version">
+        <id name="idformato6" type="long">
+            <column name="idformato6" />
+            <generator class="sequence">
+                <param name="sequence">sbd.formato6_idformato6_seq</param>                
+            </generator>
+        </id>
+        <property name="titulo" type="string">
+            <column name="titulo" length="80" />
+        </property>
+        <set name="detallef6s" table="detallef6" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_formato6" />
+            </key>
+            <one-to-many class="org.gra.poi.be.Detallef6" />
+        </set>
+        <set name="programacionActividadeses" table="programacion_actividades" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_f6" />
+            </key>
+            <one-to-many class="org.gra.poi.be.ProgramacionActividades" />
+        </set>
+    </class>
+</hibernate-mapping>

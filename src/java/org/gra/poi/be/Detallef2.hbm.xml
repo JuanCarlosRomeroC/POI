@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 20-dic-2015 0:59:15 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="org.gra.poi.be.Detallef2" table="detallef2" schema="sbd" optimistic-lock="version">
+        <id name="iddetallef2Resultado" type="long">
+            <column name="iddetallef2_resultado" />
+            <generator class="sequence">
+                <param name="sequence">sbd.detallef2_resultado_iddetallef2_resultado_seq</param>                
+            </generator>
+        </id>
+        <many-to-one name="formato2" class="org.gra.poi.be.Formato2" fetch="select">
+            <column name="id_formato2" />
+        </many-to-one>
+        <property name="denominacionNivelObjetivo" type="string">
+            <column name="denominacion_nivel_objetivo" />
+        </property>
+        <property name="indicador" type="string">
+            <column name="indicador" length="50" />
+        </property>
+        <property name="unidadMedida" type="string">
+            <column name="unidad_medida" length="30" />
+        </property>
+        <property name="lineaBase" type="string">
+            <column name="linea_base" length="50" />
+        </property>
+        <property name="trimestre1" type="java.lang.Double">
+            <column name="trimestre1" precision="17" scale="17" />
+        </property>
+        <property name="trimestre2" type="java.lang.Double">
+            <column name="trimestre2" precision="17" scale="17" />
+        </property>
+        <property name="trimestre3" type="java.lang.Double">
+            <column name="trimestre3" precision="17" scale="17" />
+        </property>
+        <property name="trimestre4" type="java.lang.Double">
+            <column name="trimestre4" precision="17" scale="17" />
+        </property>
+        <property name="tipoNivelObjetivo" type="string">
+            <column name="tipo_nivel_objetivo" length="50">
+                <comment>RESULTADO_ESPECIFICO PRODUCTOR</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>
