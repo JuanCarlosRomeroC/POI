@@ -101,18 +101,18 @@
                     </p:dialog> 
                 </h:form>
                 <h:form>
-                    <p:confirmDialog widgetVar="dialog_editar" id="dialog_editar" 
+                    <p:confirmDialog widgetVar="dialog_eliminar" id="dialog_eliminar" 
                                      message="¿ESTÁ SEGURO QUE DESEA ELIMINAR EL REGISTRO?" 
                                      header="ELIMINAR REGISTRO">
 
                         <p:growl id="msg" sticky="true" showDetail="true" life="2000"/>
                         <p:commandButton icon="ui-icon-close" update="msg" value="No" process="@this" 
-                                         style="float: right; margin-right: .3em;" oncomplete="PF('dialog_editar').hide()">
+                                         style="float: right; margin-right: .3em;" oncomplete="PF('dialog_eliminar').hide()">
                             <p:resetInput target="dialog_editar" />
                         </p:commandButton>
                         <p:commandButton update="msg" value="Si"
                                          style="float: right; margin-right: .3em;"                                                       
-                                         icon="ui-icon-check" oncomplete="PF('dialog_editar').hide()"/>       
+                                         icon="ui-icon-check" oncomplete="PF('dialog_eliminar').hide()"/>       
 
                     </p:confirmDialog>
                 </h:form>
