@@ -1,33 +1,164 @@
 <?xml version='1.0' encoding='UTF-8' ?> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
+<html xmlns="http://www.w3.org/1999/xhtml"      
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"      
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <h:head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <h:outputStylesheet name="./css/default.css"/>
-        <h:outputStylesheet name="./css/cssLayout.css"/>
-        <title>Facelets Template</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />   
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+        <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+        <title>.:POI:.</title>
+        <link rel="shortcut icon" type="image/x-icon" href="../resources/img/favicon.png"/>         
+        <h:outputScript name="jquery/jquery.js" library="primefaces" />
+        <h:outputScript name="jquery/jquery-plugins.js" library="primefaces" />
+        <h:outputScript name="js/jquery.particleground.min.js" />
+        <h:outputScript name="js/script.js" />
+        <h:outputStylesheet name="grid/grid.css" library="primefaces" />
+        <link rel="stylesheet" type="text/css" href="../resources/css/style.css"/>
+        <link rel="stylesheet" type="text/css" href="../resources/css/social.min.css"/>
+        <script type="text/javascript" src="../resources/js/Primefaces.locales.es.js"></script>         
     </h:head>
 
-    <h:body>
+    <h:body>        
+        <div id="background-paticle" style="position: absolute;z-index: -10;width: 100%;height: 100vh;opacity: .7;filter: Alpha(Opacity=70);"></div>
+        <div class="ui-fluid">
+            <div class="ui-grid-row cabecera">
+                <div class="ui-grid-col-12" >                    
+                    <div style="width: 100%;">
+                        <a href="../index.xhtml">
+                            <div class="banner">
+                                <div class="custom_info_app">
+                                    <div class="logo1">
+                                        <div class="logo_app_container1 logo1_app_banner"></div>                       
+                                    </div>
+                                    <div class="masterinfo">                            
+                                        PLAN OPERATIVO<br/>
+                                        INSTITUCIONAL<br/>
+                                        GOBIERNO REGIONAL DE AYACUCHO
+                                    </div>
+                                    <div class="logo2">
+                                        <div class="logo_app_container2 logo2_app_banner"></div>                       
+                                    </div>
+                                </div>                                    
+                            </div>
+                        </a>          
+                    </div>
+                </div>
+            </div>    
+            <div class="ui-grid-row margin_center cuerpo"> 
+                <p:growl id="msg" sticky="true" showDetail="true" life="2000"/>
+                <h:form> 
+                    <p:menubar class="margin_top_mb" styleClass="menu-desktop">
+                        <p:menuitem value="Inicio" url="../index.xhtml" icon="ui-icon-home" />
+                        <p:submenu label="Parametros">
+                            <p:menuitem url="layoutR.xhtml"  value="Administrar Institucion" title="Administrar Institucion"/>     
+                            <p:menuitem url="layoutR.xhtml"  value="Administrar Organo" title="Administrar Organo"/>     
+                            <p:menuitem url="layoutR.xhtml"  value="Administrar Objetivos Estrategicos PEI" title="Administrar Objetivos Estrategicos PEI"/>     
+                            <p:menuitem url="layoutR.xhtml"  value="Administrar Empleado" title="Administrar Empleado"/>     
+                            <p:menuitem url="layoutR.xhtml"  value="Administrar Categoria Presupuestal" title="Administrar Categoria Presupuestal"/>     
+                            <p:menuitem url="layoutR.xhtml"  value="Administrar Centro de Costo" title="Administrar Centro de Costo"/>     
+                            <p:menuitem url="layoutR.xhtml"  value="Administrar Accion Estrategica" title="Administrar Accion Estrategica"/>     
+                            <p:menuitem url="layoutR.xhtml"  value="Administrar Subgrupo Actividad/Obra" title="Administrar Subgrupo Actividad/Obra"/>     
+                            <p:menuitem url="layoutR.xhtml"  value="Administrar Actividad Operativa" title="Administrar Actividad Operativa"/>     
+                            <p:menuitem url="layoutR.xhtml"  value="Administrar Meta Operativa" title="Administrar Meta Operativa"/> 
+                            <p:menuitem url="layoutR.xhtml"  value="Administrar Gasto Presupuestal" title="Administrar Gasto Presupuestal"/> 
+                            <p:menuitem url="layoutR.xhtml"  value="Administrar Especifica de Gasto" title="Administrar Especifica de Gasto"/>
+                            <p:menuitem url="layoutR.xhtml"  value="Administrar Documento de Gestion" title="Administrar Documento de Gestion"/>
+                        </p:submenu>
+                        <p:submenu label="Programacionde Actividades">
+                            <p:menuitem url="layoutR.xhtml"  value="Adminsitrar Formato 1" title="Articulacion de Objetivos y Acciones Estrategicas Institucionales"/>
+                            <p:menuitem url="layoutR.xhtml"  value="Adminsitrar Formato 2" title="Programacionde las Metas de Productos"/>
+                            <p:menuitem url="layoutR.xhtml"  value="Adminsitrar Formato 3" title="Programacion Fisica de Actividades Operativoas"/>
+                            <p:menuitem url="layoutR.xhtml"  value="Adminsitrar Formato 4" title="Programacion Financiera de Actividades Operativas"/>
+                            <p:menuitem url="layoutR.xhtml"  value="Adminsitrar Formato 5" title="Programacion del Costeo de Actividades Operativas"/>
+                            <p:menuitem url="layoutR.xhtml"  value="Adminsitrar Formato 6" title="Evaluacion de las Metas de productos"/>
+                            <p:menuitem url="layoutR.xhtml"  value="Adminsitrar Formato 7" title="Evaluacion Fisica de Actividades Operativas"/>
+                            <p:menuitem url="layoutR.xhtml"  value="Adminsitrar Formato 8" title="Evaluacion Financiera de Actividades Operativas"/>
+                            <p:menuitem url="layoutR.xhtml"  value="Adminsitrar Formato 9" title="Evaluacion Cualitativa de Actividades Operativas"/>
+                        </p:submenu>          
+                        <p:submenu label="Plan Operativo Institucional">
+                            <p:menuitem url="layoutR.xhtml"  value="Registrar Informacion General POI" title="Registrar Informacion General POI"/>     
+                            <p:menuitem url="layoutR.xhtml"  value="Registrar Marco Presupuestal" title="Registrar Marco Presupuestal"/>     
+                            <p:menuitem url="layoutR.xhtml"  value="Generar POI" title="Generar POI"/>     
+                        </p:submenu>
 
-        <div id="top">
-            <ui:insert name="top">Top</ui:insert>
-        </div>
-        <div>
-            <div id="left">
-                <ui:insert name="left">Left</ui:insert>
-            </div>
-            <div id="content" class="left_content">
-                <ui:insert name="content">Content</ui:insert>
-            </div>
-        </div>
-        <div id="bottom">
-            <ui:insert name="bottom">Bottom</ui:insert>
-        </div>
+                        <p:submenu label="Administrar Roles">
+                            <p:menuitem url="layoutR.xhtml"  value="Administrar Cuenta" title="Administrar Cuenta"/> 
+                            <p:menuitem url="layoutR.xhtml"  value="Administrar Rol" title="Administrar Rol"/> 
+                        </p:submenu>                        
+                        <f:facet name="options">                             
+                            <p:commandButton id="login" icon="ui-icon ui-icon-power" 
+                                             title="CERRAR SESSION" class="login_botton" style="background: red;"/>
+                        </f:facet>
+                    </p:menubar>
+                </h:form>  
+                <h:form>
+                    <p:panelMenu styleClass="menu-mobil">                        
+                        <p:submenu label="Parametros">
+                            <p:menuitem url="layoutR.xhtml"  value="Administrar Institucion" title="Administrar Institucion"/>     
+                            <p:menuitem url="layoutR.xhtml"  value="Administrar Organo" title="Administrar Organo"/>     
+                            <p:menuitem url="layoutR.xhtml"  value="Administrar Objetivos Estrategicos PEI" title="Administrar Objetivos Estrategicos PEI"/>     
+                            <p:menuitem url="layoutR.xhtml"  value="Administrar Empleado" title="Administrar Empleado"/>     
+                            <p:menuitem url="layoutR.xhtml"  value="Administrar Categoria Presupuestal" title="Administrar Categoria Presupuestal"/>     
+                            <p:menuitem url="layoutR.xhtml"  value="Administrar Centro de Costo" title="Administrar Centro de Costo"/>     
+                            <p:menuitem url="layoutR.xhtml"  value="Administrar Accion Estrategica" title="Administrar Accion Estrategica"/>     
+                            <p:menuitem url="layoutR.xhtml"  value="Administrar Subgrupo Actividad/Obra" title="Administrar Subgrupo Actividad/Obra"/>     
+                            <p:menuitem url="layoutR.xhtml"  value="Administrar Actividad Operativa" title="Administrar Actividad Operativa"/>     
+                            <p:menuitem url="layoutR.xhtml"  value="Administrar Meta Operativa" title="Administrar Meta Operativa"/> 
+                            <p:menuitem url="layoutR.xhtml"  value="Administrar Gasto Presupuestal" title="Administrar Gasto Presupuestal"/> 
+                            <p:menuitem url="layoutR.xhtml"  value="Administrar Especifica de Gasto" title="Administrar Especifica de Gasto"/>
+                            <p:menuitem url="layoutR.xhtml"  value="Administrar Documento de Gestion" title="Administrar Documento de Gestion"/>
+                        </p:submenu>
+                        <p:submenu label="Programacionde Actividades">
+                            <p:menuitem url="layoutR.xhtml"  value="Adminsitrar Formato 1" title="Articulacion de Objetivos y Acciones Estrategicas Institucionales"/>
+                            <p:menuitem url="layoutR.xhtml"  value="Adminsitrar Formato 2" title="Programacionde las Metas de Productos"/>
+                            <p:menuitem url="layoutR.xhtml"  value="Adminsitrar Formato 3" title="Programacion Fisica de Actividades Operativoas"/>
+                            <p:menuitem url="layoutR.xhtml"  value="Adminsitrar Formato 4" title="Programacion Financiera de Actividades Operativas"/>
+                            <p:menuitem url="layoutR.xhtml"  value="Adminsitrar Formato 5" title="Programacion del Costeo de Actividades Operativas"/>
+                            <p:menuitem url="layoutR.xhtml"  value="Adminsitrar Formato 6" title="Evaluacion de las Metas de productos"/>
+                            <p:menuitem url="layoutR.xhtml"  value="Adminsitrar Formato 7" title="Evaluacion Fisica de Actividades Operativas"/>
+                            <p:menuitem url="layoutR.xhtml"  value="Adminsitrar Formato 8" title="Evaluacion Financiera de Actividades Operativas"/>
+                            <p:menuitem url="layoutR.xhtml"  value="Adminsitrar Formato 9" title="Evaluacion Cualitativa de Actividades Operativas"/>
+                        </p:submenu>          
+                        <p:submenu label="Plan Operativo Institucional">
+                            <p:menuitem url="layoutR.xhtml"  value="Registrar Informacion General POI" title="Registrar Informacion General POI"/>     
+                            <p:menuitem url="layoutR.xhtml"  value="Registrar Marco Presupuestal" title="Registrar Marco Presupuestal"/>     
+                            <p:menuitem url="layoutR.xhtml"  value="Generar POI" title="Generar POI"/>     
+                        </p:submenu>
 
+                        <p:submenu label="Administrar Roles">
+                            <p:menuitem url="layoutR.xhtml"  value="Administrar Cuenta" title="Administrar Cuenta"/> 
+                            <p:menuitem url="layoutR.xhtml"  value="Administrar Rol" title="Administrar Rol"/> 
+                        </p:submenu>         
+                    </p:panelMenu>
+                </h:form>                
+                <div class="ui-grid-col-12 panel_padding">
+                    <ui:insert name="content">    
+
+                    </ui:insert>
+                </div> 
+            </div>
+            <div class="ui-grid-row  pie">
+                <div class="ui-grid-col-12">                    
+                    <div class="info_pie">                    
+                        copyright &copy; 2015
+                    </div> 
+                    <div class="social">
+                        <div class="icons">
+                            <a href="#" title="Facebook" class="facebook"></a>
+                            <a href="#" title="Twitter" class="twitter"></a>
+                            <a href="#" title="Youtube" class="youtube"></a>
+                            <a href="#" title="Google Plus" class="google_plus"></a>
+                            <a href="#" title="Linkedin" class="linkedin"></a>        
+                        </div>    
+                    </div>                     
+                </div>
+            </div>             
+        </div>
     </h:body>
 
 </html>
