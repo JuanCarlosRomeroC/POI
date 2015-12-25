@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />   
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+        <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+        <title>.:POI:.</title>
+        <link rel="shortcut icon" type="image/x-icon" href="resources/img/favicon.png"/>         
+        <h:outputScript name="jquery/jquery.js" library="primefaces" />
+        <h:outputScript name="jquery/jquery-plugins.js" library="primefaces" />
+        <h:outputScript name="js/jquery.particleground.min.js" />
+        <h:outputScript name="js/script.js" />
+        <h:outputStylesheet name="grid/grid.css" library="primefaces" />
+        <link rel="stylesheet" type="text/css" href="resources/css/style.css"/>
+        <link rel="stylesheet" type="text/css" href="resources/css/social.min.css"/>
+        <script type="text/javascript" src="resources/js/Primefaces.locales.es.js"></script>    
+    </h:head>
+    <h:body>
+        <div id="background-paticle" style="position: absolute;z-index: -10;width: 100%;height: 100vh;opacity: .7;filter: Alpha(Opacity=70);"></div>
+        <p:ajaxStatus style="width:64px;height:64px;position:fixed;right:5px;bottom:5px">
+            <f:facet name="start">
+                <p:graphicImage name="img/loader.gif" />
+            </f:facet>
+            <f:facet name="complete">
+                <h:outputText value="" />
+            </f:facet>
+        </p:ajaxStatus>
+        <br/>
+        <br/>
+        <br/>
+        <div>
+            <p:growl id="msg" showDetail="true" life="2000" />
+            <h:form>
+                <p:panel id="frm_login" style="width: 270px;height:326px; margin: 0 auto;">
+                    <f:facet name="header">
+                        INICIAR SESIÓN
+                    </f:facet>
+                    <div class="login_f_header">
+                        <div class="margin_center login_f_header_t">
+                            <h:panelGrid columns="2" cellpadding="5">
+                                <p:graphicImage name="img/keyring.png"/>
+                                <div class="login_f_header_td">
+                                    DATOS DE ACCESO
+                                </div>
+                            </h:panelGrid>                                        
+                        </div>
+                    </div>
+                    <div class="login_f_content">
+                        <h:panelGrid columns="2" cellpadding="5" class="margin_center">
+                            <h:outputLabel for="username" value="USUARIO:" />
+                            <p:inputText id="username" required="true" value="" style="width: 150px;"
+                                         class="imput_txt_uc" label="username" placeholder="INGRESE USUARIO" />
+
+                            <h:outputLabel for="password" value="CLAVE:" />
+                            <p:password id="password" required="true" value="" style="width: 150px;"
+                                        label="password" placeholder="INGRESE CLAVE"/>                                     
+                        </h:panelGrid> 
+                    </div>
+                    <h:panelGrid columns="2" class="login_f_content_b">                                    
+                        <p:commandButton value="Ingresar" update=":msg" icon="ui-icon-check"/>
+                        <p:button value="Salir" href="index.xhtml" icon="ui-icon-gear"/>
+                    </h:panelGrid>
+                    <f:facet name="footer">
+                        <div class="login_f_footer">
+                            .:POI:.
+                        </div>
+                    </f:facet>
+                </p:panel>
+            </h:form>  
+            <div class="info_pie_login">                    
+                copyright &copy; 2015
+            </div>   
+            <div class="social">
+                <div class="icons">
+                    <a href="#" title="Facebook" class="facebook"></a>
+                    <a href="#" title="Twitter" class="twitter"></a>
+                    <a href="#" title="Youtube" class="youtube"></a>
+                    <a href="#" title="Google Plus" class="google_plus"></a>
+                    <a href="#" title="Linkedin" class="linkedin"></a>        
+                </div>    
+            </div>   
+        </div> 
+    </h:body>
+</html>
+
