@@ -13,14 +13,14 @@
             <ui:define name="content">
 
                 <h:form>
-                    <p:dialog  widgetVar="dialog_nuevo" modal="true" height="140px" resizable="false" draggable="false">
+                    <p:dialog  widgetVar="dialog_nuevo" modal="true" height="155px" resizable="false" width="900px" draggable="false">
                         <f:facet name="header">
                             REGISTRAR CATEGORÍA PRESUPUESTAL
                         </f:facet>
 
                         <h:panelGrid columns="2" cellpadding="10">
-                            <div style="font-weight:bold;width: 60px;">TIPO</div>
-                            <p:selectOneMenu id="tipoCategPres"  style="width: 700px;">
+                            <div style="font-weight:bold;width: 55px;">TIPO</div>
+                            <p:selectOneMenu id="tipoCategPres"  style="width: 740px;">
                                 <f:selectItem itemLabel="Select One" itemValue="" />
                                 <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
                                 <f:selectItem itemLabel="PS4" itemValue="PS4" />
@@ -41,10 +41,12 @@
                         </h:panelGrid>
 
                         <f:facet name="footer">
-                            <div style="width: 100%;text-align: right;">
-                                <p:commandButton value="REGISTRAR" icon="ui-icon-disk" style="margin-right: 5px;" />                            
-                                <p:commandButton value="CANCELAR" icon="ui-icon-closethick" onclick="PF('dialog_nuevo').hide();"/>
-                            </div>
+                            <p:panelGrid columns="4" columnClasses="ui-grid-col-3,ui-grid-col-3,ui-grid-col-3,ui-grid-col-3" layout="grid" styleClass="ui-panelgrid-blank">
+                                <h:outputText value="" />
+                                <h:outputText value="" />
+                                <p:commandButton value="REGISTRAR" icon="ui-icon-disk"/>                            
+                                <p:commandButton value="CANCELAR" icon="ui-icon-closethick" />
+                            </p:panelGrid>                                
                         </f:facet>
                     </p:dialog> 
                 </h:form>
@@ -54,9 +56,13 @@
                         <f:facet name="header">
                             ADMINISTRAR CATEGORÍA PRESUPUESTAL
                         </f:facet>
-                        <div style="width: 100%;text-align: right;"> 
+
+                        <p:panelGrid columns="4" columnClasses="ui-grid-col-3,ui-grid-col-3,ui-grid-col-3,ui-grid-col-3" layout="grid" styleClass="ui-panelgrid-blank">
+                            <h:outputText value="" />
+                            <h:outputText value="" />
+                            <h:outputText value="" />
                             <p:commandButton value="NUEVO" icon="ui-icon-plusthick" type="button" onclick="PF('dialog_nuevo').show();" />
-                        </div>
+                        </p:panelGrid> 
 
                         <h:panelGrid columns="1" cellpadding="3">
                             <div style="font-weight:bold;">LISTA DE CATEGORÍAS PRESUPUESTALES</div>
@@ -81,6 +87,14 @@
                                 </p:column>
 
                             </p:dataTable>
+                            <f:facet name="footer">
+                                <p:panelGrid columns="4" columnClasses="ui-grid-col-3,ui-grid-col-3,ui-grid-col-3,ui-grid-col-3" layout="grid" styleClass="ui-panelgrid-blank">
+                                    <h:outputText value="" />
+                                    <h:outputText value="" />
+                                    <p:commandButton value="REGISTRAR" icon="ui-icon-disk"/>                            
+                                    <p:commandButton value="CANCELAR" icon="ui-icon-closethick" />
+                                </p:panelGrid>                                
+                            </f:facet>
                         </h:panelGrid>
 
                         <f:facet name="footer">

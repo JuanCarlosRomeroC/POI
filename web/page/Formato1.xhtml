@@ -14,7 +14,7 @@
             <ui:define name="content">
 
                 <h:form>
-                    <p:dialog  widgetVar="dialog_nuevo" modal="true" height="280" resizable="false" draggable="false">
+                    <p:dialog  widgetVar="dialog_nuevo" modal="true" height="350" resizable="false" draggable="false">
                         <f:facet name="header">
                             REGISTRAR ITEM
                         </f:facet>
@@ -70,10 +70,12 @@
                         </h:panelGrid>
 
                         <f:facet name="footer">
-                            <div style="width: 100%;text-align: right;">
-                                <p:commandButton value="GRABAR" icon="ui-icon-disk" style="margin-right: 5px;" />                            
-                                <p:commandButton value="CANCELAR" icon="ui-icon-closethick" onclick="PF('dialog_nuevo').hide();"/>
-                            </div>
+                            <p:panelGrid columns="4" columnClasses="ui-grid-col-3,ui-grid-col-3,ui-grid-col-3,ui-grid-col-3" layout="grid" styleClass="ui-panelgrid-blank">
+                                <h:outputText value="" />
+                                <h:outputText value="" />
+                                <p:commandButton value="REGISTRAR" icon="ui-icon-disk"/>                            
+                                <p:commandButton value="CANCELAR" icon="ui-icon-closethick" />
+                            </p:panelGrid>                                
                         </f:facet>
                     </p:dialog> 
                 </h:form>
@@ -85,8 +87,8 @@
                         </f:facet>
 
                         <h:panelGrid columns="2" cellpadding="10">
-                            <div style="font-weight:bold; margin-right: 60px">TÍTULO</div>
-                            <p:inputText id="titulo" style="width: 792px; resize: none;"/>
+                            <div style="font-weight:bold; margin-right: 64px">TÍTULO</div>
+                            <p:inputText id="titulo" style="width: 800px; resize: none;"/>
                         </h:panelGrid>
 
                         <h:panelGrid columns="2" cellpadding="10">
@@ -119,9 +121,12 @@
                             </p:selectOneMenu>
                         </h:panelGrid>
 
-                        <div style="width: 100%;text-align: right;"> 
+                        <p:panelGrid columns="4" columnClasses="ui-grid-col-3,ui-grid-col-3,ui-grid-col-3,ui-grid-col-3" layout="grid" styleClass="ui-panelgrid-blank">
+                            <h:outputText value="" />
+                            <h:outputText value="" />
+                            <h:outputText value="" />
                             <p:commandButton value="NUEVO" icon="ui-icon-plusthick" type="button" onclick="PF('dialog_nuevo').show();" />
-                        </div>
+                        </p:panelGrid> 
 
                         <h:panelGrid columns="1" cellpadding="3">                            
                             <p:dataTable var="car" rows="3"
@@ -152,14 +157,15 @@
                                     <h:outputText value="" />
                                 </p:column>
                             </p:dataTable>
+                            <f:facet name="footer">
+                                <p:panelGrid columns="4" columnClasses="ui-grid-col-3,ui-grid-col-3,ui-grid-col-3,ui-grid-col-3" layout="grid" styleClass="ui-panelgrid-blank">
+                                    <h:outputText value="" />
+                                    <h:outputText value="" />
+                                    <p:commandButton value="REGISTRAR" icon="ui-icon-disk"/>                            
+                                    <p:commandButton value="CANCELAR" icon="ui-icon-closethick" />
+                                </p:panelGrid>                                
+                            </f:facet>
                         </h:panelGrid>
-
-                        <f:facet name="footer">
-                            <div style="width: 100%;text-align: right;">
-                                <p:commandButton value="REGISTRAR" icon="ui-icon-disk" style="margin-right: 5px;" />                            
-                                <p:commandButton value="CANCELAR" icon="ui-icon-closethick" />
-                            </div>
-                        </f:facet>
                     </p:panel>
                 </h:form>
             </ui:define>

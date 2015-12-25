@@ -63,28 +63,26 @@
                         </h:panelGrid>
 
                         <h:panelGrid columns="2" cellpadding="10">
+                            
                             <div style="font-weight:bold;">ARCHIVO FUENTE</div>
-                            <p:fileUpload mode="advanced" dragDropSupport="false"
+                            <p:fileUpload mode="advanced" dragDropSupport="false" style="width: 170px"
                                           update="" sizeLimit="100000" fileLimit="3" allowTypes="/(\.|\/)(gif|jpe?g|png)$/" />
                         </h:panelGrid>
 
                         <h:panelGrid columns="2" cellpadding="10">
-                            <h:panelGrid columns="2" cellpadding="10">
-                                <div style="font-weight:bold;height: 100px;">FUNCIONES GENERALES</div>
-                                <h:inputTextarea id="introduccion" style="width: 800px; height: 100px; resize: none;"/> 
-                            </h:panelGrid>
-
-                            <h:panelGrid columns="2" cellpadding="10">
-                                <div style="font-weight:bold;height: 100px;">FUNCIONES GENERALES</div>
-                                <h:inputTextarea id="introduccion" style="width: 800px; height: 100px; resize: none;"/> 
-                            </h:panelGrid>
+                            <div style="font-weight:bold;height: 100px;">FUNCIONES GENERALES</div>
+                            <h:inputTextarea id="fun_generales" style="width: 800px; height: 100px; resize: none;"/> 
                         </h:panelGrid>
 
+
+
                         <f:facet name="footer">
-                            <div style="width: 100%;text-align: right;">
-                                <p:commandButton value="REGISTRAR" icon="ui-icon-disk" style="margin-right: 5px;" />                            
+                            <p:panelGrid columns="4" columnClasses="ui-grid-col-3,ui-grid-col-3,ui-grid-col-3,ui-grid-col-3" layout="grid" styleClass="ui-panelgrid-blank">
+                                <h:outputText value="" />
+                                <h:outputText value="" />
+                                <p:commandButton value="REGISTRAR" icon="ui-icon-disk"/>                            
                                 <p:commandButton value="CANCELAR" icon="ui-icon-closethick" />
-                            </div>
+                            </p:panelGrid>                                
                         </f:facet>
                     </p:panel>
                 </h:form>

@@ -963,6 +963,6 @@ Analizar bien la relacion de
         </TDiagramForeignKeyProperties>
       </TDBADiagramObject>
     </Elements>
-    <Surface zoom="100" scrollx="1334" scrolly="7"/>
+    <Surface zoom="100" scrollx="472" scrolly="327"/>
   </TDBADiagramController>
 </XMLDiagram>

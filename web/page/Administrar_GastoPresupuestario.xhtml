@@ -31,10 +31,12 @@
                         </h:panelGrid>
 
                         <f:facet name="footer">
-                            <div style="width: 100%;text-align: right;">
-                                <p:commandButton value="REGISTRAR" icon="ui-icon-disk" style="margin-right: 5px;" />                            
-                                <p:commandButton value="CANCELAR" icon="ui-icon-closethick" onclick="PF('dialog_nuevo').hide();"/>
-                            </div>
+                            <p:panelGrid columns="4" columnClasses="ui-grid-col-3,ui-grid-col-3,ui-grid-col-3,ui-grid-col-3" layout="grid" styleClass="ui-panelgrid-blank">
+                                <h:outputText value="" />
+                                <h:outputText value="" />
+                                <p:commandButton value="REGISTRAR" icon="ui-icon-disk"/>                            
+                                <p:commandButton value="CANCELAR" icon="ui-icon-closethick" />
+                            </p:panelGrid>                                
                         </f:facet>
                     </p:dialog> 
                 </h:form>
@@ -44,9 +46,12 @@
                         <f:facet name="header">
                             ADMINISTRAR GASTO PRESUPUESTARIO
                         </f:facet>
-                        <div style="width: 100%;text-align: right;"> 
+                        <p:panelGrid columns="4" columnClasses="ui-grid-col-3,ui-grid-col-3,ui-grid-col-3,ui-grid-col-3" layout="grid" styleClass="ui-panelgrid-blank">
+                            <h:outputText value="" />
+                            <h:outputText value="" />
+                            <h:outputText value="" />
                             <p:commandButton value="NUEVO" icon="ui-icon-plusthick" type="button" onclick="PF('dialog_nuevo').show();" />
-                        </div>
+                        </p:panelGrid> 
 
                         <h:panelGrid columns="1" cellpadding="3">
                             <div style="font-weight:bold;">LISTA DE GASTOS PRESUPUESTARIOS</div>
@@ -67,6 +72,14 @@
                                 </p:column>
 
                             </p:dataTable>
+                            <f:facet name="footer">
+                                <p:panelGrid columns="4" columnClasses="ui-grid-col-3,ui-grid-col-3,ui-grid-col-3,ui-grid-col-3" layout="grid" styleClass="ui-panelgrid-blank">
+                                    <h:outputText value="" />
+                                    <h:outputText value="" />
+                                    <p:commandButton value="REGISTRAR" icon="ui-icon-disk"/>                            
+                                    <p:commandButton value="CANCELAR" icon="ui-icon-closethick" />
+                                </p:panelGrid>                                
+                            </f:facet>
                         </h:panelGrid>
 
                         <f:facet name="footer">
