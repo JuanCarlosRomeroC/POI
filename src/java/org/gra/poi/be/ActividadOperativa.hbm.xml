@@ -16,6 +16,9 @@
         <property name="denominacion" type="string">
             <column name="denominacion" length="300" />
         </property>
+        <property name="codigo" type="string">
+            <column name="codigo" length="10" />
+        </property>
         <set name="detallef9s" table="detallef9" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="id_actividad_operativa" />

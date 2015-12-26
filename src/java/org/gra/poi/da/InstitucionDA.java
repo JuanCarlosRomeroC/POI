@@ -7,7 +7,7 @@ import org.gra.poi.be.*;
 import org.gra.poi.utl.*;
 
 @Repository
-public class InstitucionDA  extends AbstractDA<Institucion> implements Serializable{
+public class InstitucionDA extends AbstractDA<Institucion> implements Serializable {
 
     @Override
     public long registrar(Institucion bean) {
@@ -31,28 +31,29 @@ public class InstitucionDA  extends AbstractDA<Institucion> implements Serializa
 
     @Override
     public List<Institucion> listar(String ref) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return list("FROM Institucion i"
+                + " WHERE i.denominacion LIKE '%" + ref + "%'");
     }
 
     @Override
-    public List<Institucion> listar(long id) {
+    public List<Institucion> listar(long id) { //No tiene tabla maestra del cual dependa
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public Institucion buscar(long id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return search("FROM Institucion i"
+                + " WHERE i.idinstitucion= "+id);
     }
 
     @Override
     public Institucion buscar(String ref) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return search("FROM Institucion i"
+                + " WHERE i.denominacion= "+ref);
     }
 
     @Override
     public long id() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return maxId(Institucion.class);
     }
-    
 }
-
