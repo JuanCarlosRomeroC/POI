@@ -31,7 +31,8 @@ public class Formato1DA  extends AbstractDA<Formato1> implements Serializable{
 
     @Override
     public List<Formato1> listar(String ref) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return list("FROM Formato1 f1"
+                + " WHERE f1.titulo LIKE '%"+ref+"%'");
     }
 
     @Override
@@ -41,17 +42,19 @@ public class Formato1DA  extends AbstractDA<Formato1> implements Serializable{
 
     @Override
     public Formato1 buscar(long id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return search("FROM Formato1 f1"
+                + " WHERE f1.idformato1= "+id);
     }
 
     @Override
     public Formato1 buscar(String ref) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return search("FROM Formato1 f1"
+                + " WHERE f1.titulo= "+ref);
     }
 
     @Override
     public long id() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return maxId(Formato1.class);
     }
     
 }

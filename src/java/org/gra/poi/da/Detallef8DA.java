@@ -36,7 +36,10 @@ public class Detallef8DA  extends AbstractDA<Detallef8> implements Serializable{
 
     @Override
     public List<Detallef8> listar(long id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return list("FROM Detallef8 df8"
+                    +" INNER JOIN FETCH df8.formato8 f8"
+                    +" INNER JOIN FETCH df8.metaOperativa mo"              
+                    +" WHERE f8.idformato8="+id);
     }
 
     @Override

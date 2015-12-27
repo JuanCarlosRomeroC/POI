@@ -31,27 +31,32 @@ public class ActividadOperativaDA  extends AbstractDA<ActividadOperativa> implem
 
     @Override
     public List<ActividadOperativa> listar(String ref) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return list("FROM ActividadOperativa ao"
+                + " WHERE CONCAT(ao.denominacion,ao.codigo) LIKE '%"+ref+"%'");
     }
 
     @Override
     public List<ActividadOperativa> listar(long id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return list("FROM ActividadOperativa ao"
+                +" INNER JOIN FETCH ao.subgrupo sg"
+                +" WHERE sg.idsubgrupo="+id);
     }
 
     @Override
     public ActividadOperativa buscar(long id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return search("FROM ActividadOperativa ao"
+                + " WHERE ao.idactividadOperativa= "+id);
     }
 
     @Override
     public ActividadOperativa buscar(String ref) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return search("FROM ActividadOperativa ao"
+                + " WHERE CONCAT(ao.denominacion,ao.codigo)= "+ref);
     }
 
     @Override
     public long id() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return maxId(ActividadOperativa.class);
     }
     
 }
