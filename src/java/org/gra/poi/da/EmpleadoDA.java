@@ -31,32 +31,27 @@ public class EmpleadoDA  extends AbstractDA<Empleado> implements Serializable{
 
     @Override
     public List<Empleado> listar(String ref) {
-        return list("FROM Empleado e"
-                + " WHERE CONCAT(e.nombre,e.apellidoPaterno,e.dni,e.condicion) LIKE '%"+ref+"%'");
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public List<Empleado> listar(long id) {
-        return list("FROM Empleado e"
-                +" INNER JOIN FETCH e.organoUnidad ou"
-                +" WHERE ou.idorgano="+id);
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public Empleado buscar(long id) {
-        return search("FROM Empleado e"
-                + " WHERE e.idempleado= "+id);
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public Empleado buscar(String ref) {
-        return search("FROM Empleado e"
-                + " WHERE CONCAT(e.nombre,e.apellidoPaterno,e.dni,e.condicion)= "+ref);
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public long id() {
-        return maxId(Empleado.class);
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

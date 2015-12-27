@@ -36,11 +36,7 @@ public class Detallef1DA  extends AbstractDA<Detallef1> implements Serializable{
 
     @Override
     public List<Detallef1> listar(long id) {
-        return list("FROM Detallef1 df1"
-                    +" INNER JOIN FETCH df1.formato1 f1"
-                    +" INNER JOIN FETCH df1.oePei oe"
-                    +" INNER JOIN FETCH df1.actividadOperativa ao"                    
-                    +" WHERE f1.idformato1="+id);
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
@@ -56,6 +52,7 @@ public class Detallef1DA  extends AbstractDA<Detallef1> implements Serializable{
     @Override
     public long id() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }   
+    }
+    
 }
 

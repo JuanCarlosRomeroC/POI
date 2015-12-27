@@ -31,8 +31,7 @@ public class CategoriaPresupuestalDA  extends AbstractDA<CategoriaPresupuestal> 
 
     @Override
     public List<CategoriaPresupuestal> listar(String ref) {
-        return list("FROM CategoriaPresupuestal cp"
-                + " WHERE CONCAT(cp.denominacion,cp.tipoCategoria,cp.numeracion) LIKE '%"+ref+"%'");
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
@@ -42,19 +41,17 @@ public class CategoriaPresupuestalDA  extends AbstractDA<CategoriaPresupuestal> 
 
     @Override
     public CategoriaPresupuestal buscar(long id) {
-        return search("FROM CategoriaPresupuestal cp"
-                + " WHERE cp.idcategoriaPresupuestal= "+id);
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public CategoriaPresupuestal buscar(String ref) {
-        return search("FROM CategoriaPresupuestal cp"
-                + " WHERE CONCAT(cp.denominacion,cp.tipoCategoria,cp.numeracion)= "+ref);
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public long id() {
-        return maxId(CategoriaPresupuestal.class);
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

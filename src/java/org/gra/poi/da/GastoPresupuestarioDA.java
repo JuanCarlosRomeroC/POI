@@ -31,8 +31,7 @@ public class GastoPresupuestarioDA  extends AbstractDA<GastoPresupuestario> impl
 
     @Override
     public List<GastoPresupuestario> listar(String ref) {
-        return list("FROM GastoPresupuestario gp"
-                + " WHERE CONCAT(gp.denominacion,gp.genericaGasto) LIKE '%"+ref+"%'");
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
@@ -42,19 +41,17 @@ public class GastoPresupuestarioDA  extends AbstractDA<GastoPresupuestario> impl
 
     @Override
     public GastoPresupuestario buscar(long id) {
-        return search("FROM GastoPresupuestario gp"
-                + " WHERE gp.idgastoPresupuestario= "+id);
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public GastoPresupuestario buscar(String ref) {
-        return search("FROM GastoPresupuestario gp"
-                + " WHERE CONCAT(gp.denominacion,gp.genericaGasto)= "+ref);
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public long id() {
-        return maxId(GastoPresupuestario.class);
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

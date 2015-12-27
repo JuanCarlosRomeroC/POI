@@ -36,10 +36,7 @@ public class AsignacionAeCcDA  extends AbstractDA<AsignacionAeCc> implements Ser
 
     @Override
     public List<AsignacionAeCc> listar(long id) {
-        return list("FROM AsignacionAeCc aaco"
-                    +" INNER JOIN FETCH aaco.accionEstrategica ae"
-                    +" INNER JOIN FETCH aaco.centroCosto cc"
-                    +" WHERE cc.idcentroCosto="+id);
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override

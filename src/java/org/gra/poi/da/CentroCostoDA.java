@@ -31,8 +31,7 @@ public class CentroCostoDA  extends AbstractDA<CentroCosto> implements Serializa
 
     @Override
     public List<CentroCosto> listar(String ref) {
-        return list("FROM CentroCosto cc"
-                + " WHERE cc.denominacion LIKE '%"+ref+"%'");
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
@@ -42,19 +41,17 @@ public class CentroCostoDA  extends AbstractDA<CentroCosto> implements Serializa
 
     @Override
     public CentroCosto buscar(long id) {
-        return search("FROM CentroCosto cc"
-                + " WHERE cc.idcentroCosto= "+id);
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public CentroCosto buscar(String ref) {
-        return search("FROM CentroCosto cc"
-                + " WHERE cc.denominacion= "+ref);
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public long id() {
-        return maxId(CentroCosto.class);
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
