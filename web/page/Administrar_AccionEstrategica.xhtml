@@ -24,29 +24,24 @@
                             <p:commandButton value="NUEVO" icon="ui-icon-plusthick" type="button" onclick="PF('dialog_nuevo').show();" />
                         </p:panelGrid> 
 
-                        <h:panelGrid columns="1" cellpadding="3">
-                            <div style="font-weight:bold;">LISTA DE ACCIONES ESTRATÉGICAS</div>
-                            <p:dataTable var="car" rows="10"
-                                         paginator="true" paginatorPosition="bottom"
-                                         paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-                                         rowsPerPageTemplate="5,10,15">
-                                <p:column headerText="N°" style="width: 30px;text-align: center;">
-                                    <h:outputText value="" />
-                                </p:column>
+                        <div style="font-weight:bold;">LISTA DE ACCIONES ESTRATÉGICAS</div>
+                        <p:dataTable var="car" rows="10"
+                                     paginator="true" paginatorPosition="bottom"
+                                     paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                     rowsPerPageTemplate="5,10,15">
+                            <p:column headerText="N°" style="width: 30px;text-align: center;">
+                                <h:outputText value="" />
+                            </p:column>
 
-                                <p:column headerText="CÓDIGO" style="width: 90px;text-align: center;">
-                                    <h:outputText value="" />
-                                </p:column>
+                            <p:column headerText="CÓDIGO" style="width: 90px;text-align: center;">
+                                <h:outputText value="" />
+                            </p:column>
 
-                                <p:column headerText="DENOMINACIÓN" style="text-align: left;">
-                                    <h:outputText value="" />
-                                </p:column>
+                            <p:column headerText="DENOMINACIÓN" style="text-align: left;">
+                                <h:outputText value="" />
+                            </p:column>
 
-                            </p:dataTable>
-                            <f:facet name="footer">
-                                GOBIERNO REGIONAL DE AYACUCHO                              
-                            </f:facet>
-                        </h:panelGrid>
+                        </p:dataTable>
 
                         <f:facet name="footer">
                             GOBIERNO REGIONAL DE AYACUCHO
@@ -68,19 +63,19 @@
                                 <f:selectItem itemLabel="PS4" itemValue="PS4" />
                                 <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
                             </p:selectOneMenu>
-                            
+
                             <div style="font-weight:bold;">ABREVIATURA</div>
                             <p:inputText id="abreviatura"/>
-                            
+
                             <div style="font-weight:bold;">CORRELATIVO</div>
                             <p:inputText id="correlativo"/> 
-                            
+
                             <div style="font-weight:bold;">CÓDIGO</div>
                             <p:inputText id="codigo"/>
-                            
+
                             <div style="font-weight:bold;">DENOMINACIÓN</div>
                             <h:inputTextarea id="denominacion" style="height: 50px; resize: none;width: 100%;"/>
-                            
+
                             <div style="font-weight:bold;">CATEGORÍA PRESUPUESTAL</div>
                             <p:selectOneMenu id="categPres">
                                 <f:selectItem itemLabel="Select One" itemValue="" />
@@ -88,7 +83,7 @@
                                 <f:selectItem itemLabel="dasd as das d as d as d as d as das d as d a das d a sd a dasdasd asd as das da" itemValue="PS4" />
                                 <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
                             </p:selectOneMenu>
-                            
+
                             <div style="font-weight:bold;">CENTRO DE COSTO</div>
                             <p:selectOneMenu id="centroCosto">
                                 <f:selectItem itemLabel="Select One" itemValue="" />
@@ -106,7 +101,7 @@
                         </f:facet>
                     </p:dialog> 
                 </h:form>
-                
+
                 <h:form><!-- FORM EDITAR -->
                     <p:dialog  id="dialog_editar" widgetVar="dialog_editar" modal="true" resizable="false" draggable="false">
                         <f:facet name="header">
@@ -121,19 +116,19 @@
                                 <f:selectItem itemLabel="PS4" itemValue="PS4" />
                                 <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
                             </p:selectOneMenu>
-                                                                                             
+
                             <div style="font-weight:bold;">ABREVIATURA</div>
                             <p:inputText id="abreviatura" style="resize: none;"/>
-                                                                                               
+
                             <div style="font-weight:bold;">CORRELATIVO</div>
                             <p:inputText id="correlativo" style="resize: none;"/> 
-                                                                                            
-                             <div style="font-weight:bold;">CÓDIGO</div>
+
+                            <div style="font-weight:bold;">CÓDIGO</div>
                             <p:inputText id="codigo" style="resize: none;"/>
-                                                                                               
+
                             <div style="font-weight:bold;">DENOMINACIÓN</div>
                             <h:inputTextarea id="denominacion" style="height: 50px; resize: none;width: 100%;"/>   
-                       
+
                             <div style="font-weight:bold;">CATEGORÍA PRESUPUESTAL</div>
                             <p:selectOneMenu id="categPres">
                                 <f:selectItem itemLabel="Select One" itemValue="" />
@@ -141,7 +136,7 @@
                                 <f:selectItem itemLabel="dasd as das d as d as d as d as das d as d a das d a sd a dasdasd asd as das da" itemValue="PS4" />
                                 <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
                             </p:selectOneMenu>
-                        
+
                             <div style="font-weight:bold;">CENTRO DE COSTO</div>
                             <p:selectOneMenu id="centroCosto">
                                 <f:selectItem itemLabel="Select One" itemValue="" />
@@ -161,7 +156,7 @@
                         </f:facet>
                     </p:dialog> 
                 </h:form>
-                
+
                 <h:form><!-- FORM ELIMINAR -->
                     <p:confirmDialog id="dialog_eliminar" widgetVar="dialog_eliminar"  
                                      message="¿ESTÁ SEGURO QUE DESEA ELIMINAR EL REGISTRO?" 

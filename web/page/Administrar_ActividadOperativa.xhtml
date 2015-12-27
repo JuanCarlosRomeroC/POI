@@ -23,36 +23,31 @@
                             <p:commandButton value="NUEVO" icon="ui-icon-plusthick" type="button" onclick="PF('dialog_nuevo').show();" />
                         </p:panelGrid> 
 
-                        <h:panelGrid columns="1" cellpadding="3">
-                            <div style="font-weight:bold;">LISTA DE ACTIVIDADES OPERATIVAS</div>
-                            <p:dataTable var="car" rows="10"
-                                         paginator="true" paginatorPosition="bottom"
-                                         paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-                                         rowsPerPageTemplate="5,10,15">
-                                <p:column headerText="N°" style="width: 30px;text-align: center;">
-                                    <h:outputText value="" />
-                                </p:column>
+                        <div style="font-weight:bold;">LISTA DE ACTIVIDADES OPERATIVAS</div>
+                        <p:dataTable var="car" rows="10"
+                                     paginator="true" paginatorPosition="bottom"
+                                     paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                     rowsPerPageTemplate="5,10,15">
+                            <p:column headerText="N°" style="width: 30px;text-align: center;">
+                                <h:outputText value="" />
+                            </p:column>
 
-                                <p:column headerText="CÓDIGO" style="width: 90px;text-align: center;">
-                                    <h:outputText value="" />
-                                </p:column>
+                            <p:column headerText="CÓDIGO" style="width: 90px;text-align: center;">
+                                <h:outputText value="" />
+                            </p:column>
 
-                                <p:column headerText="DENOMINACIÓN" style="text-align: left;">
-                                    <h:outputText value="" />
-                                </p:column>
+                            <p:column headerText="DENOMINACIÓN" style="text-align: left;">
+                                <h:outputText value="" />
+                            </p:column>
 
-                            </p:dataTable>
-                            <f:facet name="footer">
-                                GOBIERNO REGIONAL DE AYACUCHO                              
-                            </f:facet>
-                        </h:panelGrid>
+                        </p:dataTable>
 
                         <f:facet name="footer">
                             GOBIERNO REGIONAL DE AYACUCHO
                         </f:facet>
                     </p:panel>
                 </h:form>
-                
+
                 <h:form><!-- FORM NUEVO -->
                     <p:dialog  id="dialog_nuevo" widgetVar="dialog_nuevo" modal="true" resizable="false" draggable="false">
                         <f:facet name="header">
@@ -65,7 +60,7 @@
 
                             <div style="font-weight:bold;">DENOMINACIÓN</div>
                             <h:inputTextarea id="denominacion" style="height: 50px; resize: none;width: 100%;"/>   
-                            
+
                             <div style="font-weight:bold;">ACTIVIDAD/OBRA</div>
                             <p:selectOneMenu id="oeInst">
                                 <f:selectItem itemLabel="Select One" itemValue="" />
@@ -83,7 +78,7 @@
                         </f:facet>
                     </p:dialog> 
                 </h:form>
-                
+
                 <h:form><!-- FORM EDITAr -->
                     <p:dialog  id="dialog_editar" widgetVar="dialog_editar" modal="true" resizable="false" draggable="false">
                         <f:facet name="header">
@@ -96,7 +91,7 @@
 
                             <div style="font-weight:bold;">DENOMINACIÓN</div>
                             <h:inputTextarea id="denominacion"/>   
-                            
+
                             <div style="font-weight:bold;">ACTIVIDAD/OBRA</div>
                             <p:selectOneMenu id="oeInst">
                                 <f:selectItem itemLabel="Select One" itemValue="" />
@@ -114,7 +109,7 @@
                         </f:facet>
                     </p:dialog> 
                 </h:form>
-                
+
                 <h:form><!-- FORM ELIMINAR -->
                     <p:confirmDialog id="dialog_eliminar" widgetVar="dialog_eliminar"  
                                      message="¿ESTÁ SEGURO QUE DESEA ELIMINAR EL REGISTRO?" 

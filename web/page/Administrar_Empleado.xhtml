@@ -11,62 +11,93 @@
 
         <ui:composition template="./../template/layout.xhtml">
             <ui:define name="content">
-
                 <h:form>
-                    <p:dialog  widgetVar="dialog_nuevo" modal="true" height="270" resizable="false" draggable="false">
+                    <p:panel id="basic" style="margin: 0 auto; "> 
+                        <f:facet name="header">
+                            ADMINISTRAR EMPLEADO
+                        </f:facet>
+                        <p:panelGrid columns="4" columnClasses="ui-grid-col-3,ui-grid-col-3,ui-grid-col-3,ui-grid-col-3" layout="grid" styleClass="ui-panelgrid-blank">
+                            <h:outputText value="" />
+                            <h:outputText value="" />
+                            <h:outputText value="" />
+                            <p:commandButton value="NUEVO" icon="ui-icon-plusthick" type="button" onclick="PF('dialog_nuevo').show();" />
+                        </p:panelGrid> 
+
+                        <div style="font-weight:bold;">LISTA DE EMPLEADOS:</div>
+                        <p:dataTable var="car" rows="10"
+                                     paginator="true" paginatorPosition="bottom"
+                                     paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                     rowsPerPageTemplate="5,10,15">
+                            <p:column headerText="N°" style="width: 30px;text-align: center;">
+                                <h:outputText value="" />
+                            </p:column>
+
+                            <p:column headerText="APELLIDO PATERNO" style="width: 150px;text-align: left;">
+                                <h:outputText value="" />
+                            </p:column>
+
+                            <p:column headerText="APELLIDO MATERNO" style="width: 150px;text-align: left;">
+                                <h:outputText value="" />
+                            </p:column>
+
+                            <p:column headerText="NOMBRES" style="width: 230px;text-align: left;">
+                                <h:outputText value="" />
+                            </p:column>
+
+                            <p:column headerText="ABREVIATURA PROFESIONAL" style="width: 90px;text-align: center;">
+                                <h:outputText value="" />
+                            </p:column>
+
+                            <p:column headerText="CONDICIÓN" style="width: 90px;text-align: center;">
+                                <h:outputText value="" />
+                            </p:column>
+
+                            <p:column headerText="DNI" style="text-align: center;">
+                                <h:outputText value="" />
+                            </p:column>
+                        </p:dataTable>
+
+                        <f:facet name="footer">
+                            GOBIERNO REGIONAL DE AYACUCHO
+                        </f:facet>
+                    </p:panel>
+                </h:form>
+
+                <h:form><!-- FORM NUEVO -->
+                    <p:dialog  widgetVar="dialog_nuevo" modal="true" resizable="false" draggable="false">
                         <f:facet name="header">
                             REGISTRAR EMPLEADO
                         </f:facet>
 
-                        <h:panelGrid columns="2" cellpadding="10">
-                            <h:panelGrid columns="2" cellpadding="10">
-                                <div style="font-weight:bold;">APELLIDO PATERNO</div>
-                                <p:inputText id="apPaterno" style="width: 204px; resize: none;"/>
-                            </h:panelGrid>
+                        <h:panelGrid style="width: 100%;" columns="1" columnClasses="ui-grid-col-12" layout="grid" styleClass="ui-panelgrid-blank">
+                            <div style="font-weight:bold;">APELLIDO PATERNO</div>
+                            <p:inputText id="apPaterno"/>
 
-                            <h:panelGrid columns="2" cellpadding="10">
-                                <div style="font-weight:bold;">APELLIDO MATERNO</div>
-                                <p:inputText id="apMaterno" style="width: 204px; resize: none;"/>
-                            </h:panelGrid>
-                        </h:panelGrid>
+                            <div style="font-weight:bold;">APELLIDO MATERNO</div>
+                            <p:inputText id="apMaterno"/>
 
-                        <h:panelGrid columns="2" cellpadding="10">
-                            <h:panelGrid columns="2" cellpadding="10">
-                                <div style="font-weight:bold; margin-right:67px">NOMBRES</div>
-                                <p:inputText id="nombre" style="width: 445px; resize: none;"/>                       
-                            </h:panelGrid>
+                            <div style="font-weight:bold;">NOMBRES</div>
+                            <p:inputText id="nombre"/>  
 
-                            <h:panelGrid columns="2" cellpadding="10">
-                                <div style="font-weight:bold;">DNI</div>
-                                <p:inputText id="dni" style="width: 80px; resize: none;"/>
-                            </h:panelGrid>
-                        </h:panelGrid>
+                            <div style="font-weight:bold;">DNI</div>
+                            <p:inputText id="dni"/>
 
-                        <h:panelGrid columns="3" cellpadding="10">
-                            <h:panelGrid columns="2" cellpadding="10">
-                                <div style="font-weight:bold;width: 135px;">CONDICIÓN</div>
-                                <p:selectOneMenu id="oeInst"  style="width: 140px;">
-                                    <f:selectItem itemLabel="Select One" itemValue="" />
-                                    <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
-                                    <f:selectItem itemLabel="PS4" itemValue="PS4" />
-                                    <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
-                                </p:selectOneMenu>
-                            </h:panelGrid>
+                            <div style="font-weight:bold;">CONDICIÓN</div>
+                            <p:selectOneMenu id="oeInst">
+                                <f:selectItem itemLabel="Select One" itemValue="" />
+                                <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
+                                <f:selectItem itemLabel="PS4" itemValue="PS4" />
+                                <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
+                            </p:selectOneMenu>
 
-                            <h:panelGrid columns="2" cellpadding="10">
-                                <div style="font-weight:bold; margin-right: -80px">ABREVIATURA PROFESIONAL</div>
-                                <p:inputText id="abreviaturaProf" style="width: 75px; resize: none;"/>
-                            </h:panelGrid>  
+                            <div style="font-weight:bold;">ABREVIATURA PROFESIONAL</div>
+                            <p:inputText id="abreviaturaProf"/>
 
-                            <h:panelGrid columns="2" cellpadding="10">
-                                <div style="font-weight:bold;">TELÉFONO</div>
-                                <p:inputText id="telefono" style="width: 90px; resize: none;"/>
-                            </h:panelGrid>
-                        </h:panelGrid>
+                            <div style="font-weight:bold;">TELÉFONO</div>
+                            <p:inputText id="telefono"/>
 
-                        <h:panelGrid columns="2" cellpadding="10">
-                            <div style="font-weight:bold;width: 220px; margin-left: 10px">UNIDAD EJECUTORA/ÓRGANO</div>
-                            <p:selectOneMenu id="ue_organo"  style="width: 554px;">
+                            <div style="font-weight:bold;">UNIDAD EJECUTORA/ÓRGANO</div>
+                            <p:selectOneMenu id="ue_organo">
                                 <f:selectItem itemLabel="Select One" itemValue="" />
                                 <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
                                 <f:selectItem itemLabel="PS4" itemValue="PS4" />
@@ -75,63 +106,80 @@
                         </h:panelGrid>
 
                         <f:facet name="footer">
-                            <div style="width: 100%;text-align: right;">
-                                <p:commandButton value="REGISTRAR" icon="ui-icon-disk" style="margin-right: 5px;" />                            
-                                <p:commandButton value="CANCELAR" icon="ui-icon-closethick" onclick="PF('dialog_nuevo').hide();"/>
-                            </div>
+                            <p:panelGrid columns="2" columnClasses="ui-grid-col-6,ui-grid-col-6" layout="grid" styleClass="ui-panelgrid-blank">
+                                <p:commandButton value="REGISTRAR" icon="ui-icon-disk"/>                            
+                                <p:commandButton value="CANCELAR" icon="ui-icon-closethick" />
+                            </p:panelGrid>      
                         </f:facet>
                     </p:dialog> 
                 </h:form>
-
-                <h:form>
-                    <p:panel id="basic" style="width: 1000px; margin: 0 auto; "> 
+                
+                <h:form><!-- FORM EDITAR -->
+                    <p:dialog  widgetVar="dialog_editar" modal="true" resizable="false" draggable="false">
                         <f:facet name="header">
-                            ADMINISTRAR EMPLEADO
+                            EDITAR EMPLEADO
                         </f:facet>
-                        <div style="width: 100%;text-align: right;"> 
-                            <p:commandButton value="NUEVO" icon="ui-icon-plusthick" type="button" onclick="PF('dialog_nuevo').show();" />
-                        </div>
 
-                        <h:panelGrid columns="1" cellpadding="3">
-                            <div style="font-weight:bold;">LISTA DE EMPLEADOS:</div>
-                            <p:dataTable var="car" rows="10"
-                                         paginator="true" paginatorPosition="bottom"
-                                         paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-                                         rowsPerPageTemplate="5,10,15">
-                                <p:column headerText="N°" style="width: 30px;text-align: center;">
-                                    <h:outputText value="" />
-                                </p:column>
+                        <h:panelGrid style="width: 100%;" columns="1" columnClasses="ui-grid-col-12" layout="grid" styleClass="ui-panelgrid-blank">
+                            <div style="font-weight:bold;">APELLIDO PATERNO</div>
+                            <p:inputText id="apPaterno"/>
 
-                                <p:column headerText="APELLIDO PATERNO" style="width: 150px;text-align: left;">
-                                    <h:outputText value="" />
-                                </p:column>
+                            <div style="font-weight:bold;">APELLIDO MATERNO</div>
+                            <p:inputText id="apMaterno"/>
 
-                                <p:column headerText="APELLIDO MATERNO" style="width: 150px;text-align: left;">
-                                    <h:outputText value="" />
-                                </p:column>
+                            <div style="font-weight:bold;">NOMBRES</div>
+                            <p:inputText id="nombre"/>  
 
-                                <p:column headerText="NOMBRES" style="width: 230px;text-align: left;">
-                                    <h:outputText value="" />
-                                </p:column>
+                            <div style="font-weight:bold;">DNI</div>
+                            <p:inputText id="dni"/>
 
-                                <p:column headerText="ABREVIATURA PROFESIONAL" style="width: 90px;text-align: center;">
-                                    <h:outputText value="" />
-                                </p:column>
+                            <div style="font-weight:bold;">CONDICIÓN</div>
+                            <p:selectOneMenu id="oeInst">
+                                <f:selectItem itemLabel="Select One" itemValue="" />
+                                <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
+                                <f:selectItem itemLabel="PS4" itemValue="PS4" />
+                                <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
+                            </p:selectOneMenu>
 
-                                <p:column headerText="CONDICIÓN" style="width: 90px;text-align: center;">
-                                    <h:outputText value="" />
-                                </p:column>
+                            <div style="font-weight:bold;">ABREVIATURA PROFESIONAL</div>
+                            <p:inputText id="abreviaturaProf"/>
 
-                                <p:column headerText="DNI" style="text-align: center;">
-                                    <h:outputText value="" />
-                                </p:column>
-                            </p:dataTable>
+                            <div style="font-weight:bold;">TELÉFONO</div>
+                            <p:inputText id="telefono"/>
+
+                            <div style="font-weight:bold;">UNIDAD EJECUTORA/ÓRGANO</div>
+                            <p:selectOneMenu id="ue_organo">
+                                <f:selectItem itemLabel="Select One" itemValue="" />
+                                <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
+                                <f:selectItem itemLabel="PS4" itemValue="PS4" />
+                                <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
+                            </p:selectOneMenu>
                         </h:panelGrid>
 
                         <f:facet name="footer">
-                            GOBIERNO REGIONAL DE AYACUCHO
+                            <p:panelGrid columns="2" columnClasses="ui-grid-col-6,ui-grid-col-6" layout="grid" styleClass="ui-panelgrid-blank">
+                                <p:commandButton value="GUARDAR" icon="ui-icon-disk"/>                            
+                                <p:commandButton value="CANCELAR" icon="ui-icon-closethick" />
+                            </p:panelGrid>      
                         </f:facet>
-                    </p:panel>
+                    </p:dialog> 
+                </h:form>
+                
+                <h:form><!-- FORM ELIMINAR -->
+                    <p:confirmDialog id="dialog_eliminar" widgetVar="dialog_eliminar"  
+                                     message="¿ESTÁ SEGURO QUE DESEA ELIMINAR EL REGISTRO?" 
+                                     header="ELIMINAR REGISTRO">
+
+                        <p:growl id="msg" sticky="true" showDetail="true" life="2000"/>
+                        <p:commandButton icon="ui-icon-close" update="msg" value="NO" process="@this" 
+                                         style="float: right; margin-right: .3em;" oncomplete="PF('dialog_eliminar').hide()">
+                            <p:resetInput target="dialog_editar" />
+                        </p:commandButton>
+                        <p:commandButton update="msg" value="SI"
+                                         style="float: right; margin-right: .3em;"                                                       
+                                         icon="ui-icon-check" oncomplete="PF('dialog_eliminar').hide()"/>       
+
+                    </p:confirmDialog>
                 </h:form>
             </ui:define>
         </ui:composition>
