@@ -41,7 +41,8 @@ public class PoiDA  extends AbstractDA<Poi> implements Serializable{
 
     @Override
     public Poi buscar(long id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return search("FROM Poi poi"
+                + " WHERE poi.idpoi= "+id);
     }
 
     @Override
@@ -51,7 +52,7 @@ public class PoiDA  extends AbstractDA<Poi> implements Serializable{
 
     @Override
     public long id() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return maxId(Poi.class);
     }
     
 }

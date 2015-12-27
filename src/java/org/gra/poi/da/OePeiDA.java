@@ -31,7 +31,8 @@ public class OePeiDA  extends AbstractDA<OePei> implements Serializable{
 
     @Override
     public List<OePei> listar(String ref) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return list("FROM OePei oe"
+                + " WHERE CONCAT(oe.denominacion,oe.correlativo) LIKE '%"+ref+"%'");
     }
 
     @Override
@@ -41,17 +42,19 @@ public class OePeiDA  extends AbstractDA<OePei> implements Serializable{
 
     @Override
     public OePei buscar(long id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return search("FROM OePei oe"
+                + " WHERE oe.idoePei= "+id);
     }
 
     @Override
     public OePei buscar(String ref) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return search("FROM OePei oe"
+                + " WHERE CONCAT(oe.denominacion,oe.correlativo)= "+ref);
     }
 
     @Override
     public long id() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return maxId(OePei.class);
     }
     
 }

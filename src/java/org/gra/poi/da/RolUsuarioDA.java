@@ -31,27 +31,32 @@ public class RolUsuarioDA  extends AbstractDA<RolUsuario> implements Serializabl
 
     @Override
     public List<RolUsuario> listar(String ref) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return list("FROM RolUsuario ru"
+                + " WHERE ru.nombreModulo LIKE '%"+ref+"%'");
     }
 
     @Override
     public List<RolUsuario> listar(long id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return list("FROM RolUsuario ru"
+                +" INNER JOIN FETCH ru.usuario u"
+                +" WHERE u.idusuario="+id);
     }
 
     @Override
     public RolUsuario buscar(long id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return search("FROM RolUsuario ru"
+                + " WHERE ru.idrolUsuario= "+id);
     }
 
     @Override
     public RolUsuario buscar(String ref) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return search("FROM RolUsuario ru"
+                + " WHERE ru.nombreModulo= "+ref);
     }
 
     @Override
     public long id() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return maxId(RolUsuario.class);
     }
     
 }

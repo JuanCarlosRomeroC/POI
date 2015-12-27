@@ -31,27 +31,32 @@ public class UsuarioDA  extends AbstractDA<Usuario> implements Serializable{
 
     @Override
     public List<Usuario> listar(String ref) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return list("FROM Usuario u"
+                + " WHERE u.nombre LIKE '%"+ref+"%'");
     }
 
     @Override
     public List<Usuario> listar(long id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return list("FROM Usuario u"
+                +" INNER JOIN FETCH u.empleado e"
+                +" WHERE e.idempleado="+id);
     }
 
     @Override
     public Usuario buscar(long id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return search("FROM Usuario u"
+                + " WHERE u.idusuario= "+id);
     }
 
     @Override
     public Usuario buscar(String ref) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return search("FROM Usuario u"
+                + " WHERE u.nombre= "+ref);
     }
 
     @Override
     public long id() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return maxId(Usuario.class);
     }
 }
 

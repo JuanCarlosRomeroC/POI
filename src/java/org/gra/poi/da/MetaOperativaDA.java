@@ -31,27 +31,32 @@ public class MetaOperativaDA  extends AbstractDA<MetaOperativa> implements Seria
 
     @Override
     public List<MetaOperativa> listar(String ref) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return list("FROM MetaOperativa mo"
+                + " WHERE mo.denominacion LIKE '%"+ref+"%'");
     }
 
     @Override
     public List<MetaOperativa> listar(long id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return list("FROM MetaOperativa mo"
+                +" INNER JOIN FETCH mo.actividadOperativa ao"
+                +" WHERE ao.idactividadOperativa="+id);
     }
 
     @Override
     public MetaOperativa buscar(long id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return search("FROM MetaOperativa mo"
+                + " WHERE ou.idmetaOperativa= "+id);
     }
 
     @Override
     public MetaOperativa buscar(String ref) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return search("FROM MetaOperativa mo"
+                + " WHERE mo.denominacion= "+ref);
     }
 
     @Override
     public long id() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return maxId(MetaOperativa.class);
     }
     
 }

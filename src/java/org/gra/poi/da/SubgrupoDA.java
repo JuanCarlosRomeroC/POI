@@ -31,27 +31,32 @@ public class SubgrupoDA  extends AbstractDA<Subgrupo> implements Serializable{
 
     @Override
     public List<Subgrupo> listar(String ref) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return list("FROM Subgrupo sg"
+                + " WHERE CONCAT(sg.denominacion,sg.numeracion) LIKE '%"+ref+"%'");
     }
 
     @Override
     public List<Subgrupo> listar(long id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return list("FROM Subgrupo sg"
+                +" INNER JOIN FETCH sg.categoriaPresupuestal cp"
+                +" WHERE cp.idcategoriaPresupuestal="+id);
     }
 
     @Override
     public Subgrupo buscar(long id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return search("FROM Subgrupo sg"
+                + " WHERE sg.idsubgrupo= "+id);
     }
 
     @Override
     public Subgrupo buscar(String ref) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return search("FROM Subgrupo sg"
+                + " WHERE CONCAT(sg.denominacion,sg.numeracion)= "+ref);
     }
 
     @Override
     public long id() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return maxId(Subgrupo.class);
     }  
 }
 
