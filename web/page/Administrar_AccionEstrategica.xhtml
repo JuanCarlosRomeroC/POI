@@ -13,12 +13,59 @@
             <ui:define name="content">
 
                 <h:form>
-                    <p:dialog  widgetVar="dialog_nuevo" modal="true" height="420" resizable="false" draggable="false">
+                    <p:panel id="basic" style="margin: 0 auto; "> 
+                        <f:facet name="header">
+                            ADMINISTRAR ACCIÓN ESTRATÉGICA
+                        </f:facet>
+                        <p:panelGrid columns="4" columnClasses="ui-grid-col-3,ui-grid-col-3,ui-grid-col-3,ui-grid-col-3" layout="grid" styleClass="ui-panelgrid-blank">
+                            <h:outputText value="" />
+                            <h:outputText value="" />
+                            <h:outputText value="" />
+                            <p:commandButton value="NUEVO" icon="ui-icon-plusthick" type="button" onclick="PF('dialog_nuevo').show();" />
+                        </p:panelGrid> 
+
+                        <h:panelGrid columns="1" cellpadding="3">
+                            <div style="font-weight:bold;">LISTA DE ACCIONES ESTRATÉGICAS</div>
+                            <p:dataTable var="car" rows="10"
+                                         paginator="true" paginatorPosition="bottom"
+                                         paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                         rowsPerPageTemplate="5,10,15">
+                                <p:column headerText="N°" style="width: 30px;text-align: center;">
+                                    <h:outputText value="" />
+                                </p:column>
+
+                                <p:column headerText="CÓDIGO" style="width: 90px;text-align: center;">
+                                    <h:outputText value="" />
+                                </p:column>
+
+                                <p:column headerText="DENOMINACIÓN" style="text-align: left;">
+                                    <h:outputText value="" />
+                                </p:column>
+
+                            </p:dataTable>
+                            <f:facet name="footer">
+                                <p:panelGrid columns="4" columnClasses="ui-grid-col-3,ui-grid-col-3,ui-grid-col-3,ui-grid-col-3" layout="grid" styleClass="ui-panelgrid-blank">
+                                    <h:outputText value="" />
+                                    <h:outputText value="" />
+                                    <p:commandButton value="REGISTRAR" icon="ui-icon-disk"/>                            
+                                    <p:commandButton value="CANCELAR" icon="ui-icon-closethick" />
+                                </p:panelGrid>                                
+                            </f:facet>
+                        </h:panelGrid>
+
+                        <f:facet name="footer">
+                            GOBIERNO REGIONAL DE AYACUCHO
+                        </f:facet>
+                    </p:panel>
+                </h:form>
+                
+                <h:form>
+                    <p:dialog  widgetVar="dialog_nuevo" modal="true" resizable="false" draggable="false">
                         <f:facet name="header">
                             REGISTRAR ACCIÓN ESTRATÉGICA
                         </f:facet>
 
-                        <h:panelGrid columns="2" cellpadding="10">
+                        <h:panelGrid columns="2" cellpadding="10" columnClasses="ui-grid-col-3,ui-grid-col-9" layout="grid" styleClass="ui-panelgrid-blank">
                             <div style="font-weight:bold;width: 108px;">OBJETIVO ESTRATÉGICO INSTITUCIONAL</div>
                             <p:selectOneMenu id="oeInst"  style="width: 650px;">
                                 <f:selectItem itemLabel="Select One" itemValue="" />
@@ -79,53 +126,6 @@
                             </p:panelGrid>                                
                         </f:facet>
                     </p:dialog> 
-                </h:form>
-
-                <h:form>
-                    <p:panel id="basic" style="width: 1000px; margin: 0 auto; "> 
-                        <f:facet name="header">
-                            ADMINISTRAR ACCIÓN ESTRATÉGICA
-                        </f:facet>
-                        <p:panelGrid columns="4" columnClasses="ui-grid-col-3,ui-grid-col-3,ui-grid-col-3,ui-grid-col-3" layout="grid" styleClass="ui-panelgrid-blank">
-                            <h:outputText value="" />
-                            <h:outputText value="" />
-                            <h:outputText value="" />
-                            <p:commandButton value="NUEVO" icon="ui-icon-plusthick" type="button" onclick="PF('dialog_nuevo').show();" />
-                        </p:panelGrid> 
-
-                        <h:panelGrid columns="1" cellpadding="3">
-                            <div style="font-weight:bold;">LISTA DE ACCIONES ESTRATÉGICAS</div>
-                            <p:dataTable var="car" rows="10"
-                                         paginator="true" paginatorPosition="bottom"
-                                         paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-                                         rowsPerPageTemplate="5,10,15">
-                                <p:column headerText="N°" style="width: 30px;text-align: center;">
-                                    <h:outputText value="" />
-                                </p:column>
-
-                                <p:column headerText="CÓDIGO" style="width: 90px;text-align: center;">
-                                    <h:outputText value="" />
-                                </p:column>
-
-                                <p:column headerText="DENOMINACIÓN" style="text-align: left;">
-                                    <h:outputText value="" />
-                                </p:column>
-
-                            </p:dataTable>
-                            <f:facet name="footer">
-                                <p:panelGrid columns="4" columnClasses="ui-grid-col-3,ui-grid-col-3,ui-grid-col-3,ui-grid-col-3" layout="grid" styleClass="ui-panelgrid-blank">
-                                    <h:outputText value="" />
-                                    <h:outputText value="" />
-                                    <p:commandButton value="REGISTRAR" icon="ui-icon-disk"/>                            
-                                    <p:commandButton value="CANCELAR" icon="ui-icon-closethick" />
-                                </p:panelGrid>                                
-                            </f:facet>
-                        </h:panelGrid>
-
-                        <f:facet name="footer">
-                            GOBIERNO REGIONAL DE AYACUCHO
-                        </f:facet>
-                    </p:panel>
                 </h:form>
             </ui:define>
         </ui:composition>

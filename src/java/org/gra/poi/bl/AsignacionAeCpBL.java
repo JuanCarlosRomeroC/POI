@@ -51,7 +51,7 @@ public class AsignacionAeCpBL  extends AbstractBL<AsignacionAeCp> implements Ser
     }
 
     @Override
-    public List<AsignacionAeCp> listar(long id) {
+    public List<AsignacionAeCp> listar(long id) {        
         return list(id);
     }
 
