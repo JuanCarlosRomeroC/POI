@@ -31,7 +31,8 @@ public class DocumentosGestionReferencialDA  extends AbstractDA<DocumentosGestio
 
     @Override
     public List<DocumentosGestionReferencial> listar(String ref) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return list("FROM DocumentosGestionReferencial dg"
+                + " WHERE dg.titulo LIKE '%"+ref+"%'");
     }
 
     @Override
@@ -41,17 +42,19 @@ public class DocumentosGestionReferencialDA  extends AbstractDA<DocumentosGestio
 
     @Override
     public DocumentosGestionReferencial buscar(long id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return search("FROM DocumentosGestionReferencial dg"
+                + " WHERE dg.iddocumento= "+id);
     }
 
     @Override
     public DocumentosGestionReferencial buscar(String ref) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return search("FROM DocumentosGestionReferencial dg"
+                + " WHERE dg.titulo= "+ref);
     }
 
     @Override
     public long id() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return maxId(DocumentosGestionReferencial.class);
     }
     
 }

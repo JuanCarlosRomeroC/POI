@@ -36,7 +36,11 @@ public class Detallef5DA  extends AbstractDA<Detallef5> implements Serializable{
 
     @Override
     public List<Detallef5> listar(long id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return list("FROM Detallef5 df5"
+                    +" INNER JOIN FETCH df5.formato5 f5"
+                    +" INNER JOIN FETCH df5.subgrupo sg"
+                    +" INNER JOIN FETCH df5.especificaGasto eg"                    
+                    +" WHERE f5.idformato5="+id);
     }
 
     @Override

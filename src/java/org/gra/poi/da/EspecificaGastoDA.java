@@ -31,28 +31,32 @@ public class EspecificaGastoDA  extends AbstractDA<EspecificaGasto> implements S
 
     @Override
     public List<EspecificaGasto> listar(String ref) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return list("FROM EspecificaGasto eg"
+                + " WHERE CONCAT(eg.denominacion,eg.especifica) LIKE '%"+ref+"%'");
     }
 
     @Override
     public List<EspecificaGasto> listar(long id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return list("FROM EspecificaGasto eg"
+                +" INNER JOIN FETCH eg.gastoPresupuestario gp"
+                +" WHERE gp.idgastoPresupuestario="+id);
     }
 
     @Override
     public EspecificaGasto buscar(long id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return search("FROM EspecificaGasto eg"
+                + " WHERE eg.idespecificaGasto= "+id);
     }
 
     @Override
     public EspecificaGasto buscar(String ref) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return search("FROM EspecificaGasto eg"
+                + " WHERE CONCAT(eg.denominacion,eg.especifica)= "+ref);
     }
 
     @Override
     public long id() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
+        return maxId(EspecificaGasto.class);
+    }    
 }
 

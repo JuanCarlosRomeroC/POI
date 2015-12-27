@@ -31,7 +31,8 @@ public class AccionEstrategicaDA  extends AbstractDA<AccionEstrategica> implemen
 
     @Override
     public List<AccionEstrategica> listar(String ref) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return list("FROM AccionEstrategica ae"
+                + " WHERE CONCAT(ae.denominacion,ae.codigo) LIKE '%"+ref+"%'");
     }
 
     @Override
@@ -41,17 +42,19 @@ public class AccionEstrategicaDA  extends AbstractDA<AccionEstrategica> implemen
 
     @Override
     public AccionEstrategica buscar(long id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return search("FROM AccionEstrategica ae"
+                + " WHERE ae.idaccionEstrategica= "+id);
     }
 
     @Override
     public AccionEstrategica buscar(String ref) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return search("FROM AccionEstrategica ae"
+                + " WHERE CONCAT(ae.denominacion,ae.codigo)= "+ref);
     }
 
     @Override
     public long id() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return maxId(AccionEstrategica.class);
     }
     
 }

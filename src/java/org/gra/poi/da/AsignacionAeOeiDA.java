@@ -36,7 +36,10 @@ public class AsignacionAeOeiDA  extends AbstractDA<AsignacionAeOei> implements S
 
     @Override
     public List<AsignacionAeOei> listar(long id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return list("FROM AsignacionAeOei aao"
+                    +" INNER JOIN FETCH aao.accionEstrategica ae"
+                    +" INNER JOIN FETCH aao.oePei oe"
+                    +" WHERE oe.idoePei="+id);
     }
 
     @Override
