@@ -31,28 +31,32 @@ public class OrganoUnidadDA  extends AbstractDA<OrganoUnidad> implements Seriali
 
     @Override
     public List<OrganoUnidad> listar(String ref) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return list("FROM OrganoUnidad ou"
+                + " WHERE CONCAT(ou.denominacion,ou.tipoOrgano,uo.codigo) LIKE '%"+ref+"%'");
     }
 
     @Override
     public List<OrganoUnidad> listar(long id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return list("FROM OrganoUnidad ou"
+                +" INNER JOIN FETCH ou.institucion i"
+                +" WHERE i.idinstitucion="+id);
     }
 
     @Override
     public OrganoUnidad buscar(long id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return search("FROM OrganoUnidad ou"
+                + " WHERE ou.idorgano= "+id);
     }
 
     @Override
     public OrganoUnidad buscar(String ref) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return search("FROM OrganoUnidad ou"
+                + " WHERE CONCAT(ou.denominacion,ou.tipoOrgano,uo.codigo)= "+ref);
     }
 
     @Override
     public long id() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
+        return maxId(OrganoUnidad.class);
+    }   
 }
 

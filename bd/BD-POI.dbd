@@ -435,19 +435,6 @@ Analizar bien la relacion de
           </Relation>
         </TDiagramForeignKeyProperties>
       </TDBADiagramObject>
-      <TDBADiagramObject id="21" propertiesclass="TDiagramForeignKeyProperties" objectname="sbd.programacion_actividades.fk_programacion_04">
-        <TDiagramForeignKeyProperties>
-          <Relation>
-            <Geometry left="912" top="912" width="200" height="100"/>
-            <Glyph>
-              <Geometry>
-                <Point x="880" y="690"/>
-                <Point x="1140" y="870"/>
-              </Geometry>
-            </Glyph>
-          </Relation>
-        </TDiagramForeignKeyProperties>
-      </TDBADiagramObject>
       <TDBADiagramObject id="22" propertiesclass="TDiagramForeignKeyProperties" objectname="sbd.detallef3.fk_detallef3_01">
         <TDiagramForeignKeyProperties>
           <Relation>
@@ -469,32 +456,6 @@ Analizar bien la relacion de
               <Geometry>
                 <Point x="880" y="690"/>
                 <Point x="1140" y="1100"/>
-              </Geometry>
-            </Glyph>
-          </Relation>
-        </TDiagramForeignKeyProperties>
-      </TDBADiagramObject>
-      <TDBADiagramObject id="33" propertiesclass="TDiagramForeignKeyProperties" objectname="sbd.programacion_actividades.fk_programacion_06">
-        <TDiagramForeignKeyProperties>
-          <Relation>
-            <Geometry left="960" top="960" width="200" height="100"/>
-            <Glyph>
-              <Geometry>
-                <Point x="880" y="690"/>
-                <Point x="1140" y="1290"/>
-              </Geometry>
-            </Glyph>
-          </Relation>
-        </TDiagramForeignKeyProperties>
-      </TDBADiagramObject>
-      <TDBADiagramObject id="34" propertiesclass="TDiagramForeignKeyProperties" objectname="sbd.programacion_actividades.fk_programacion_07">
-        <TDiagramForeignKeyProperties>
-          <Relation>
-            <Geometry left="976" top="976" width="200" height="100"/>
-            <Glyph>
-              <Geometry>
-                <Point x="880" y="690"/>
-                <Point x="1160" y="1480"/>
               </Geometry>
             </Glyph>
           </Relation>
@@ -573,58 +534,6 @@ Analizar bien la relacion de
               <Geometry>
                 <Point x="880" y="690"/>
                 <Point x="600" y="695"/>
-              </Geometry>
-            </Glyph>
-          </Relation>
-        </TDiagramForeignKeyProperties>
-      </TDBADiagramObject>
-      <TDBADiagramObject id="52" propertiesclass="TDiagramForeignKeyProperties" objectname="sbd.programacion_actividades.fk_programacion_08">
-        <TDiagramForeignKeyProperties>
-          <Relation>
-            <Geometry left="1104" top="1104" width="200" height="100"/>
-            <Glyph>
-              <Geometry>
-                <Point x="880" y="690"/>
-                <Point x="1150" y="1660"/>
-              </Geometry>
-            </Glyph>
-          </Relation>
-        </TDiagramForeignKeyProperties>
-      </TDBADiagramObject>
-      <TDBADiagramObject id="53" propertiesclass="TDiagramForeignKeyProperties" objectname="sbd.programacion_actividades.fk_programacion_09">
-        <TDiagramForeignKeyProperties>
-          <Relation>
-            <Geometry left="1120" top="1120" width="200" height="100"/>
-            <Glyph>
-              <Geometry>
-                <Point x="880" y="690"/>
-                <Point x="1150" y="1890"/>
-              </Geometry>
-            </Glyph>
-          </Relation>
-        </TDiagramForeignKeyProperties>
-      </TDBADiagramObject>
-      <TDBADiagramObject id="54" propertiesclass="TDiagramForeignKeyProperties" objectname="sbd.programacion_actividades.fk_programacion_10">
-        <TDiagramForeignKeyProperties>
-          <Relation>
-            <Geometry left="1136" top="1136" width="200" height="100"/>
-            <Glyph>
-              <Geometry>
-                <Point x="880" y="690"/>
-                <Point x="1150" y="2090"/>
-              </Geometry>
-            </Glyph>
-          </Relation>
-        </TDiagramForeignKeyProperties>
-      </TDBADiagramObject>
-      <TDBADiagramObject id="55" propertiesclass="TDiagramForeignKeyProperties" objectname="sbd.programacion_actividades.fk_programacion_11">
-        <TDiagramForeignKeyProperties>
-          <Relation>
-            <Geometry left="1152" top="1152" width="200" height="100"/>
-            <Glyph>
-              <Geometry>
-                <Point x="880" y="690"/>
-                <Point x="1150" y="2270"/>
               </Geometry>
             </Glyph>
           </Relation>
@@ -963,6 +872,6 @@ Analizar bien la relacion de
         </TDiagramForeignKeyProperties>
       </TDBADiagramObject>
     </Elements>
-    <Surface zoom="100" scrollx="472" scrolly="327"/>
+    <Surface zoom="80" scrollx="0" scrolly="813"/>
   </TDBADiagramController>
 </XMLDiagram>

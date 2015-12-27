@@ -32,7 +32,7 @@ public class InstitucionDA extends AbstractDA<Institucion> implements Serializab
     @Override
     public List<Institucion> listar(String ref) {
         return list("FROM Institucion i"
-                + " WHERE i.denominacion LIKE '%" + ref + "%'");
+                + " WHERE i.denominacion LIKE '%"+ref+"%'");
     }
 
     @Override
