@@ -14,39 +14,33 @@
             <ui:define name="content">
 
                 <h:form>
-                    <p:panel id="basic" style="width: 1000px; margin: 0 auto; "> 
+                    <p:panel id="basic" style="margin: 0 auto; "> 
                         <f:facet name="header">
                             FORMATO N°1
                         </f:facet>
 
-                        <h:panelGrid columns="2" cellpadding="10">
-                            <div style="font-weight:bold; margin-right: 64px">TÍTULO</div>
-                            <p:inputText id="titulo" style="width: 800px; resize: none;"/>
-                        </h:panelGrid>
-
-                        <h:panelGrid columns="2" cellpadding="10">
-                            <div style="font-weight:bold;width: 108px;">UNIDAD EJECUTORA</div>
-                            <p:selectOneMenu id="unidadEjecutora"  style="width: 800px;">
+                        <h:panelGrid style="width: 100%;" columns="1" columnClasses="ui-grid-col-12" layout="grid" styleClass="ui-panelgrid-blank">
+                            <div style="font-weight:bold;">TÍTULO</div>
+                            <p:inputText id="titulo" />
+                            
+                            <div style="font-weight:bold;">UNIDAD EJECUTORA</div>
+                            <p:selectOneMenu id="unidadEjecutora">
                                 <f:selectItem itemLabel="Select One" itemValue="" />
                                 <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
                                 <f:selectItem itemLabel="PS4" itemValue="PS4" />
                                 <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
                             </p:selectOneMenu>
-                        </h:panelGrid>
-
-                        <h:panelGrid columns="2" cellpadding="10">
-                            <div style="font-weight:bold;width: 108px;">META</div>
-                            <p:selectOneMenu id="meta"  style="width: 800px;">
+                            
+                            <div style="font-weight:bold;">META</div>
+                            <p:selectOneMenu id="meta" >
                                 <f:selectItem itemLabel="Select One" itemValue="" />
                                 <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
                                 <f:selectItem itemLabel="PS4" itemValue="PS4" />
                                 <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
                             </p:selectOneMenu>
-                        </h:panelGrid>
-
-                        <h:panelGrid columns="2" cellpadding="10">
-                            <div style="font-weight:bold;width: 108px;">CATEGORÍA PRESUPUESTAL</div>
-                            <p:selectOneMenu id="categPres"  style="width: 800px;">
+                            
+                            <div style="font-weight:bold;">CATEGORÍA PRESUPUESTAL</div>
+                            <p:selectOneMenu id="categPres">
                                 <f:selectItem itemLabel="Select One" itemValue="" />
                                 <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
                                 <f:selectItem itemLabel="PS4" itemValue="PS4" />
@@ -58,11 +52,11 @@
                             <h:outputText value="" />
                             <h:outputText value="" />
                             <h:outputText value="" />
-                            <p:commandButton value="NUEVO" icon="ui-icon-plusthick" type="button" onclick="PF('dialog_nuevo').show();" />
+                            <p:commandButton value="AGREGAR ITEM" icon="ui-icon-plusthick" type="button" onclick="PF('dialog_nuevo').show();" />
                         </p:panelGrid> 
 
                         <h:panelGrid columns="1" cellpadding="3">                            
-                            <p:dataTable var="car" rows="3"
+                            <p:dataTable var="car" rows="3" reflow="true"
                                          paginator="true" paginatorPosition="bottom"
                                          paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                                          rowsPerPageTemplate="5,10,15">
