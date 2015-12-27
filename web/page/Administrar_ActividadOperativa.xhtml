@@ -11,48 +11,8 @@
 
         <ui:composition template="./../template/layout.xhtml">
             <ui:define name="content">
-
                 <h:form>
-                    <p:dialog  widgetVar="dialog_nuevo" modal="true" height="170" width="1020px" resizable="false" draggable="false">
-                        <f:facet name="header">
-                            REGISTRAR ACTIVIDAD OPERATIVA
-                        </f:facet>
-
-                        <h:panelGrid columns="2" cellpadding="10">   
-                            <h:panelGrid columns="2" cellpadding="10"> 
-                                <div style="font-weight:bold;">CÓDIGO</div>
-                                <p:inputText id="codigo" style="width: 80px; resize: none;"/>
-                            </h:panelGrid>
-
-                            <h:panelGrid columns="2" cellpadding="10"> 
-                                <div style="font-weight:bold;">DENOMINACIÓN</div>
-                                <h:inputTextarea id="denominacion" style="width: 614px; height: 30px; resize: none;"/>   
-                            </h:panelGrid>
-                        </h:panelGrid>
-
-                        <h:panelGrid columns="2" cellpadding="10">
-                            <div style="font-weight:bold;width: 160px;margin-left: 10px">ACTIVIDAD/OBRA</div>
-                            <p:selectOneMenu id="oeInst"  style="width: 765px;">
-                                <f:selectItem itemLabel="Select One" itemValue="" />
-                                <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
-                                <f:selectItem itemLabel="PS4" itemValue="PS4" />
-                                <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
-                            </p:selectOneMenu>
-                        </h:panelGrid>
-
-                        <f:facet name="footer">
-                            <p:panelGrid columns="4" columnClasses="ui-grid-col-3,ui-grid-col-3,ui-grid-col-3,ui-grid-col-3" layout="grid" styleClass="ui-panelgrid-blank">
-                                <h:outputText value="" />
-                                <h:outputText value="" />
-                                <p:commandButton value="REGISTRAR" icon="ui-icon-disk"/>                            
-                                <p:commandButton value="CANCELAR" icon="ui-icon-closethick" />
-                            </p:panelGrid>                                
-                        </f:facet>
-                    </p:dialog> 
-                </h:form>
-
-                <h:form>
-                    <p:panel id="basic" style="width: 1000px; margin: 0 auto; "> 
+                    <p:panel id="basic" style="margin: 0 auto; "> 
                         <f:facet name="header">
                             ADMINISTRAR ACTIVIDAD OPERATIVA
                         </f:facet>
@@ -96,6 +56,85 @@
                             GOBIERNO REGIONAL DE AYACUCHO
                         </f:facet>
                     </p:panel>
+                </h:form>
+                
+                <h:form><!-- FORM NUEVO -->
+                    <p:dialog  id="dialog_nuevo" widgetVar="dialog_nuevo" modal="true" resizable="false" draggable="false">
+                        <f:facet name="header">
+                            REGISTRAR ACTIVIDAD OPERATIVA
+                        </f:facet>
+
+                        <h:panelGrid style="width: 100%;" columns="1" columnClasses="ui-grid-col-12" layout="grid" styleClass="ui-panelgrid-blank">   
+                            <div style="font-weight:bold;">CÓDIGO</div>
+                            <p:inputText id="codigo"/>
+
+                            <div style="font-weight:bold;">DENOMINACIÓN</div>
+                            <h:inputTextarea id="denominacion" style="height: 50px; resize: none;width: 100%;"/>   
+                            
+                            <div style="font-weight:bold;">ACTIVIDAD/OBRA</div>
+                            <p:selectOneMenu id="oeInst">
+                                <f:selectItem itemLabel="Select One" itemValue="" />
+                                <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
+                                <f:selectItem itemLabel="PS4" itemValue="PS4" />
+                                <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
+                            </p:selectOneMenu>
+                        </h:panelGrid>
+
+                        <f:facet name="footer">
+                            <p:panelGrid columns="2" columnClasses="ui-grid-col-6,ui-grid-col-6" layout="grid" styleClass="ui-panelgrid-blank">
+                                <p:commandButton value="REGISTRAR" icon="ui-icon-disk"/>                            
+                                <p:commandButton value="CANCELAR" icon="ui-icon-closethick" />
+                            </p:panelGrid>                                
+                        </f:facet>
+                    </p:dialog> 
+                </h:form>
+                
+                <h:form><!-- FORM EDITAr -->
+                    <p:dialog  id="dialog_editar" widgetVar="dialog_editar" modal="true" resizable="false" draggable="false">
+                        <f:facet name="header">
+                            EDITAR ACTIVIDAD OPERATIVA
+                        </f:facet>
+
+                        <h:panelGrid style="width: 100%;" columns="1" columnClasses="ui-grid-col-12" layout="grid" styleClass="ui-panelgrid-blank">   
+                            <div style="font-weight:bold;">CÓDIGO</div>
+                            <p:inputText id="codigo"/>
+
+                            <div style="font-weight:bold;">DENOMINACIÓN</div>
+                            <h:inputTextarea id="denominacion"/>   
+                            
+                            <div style="font-weight:bold;">ACTIVIDAD/OBRA</div>
+                            <p:selectOneMenu id="oeInst">
+                                <f:selectItem itemLabel="Select One" itemValue="" />
+                                <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
+                                <f:selectItem itemLabel="PS4" itemValue="PS4" />
+                                <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
+                            </p:selectOneMenu>
+                        </h:panelGrid>
+
+                        <f:facet name="footer">
+                            <p:panelGrid columns="2" columnClasses="ui-grid-col-6,ui-grid-col-6" layout="grid" styleClass="ui-panelgrid-blank">
+                                <p:commandButton value="GUARDAR" icon="ui-icon-disk"/>                            
+                                <p:commandButton value="CANCELAR" icon="ui-icon-closethick" />
+                            </p:panelGrid>                                
+                        </f:facet>
+                    </p:dialog> 
+                </h:form>
+                
+                <h:form><!-- FORM ELIMINAR -->
+                    <p:confirmDialog id="dialog_eliminar" widgetVar="dialog_eliminar"  
+                                     message="¿ESTÁ SEGURO QUE DESEA ELIMINAR EL REGISTRO?" 
+                                     header="ELIMINAR REGISTRO">
+
+                        <p:growl id="msg" sticky="true" showDetail="true" life="2000"/>
+                        <p:commandButton icon="ui-icon-close" update="msg" value="NO" process="@this" 
+                                         style="float: right; margin-right: .3em;" oncomplete="PF('dialog_eliminar').hide()">
+                            <p:resetInput target="dialog_editar" />
+                        </p:commandButton>
+                        <p:commandButton update="msg" value="SI"
+                                         style="float: right; margin-right: .3em;"                                                       
+                                         icon="ui-icon-check" oncomplete="PF('dialog_eliminar').hide()"/>       
+
+                    </p:confirmDialog>
                 </h:form>
             </ui:define>
         </ui:composition>
