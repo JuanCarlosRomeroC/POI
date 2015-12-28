@@ -9,7 +9,6 @@ import org.gra.poi.bl.*;
 @ManagedBean
 @ViewScoped
 public class AdministrarOEVC {
-    
     @ManagedProperty(value = "#{oePei}")
     private OePei oePei;
     
@@ -17,7 +16,7 @@ public class AdministrarOEVC {
     private OePeiBL oePeiBL;
     
     private List<OePei> listaOePei = new LinkedList<>();
-
+    
     public void init(){
         getListaOePei().addAll(getOePeiBL().listar());
     }
