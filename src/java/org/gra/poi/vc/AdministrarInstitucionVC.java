@@ -24,6 +24,9 @@ public class AdministrarInstitucionVC {
     public void recuperarInstitucion(long id){
         setInstitucion(getInstitucionBL().buscar(id));
     }
+    public void registrar(){
+        
+    }
     
     //<editor-fold defaultstate="collapsed" desc="GET y SET">
     public Institucion getInstitucion() {

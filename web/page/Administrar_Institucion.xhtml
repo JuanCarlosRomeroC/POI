@@ -64,23 +64,31 @@
                 </h:form>
 
                 <h:form><!-- FORM NUEVO -->
-                    <p:dialog  widgetVar="dialog_nuevo" modal="true" resizable="false" draggable="false">
+                    <p:dialog id="dialog_nuevo" widgetVar="dialog_nuevo" modal="true" resizable="false" draggable="false">
                         <f:facet name="header">
                             REGISTRAR INSTITUCIÓN
                         </f:facet>
-
+                        <p:growl id="msg" sticky="true" showDetail="true" life="2000"/>
+                        
                         <h:panelGrid style="width: 100%;" columns="1" columnClasses="ui-grid-col-12" layout="grid" styleClass="ui-panelgrid-blank">
                             <div style="font-weight:bold;">CÓDIGO</div>
-                            <p:inputText id="codigo"/>
+                            <p:inputText id="codigo" value="#{administrarInstitucionVC.institucion.codigo}" required="true"/>
 
                             <div style="font-weight:bold;">DENOMINACIÓN</div>
-                            <p:inputText id="denominacion"/>
+                            <p:inputText id="denominacion" value="#{administrarInstitucionVC.institucion.denominacion}" required="true"/>
                         </h:panelGrid>
 
                         <f:facet name="footer">
                             <p:panelGrid columns="2" columnClasses="ui-grid-col-6,ui-grid-col-6" layout="grid" styleClass="ui-panelgrid-blank">
-                                <p:commandButton value="REGISTRAR" icon="ui-icon-disk"/>                            
-                                <p:commandButton value="CANCELAR" icon="ui-icon-closethick" />
+                                <p:commandButton value="REGISTRAR" icon="ui-icon-disk" validateClient="true"
+                                                 oncomplete="if (args &amp;&amp; !args.validationFailed){PF('dialog_nuevo').hide();}"
+                                                 actionListener="#{administrarInstitucionVC.registrar}" 
+                                                 update="msg,dialog_nuevo"/> 
+                                
+                                <p:commandButton value="CANCELAR" icon="ui-icon-closethick" update="msg,dialog_nuevo"                                                 
+                                                 process="@this">
+                                    <p:resetInput target="msg,dialog_nuevo" />
+                                </p:commandButton>
                             </p:panelGrid>                                
                         </f:facet>
                     </p:dialog> 
