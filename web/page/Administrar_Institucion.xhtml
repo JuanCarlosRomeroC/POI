@@ -11,7 +11,7 @@
 
         <ui:composition template="./../template/layout.xhtml">
             <ui:define name="content">
-                
+
                 <f:metadata>  
                     <f:viewAction action="#{administrarInstitucionVC.init()}" />
                 </f:metadata>
@@ -44,13 +44,15 @@
                             <p:column headerText="DENOMINACIÓN" style="text-align: left;">
                                 <h:outputText value="#{iins.denominacion}" />
                             </p:column>
-                            
-                            <p:column headerText="" style="width: 30px;">
-                                <p:commandButton title="EDITAR" icon="ui-icon-pencil" type="button" onclick="PF('dialog_editar').show();" />                                
+
+                            <p:column headerText="" style="width: 30px;"> 
+                                <p:commandButton title="EDITAR" icon="ui-icon-pencil" immediate="True" oncomplete="PF('dialog_editar').show();"
+                                                 update="" actionListener="#{administrarInstitucionVC.recuperarInstitucion(iins.idinstitucion)}"/>    
                             </p:column>
-                            
-                            <p:column headerText="" style="width: 30px;">                                
-                                <p:commandButton title="ELIMINAR" icon="ui-icon-close" type="button" onclick="PF('dialog_eliminar').show();" />
+
+                            <p:column headerText="" style="width: 30px;"> 
+                                <p:commandButton title="ELIMINAR" icon="ui-icon-close" immediate="True" oncomplete="PF('dialog_eliminar').show();" 
+                                                 update="" actionListener="#{administrarInstitucionVC.recuperarInstitucion(iins.idinstitucion)}"/>
                             </p:column>
 
                         </p:dataTable>
@@ -83,7 +85,7 @@
                         </f:facet>
                     </p:dialog> 
                 </h:form>
-                
+
                 <h:form><!-- FORM EDITAr -->
                     <p:dialog  widgetVar="dialog_editar" modal="true" resizable="false" draggable="false">
                         <f:facet name="header">
@@ -106,7 +108,7 @@
                         </f:facet>
                     </p:dialog> 
                 </h:form>
-                
+
                 <h:form><!-- FORM ELIMINAR -->
                     <p:confirmDialog id="dialog_eliminar" widgetVar="dialog_eliminar"  
                                      message="¿ESTÁ SEGURO QUE DESEA ELIMINAR EL REGISTRO?" 

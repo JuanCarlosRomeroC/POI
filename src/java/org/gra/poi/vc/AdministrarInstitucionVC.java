@@ -21,6 +21,10 @@ public class AdministrarInstitucionVC {
         getListainstitucion().addAll(getInstitucionBL().listar());
     }
     
+    public void recuperarInstitucion(long id){
+        setInstitucion(getInstitucionBL().buscar(id));
+    }
+    
     //<editor-fold defaultstate="collapsed" desc="GET y SET">
     public Institucion getInstitucion() {
         return institucion;
