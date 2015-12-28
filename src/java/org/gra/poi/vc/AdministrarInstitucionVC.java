@@ -5,8 +5,7 @@ import java.util.List;
 import javax.faces.bean.*;
 import org.gra.poi.be.*;
 import org.gra.poi.bl.*;
-import org.gra.poi.utl.Tarea;
-import org.gra.poi.utl.Utilitario;
+import org.gra.poi.utl.*;
 
 @ManagedBean
 @ViewScoped
@@ -33,9 +32,9 @@ public class AdministrarInstitucionVC {
     }
     
     public void registrar(){
-        Utilitario.setTareaEvento(new Tarea(Tarea.REGISTRO, getInstitucionBL().registrar(getInstitucion())) {
+        Utilitario.setTareaEvento(new Tarea(Accion.REGISTRO, getInstitucionBL().registrar(getInstitucion())) {
             @Override
-            public void proceso() {
+            public void procesoPost() {
                 if (getRepuesta() >= 0) {
                     setInstitucion(new Institucion());
                     listarInstituciones();
@@ -44,9 +43,9 @@ public class AdministrarInstitucionVC {
         });
     }    
     public void actualizar(){
-        Utilitario.setTareaEvento(new Tarea(Tarea.ACTUALIZACION, getInstitucionBL().actualizar(getInstitucion())) {
+        Utilitario.setTareaEvento(new Tarea(Accion.ACTUALIZACION, getInstitucionBL().actualizar(getInstitucion())) {
             @Override
-            public void proceso() {
+            public void procesoPost() {
                 if (getRepuesta() >= 0) {
                     setInstitucion(new Institucion());
                     listarInstituciones();
@@ -55,9 +54,9 @@ public class AdministrarInstitucionVC {
         });
     }
     public void eliminar(){
-        Utilitario.setTareaEvento(new Tarea(Tarea.ELIMINACION, getInstitucionBL().eliminar(getInstitucion())) {
+        Utilitario.setTareaEvento(new Tarea(Accion.ELIMINACION, getInstitucionBL().eliminar(getInstitucion())) {
             @Override
-            public void proceso() {
+            public void procesoPost() {
                 if (getRepuesta() >= 0) {
                     setInstitucion(new Institucion());
                     listarInstituciones();

@@ -13,7 +13,7 @@ public class Utilitario {
         //<editor-fold defaultstate="collapsed" desc="CUERPO">
         FacesContext context = FacesContext.getCurrentInstance(); 
         if(a.getRepuesta()>=0){            
-            a.proceso();          
+            a.procesoPost();
             context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO,"ATENCION",a.getAccion()+" CORRECTO"));  
         }else{
             context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,"ATENCION","ERROR DE "+a.getAccion()));           

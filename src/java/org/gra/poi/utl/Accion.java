@@ -6,7 +6,7 @@ public interface Accion {
                          ELIMINACION="ELIMINACION",
                          LISTADO="LISTADO";    
     
-    public void proceso();
+    public void procesoPost();
     public String getAccion();    
     public long getRepuesta();   
 }

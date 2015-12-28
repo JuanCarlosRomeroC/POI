@@ -15,6 +15,7 @@
                 <f:metadata>  
                     <f:viewAction action="#{administrarInstitucionVC.init()}" />
                 </f:metadata>
+
                 <p:growl id="msg" sticky="true" showDetail="true" life="2000"/>
 
                 <h:form id="form_admin">
@@ -64,18 +65,18 @@
                     </p:panel>
                 </h:form>
 
-                <h:form><!-- FORM NUEVO -->
-                    <p:dialog id="dialog_nuevo" widgetVar="dialog_nuevo" modal="true" resizable="false" draggable="false">
+                <h:form id="form_new"><!-- FORM NUEVO -->
+                    <p:dialog widgetVar="dialog_nuevo" modal="true" resizable="false" draggable="false">
                         <f:facet name="header">
                             REGISTRAR INSTITUCIÓN
                         </f:facet>
 
                         <h:panelGrid id="controles" style="width: 100%;" columns="1" columnClasses="ui-grid-col-12" layout="grid" styleClass="ui-panelgrid-blank">
                             <div style="font-weight:bold;">CÓDIGO</div>
-                            <p:inputText id="codigo" value="#{administrarInstitucionVC.institucion.codigo}" required="true"/>
+                            <p:inputText id="codigo" value="#{administrarInstitucionVC.institucion.codigo}" required="true" maxlength="10"/>
 
                             <div style="font-weight:bold;">DENOMINACIÓN</div>
-                            <p:inputText id="denominacion" value="#{administrarInstitucionVC.institucion.denominacion}" required="true"/>
+                            <p:inputText id="denominacion" value="#{administrarInstitucionVC.institucion.denominacion}" required="true" />
                         </h:panelGrid>
 
                         <f:facet name="footer">
@@ -105,7 +106,7 @@
                             <p:inputText id="codigo" value="#{administrarInstitucionVC.institucion.codigo}" required="true" maxlength="10"/>
 
                             <div style="font-weight:bold;">DENOMINACIÓN</div>
-                            <p:inputText id="denominacion" value="#{administrarInstitucionVC.institucion.denominacion}" required="true"/>
+                            <p:inputText id="denominacion" value="#{administrarInstitucionVC.institucion.denominacion}" required="true" />
                         </h:panelGrid>
 
                         <f:facet name="footer">
@@ -125,9 +126,9 @@
                 </h:form>
 
                 <h:form id="form_del"><!-- FORM ELIMINAR -->
-                    <p:confirmDialog id="dialog_eliminar" widgetVar="dialog_eliminar"  
-                                     message="¿ESTÁ SEGURO QUE DESEA ELIMINAR EL REGISTRO?" 
-                                     header="ELIMINAR REGISTRO">
+                    <p:confirmDialog  widgetVar="dialog_eliminar"  
+                                      message="¿ESTÁ SEGURO QUE DESEA ELIMINAR EL REGISTRO?" 
+                                      header="ELIMINAR REGISTRO">
                         <p:panelGrid columns="2" columnClasses="ui-grid-col-6,ui-grid-col-6" layout="grid" styleClass="ui-panelgrid-blank">
                             <p:commandButton value="SI" icon="ui-icon-check" oncomplete="PF('dialog_eliminar').hide()"                                             
                                              actionListener="#{administrarInstitucionVC.eliminar}" 

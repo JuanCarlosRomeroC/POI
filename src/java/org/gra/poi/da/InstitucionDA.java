@@ -26,7 +26,7 @@ public class InstitucionDA extends AbstractDA<Institucion> implements Serializab
 
     @Override
     public List<Institucion> listar() {
-        return list(Institucion.class);
+        return list("FROM Institucion");
     }
 
     @Override

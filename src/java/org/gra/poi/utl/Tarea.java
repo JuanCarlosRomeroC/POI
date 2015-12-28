@@ -8,6 +8,7 @@ public abstract class Tarea implements Accion{
         this.accion = accion;
         this.respuesta = rsp;
     }
+    
     @Override
     public String getAccion() {
         return accion;
