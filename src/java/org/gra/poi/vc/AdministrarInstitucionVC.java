@@ -5,6 +5,8 @@ import java.util.List;
 import javax.faces.bean.*;
 import org.gra.poi.be.*;
 import org.gra.poi.bl.*;
+import org.gra.poi.utl.Tarea;
+import org.gra.poi.utl.Utilitario;
 
 @ManagedBean
 @ViewScoped
@@ -18,6 +20,11 @@ public class AdministrarInstitucionVC {
     private List<Institucion> listainstitucion = new LinkedList<>();
 
     public void init(){
+        listarInstituciones();
+    }
+    
+    public void listarInstituciones(){
+        getListainstitucion().clear();
         getListainstitucion().addAll(getInstitucionBL().listar());
     }
     
@@ -25,7 +32,37 @@ public class AdministrarInstitucionVC {
         setInstitucion(getInstitucionBL().buscar(id));
     }
     public void registrar(){
-        
+        Utilitario.setTareaEvento(new Tarea(Tarea.REGISTRO, getInstitucionBL().registrar(getInstitucion())) {
+            @Override
+            public void proceso() {
+                if (getRepuesta() >= 0) {
+                    setInstitucion(new Institucion());
+                    listarInstituciones();
+                }
+            }
+        });
+    }    
+    public void actualizar(){
+        Utilitario.setTareaEvento(new Tarea(Tarea.ACTUALIZACION, getInstitucionBL().actualizar(getInstitucion())) {
+            @Override
+            public void proceso() {
+                if (getRepuesta() >= 0) {
+                    setInstitucion(new Institucion());
+                    listarInstituciones();
+                }
+            }
+        });
+    }
+    public void eliminar(){
+        Utilitario.setTareaEvento(new Tarea(Tarea.ELIMINACION, getInstitucionBL().eliminar(getInstitucion())) {
+            @Override
+            public void proceso() {
+                if (getRepuesta() >= 0) {
+                    setInstitucion(new Institucion());
+                    listarInstituciones();
+                }
+            }
+        });
     }
     
     //<editor-fold defaultstate="collapsed" desc="GET y SET">

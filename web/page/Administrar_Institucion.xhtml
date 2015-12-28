@@ -15,9 +15,10 @@
                 <f:metadata>  
                     <f:viewAction action="#{administrarInstitucionVC.init()}" />
                 </f:metadata>
+                <p:growl id="msg" sticky="true" showDetail="true" life="2000"/>
 
-                <h:form>
-                    <p:panel id="basic" style="margin: 0 auto; "> 
+                <h:form id="form_admin">
+                    <p:panel id="control" style="margin: 0 auto; "> 
                         <f:facet name="header">
                             ADMINISTRAR INSTITUCIÓN
                         </f:facet>
@@ -25,7 +26,7 @@
                             <h:outputText value="" />
                             <h:outputText value="" />
                             <h:outputText value="" />
-                            <p:commandButton value="NUEVO" icon="ui-icon-plusthick" type="button" onclick="PF('dialog_nuevo').show();" />
+                            <p:commandButton value="NUEVO" icon="ui-icon-plusthick" type="button" onclick="PF('dialog_nuevo').show();" />                            
                         </p:panelGrid> 
 
                         <div style="font-weight:bold;">LISTA DE INSTITUCIONES</div>
@@ -47,7 +48,7 @@
 
                             <p:column headerText="" style="width: 30px;"> 
                                 <p:commandButton title="EDITAR" icon="ui-icon-pencil" immediate="True" oncomplete="PF('dialog_editar').show();"
-                                                 update="" actionListener="#{administrarInstitucionVC.recuperarInstitucion(iins.idinstitucion)}"/>    
+                                                 update="form_edit:controles" actionListener="#{administrarInstitucionVC.recuperarInstitucion(iins.idinstitucion)}"/>    
                             </p:column>
 
                             <p:column headerText="" style="width: 30px;"> 
@@ -68,9 +69,8 @@
                         <f:facet name="header">
                             REGISTRAR INSTITUCIÓN
                         </f:facet>
-                        <p:growl id="msg" sticky="true" showDetail="true" life="2000"/>
-                        
-                        <h:panelGrid style="width: 100%;" columns="1" columnClasses="ui-grid-col-12" layout="grid" styleClass="ui-panelgrid-blank">
+
+                        <h:panelGrid id="controles" style="width: 100%;" columns="1" columnClasses="ui-grid-col-12" layout="grid" styleClass="ui-panelgrid-blank">
                             <div style="font-weight:bold;">CÓDIGO</div>
                             <p:inputText id="codigo" value="#{administrarInstitucionVC.institucion.codigo}" required="true"/>
 
@@ -79,58 +79,65 @@
                         </h:panelGrid>
 
                         <f:facet name="footer">
-                            <p:panelGrid columns="2" columnClasses="ui-grid-col-6,ui-grid-col-6" layout="grid" styleClass="ui-panelgrid-blank">
+                            <h:panelGrid columns="2" columnClasses="ui-grid-col-6,ui-grid-col-6" layout="grid" styleClass="ui-panelgrid-blank">
                                 <p:commandButton value="REGISTRAR" icon="ui-icon-disk" validateClient="true"
                                                  oncomplete="if (args &amp;&amp; !args.validationFailed){PF('dialog_nuevo').hide();}"
                                                  actionListener="#{administrarInstitucionVC.registrar}" 
-                                                 update="msg,dialog_nuevo"/> 
-                                
-                                <p:commandButton value="CANCELAR" icon="ui-icon-closethick" update="msg,dialog_nuevo"                                                 
+                                                 update="msg,controles,form_admin:control"/> 
+
+                                <p:commandButton value="CANCELAR" icon="ui-icon-closethick" update="msg,controles"                                                 
                                                  process="@this">
-                                    <p:resetInput target="msg,dialog_nuevo" />
+                                    <p:resetInput target="msg,controles" />
+                                </p:commandButton>
+                            </h:panelGrid>                                
+                        </f:facet>
+                    </p:dialog> 
+                </h:form>
+
+                <h:form id="form_edit"><!-- FORM EDITAr -->
+                    <p:dialog  widgetVar="dialog_editar" modal="true" resizable="false" draggable="false">
+                        <f:facet name="header">
+                            EDITAR INSTITUCIÓN
+                        </f:facet>
+
+                        <h:panelGrid id="controles" style="width: 100%;" columns="1" columnClasses="ui-grid-col-12" layout="grid" styleClass="ui-panelgrid-blank">
+                            <div style="font-weight:bold;">CÓDIGO</div>
+                            <p:inputText id="codigo" value="#{administrarInstitucionVC.institucion.codigo}" required="true" maxlength="10"/>
+
+                            <div style="font-weight:bold;">DENOMINACIÓN</div>
+                            <p:inputText id="denominacion" value="#{administrarInstitucionVC.institucion.denominacion}" required="true"/>
+                        </h:panelGrid>
+
+                        <f:facet name="footer">
+                            <p:panelGrid columns="2" columnClasses="ui-grid-col-6,ui-grid-col-6" layout="grid" styleClass="ui-panelgrid-blank">
+                                <p:commandButton value="GUARDAR" icon="ui-icon-disk" validateClient="true"
+                                                 oncomplete="if (args &amp;&amp; !args.validationFailed){PF('dialog_editar').hide();}"
+                                                 actionListener="#{administrarInstitucionVC.actualizar}" 
+                                                 update="msg,controles,form_admin:control"/> 
+
+                                <p:commandButton value="CANCELAR" icon="ui-icon-closethick" update="msg,controles"                                                 
+                                                 process="@this">
+                                    <p:resetInput target="msg,controles" />
                                 </p:commandButton>
                             </p:panelGrid>                                
                         </f:facet>
                     </p:dialog> 
                 </h:form>
 
-                <h:form><!-- FORM EDITAr -->
-                    <p:dialog  widgetVar="dialog_editar" modal="true" resizable="false" draggable="false">
-                        <f:facet name="header">
-                            EDITAR INSTITUCIÓN
-                        </f:facet>
-
-                        <h:panelGrid style="width: 100%;" columns="1" columnClasses="ui-grid-col-12" layout="grid" styleClass="ui-panelgrid-blank">
-                            <div style="font-weight:bold;">CÓDIGO</div>
-                            <p:inputText id="codigo"/>
-
-                            <div style="font-weight:bold;">DENOMINACIÓN</div>
-                            <p:inputText id="denominacion"/>
-                        </h:panelGrid>
-
-                        <f:facet name="footer">
-                            <p:panelGrid columns="2" columnClasses="ui-grid-col-6,ui-grid-col-6" layout="grid" styleClass="ui-panelgrid-blank">
-                                <p:commandButton value="GUARDAR" icon="ui-icon-disk"/>                            
-                                <p:commandButton value="CANCELAR" icon="ui-icon-closethick" />
-                            </p:panelGrid>                                
-                        </f:facet>
-                    </p:dialog> 
-                </h:form>
-
-                <h:form><!-- FORM ELIMINAR -->
+                <h:form id="form_del"><!-- FORM ELIMINAR -->
                     <p:confirmDialog id="dialog_eliminar" widgetVar="dialog_eliminar"  
                                      message="¿ESTÁ SEGURO QUE DESEA ELIMINAR EL REGISTRO?" 
                                      header="ELIMINAR REGISTRO">
+                        <p:panelGrid columns="2" columnClasses="ui-grid-col-6,ui-grid-col-6" layout="grid" styleClass="ui-panelgrid-blank">
+                            <p:commandButton value="SI" icon="ui-icon-check" oncomplete="PF('dialog_eliminar').hide()"                                             
+                                             actionListener="#{administrarInstitucionVC.eliminar}" 
+                                             update="msg,form_admin:control"/> 
 
-                        <p:growl id="msg" sticky="true" showDetail="true" life="2000"/>
-                        <p:commandButton icon="ui-icon-close" update="msg" value="NO" process="@this" 
-                                         style="float: right; margin-right: .3em;" oncomplete="PF('dialog_eliminar').hide()">
-                            <p:resetInput target="dialog_editar" />
-                        </p:commandButton>
-                        <p:commandButton update="msg" value="SI"
-                                         style="float: right; margin-right: .3em;"                                                       
-                                         icon="ui-icon-check" oncomplete="PF('dialog_eliminar').hide()"/>       
-
+                            <p:commandButton value="NO" icon="ui-icon-closethick" update="msg"                                                 
+                                             process="@this" oncomplete="PF('dialog_eliminar').hide()">
+                                <p:resetInput target="msg" />
+                            </p:commandButton>
+                        </p:panelGrid> 
                     </p:confirmDialog>
                 </h:form>
             </ui:define>
