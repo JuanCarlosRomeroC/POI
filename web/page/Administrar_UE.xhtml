@@ -11,6 +11,10 @@
 
         <ui:composition template="./../template/layout.xhtml">
             <ui:define name="content">
+                
+                <f:metadata>  
+                    <f:viewAction action="#{administrarUEVC.init()}" />
+                </f:metadata>
 
                 <h:form>
                     <p:panel id="basic" style="margin: 0 auto;"> 
@@ -25,20 +29,28 @@
                         </p:panelGrid> 
 
                         <div style="font-weight:bold;">LISTA DE UNIDADES EJECUTORAS</div>
-                        <p:dataTable var="car" rows="10" reflow="true"
-                                     paginator="true" paginatorPosition="bottom"
+                        <p:dataTable rows="10" reflow="true" value="#{administrarUEVC.listaOrganoUnidad}" var="iue"
+                                     paginator="true" paginatorPosition="bottom" rowIndexVar="rowIndex"
                                      paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                                      rowsPerPageTemplate="5,10,15">
                             <p:column headerText="N°" style="width: 30px;text-align: center;">
-                                <h:outputText value="" />
+                                <h:outputText value="#{rowIndex+1}" />
                             </p:column>
 
                             <p:column headerText="CÓDIGO" style="width: 90px;text-align: center;">
-                                <h:outputText value="" />
+                                <h:outputText value="#{iue.codigo}" />
                             </p:column>
 
                             <p:column headerText="DENOMINACIÓN" style="text-align: left;">
-                                <h:outputText value="" />
+                                <h:outputText value="#{iue.denominacion}" />
+                            </p:column>
+                            
+                            <p:column headerText="" style="width: 30px;">
+                                <p:commandButton title="EDITAR" icon="ui-icon-pencil" type="button" onclick="PF('dialog_editar').show();" />                                
+                            </p:column>
+                            
+                            <p:column headerText="" style="width: 30px;">                                
+                                <p:commandButton title="ELIMINAR" icon="ui-icon-close" type="button" onclick="PF('dialog_eliminar').show();" />
                             </p:column>
                         </p:dataTable>
 
@@ -65,11 +77,10 @@
 
                             <div style="font-weight:bold;">TIPO</div>
                             <p:selectOneMenu id="tipo"  style="width: 300px;">
-                               <f:selectItem itemLabel="SELECCIONAR" itemValue="" />
-                                <f:selectItem itemLabel="SEDE" itemValue="SEDE" />
-                                <f:selectItem itemLabel="DIRECCION REGIONAL" itemValue="DIRECCION_REGIONAL" />
-                                <f:selectItem itemLabel="UNIDAD EJECUTORA" itemValue="UNIDAD_EJECUTORA" />
-                                <f:selectItem itemLabel="DEPENDENCIA" itemValue="DEPENDENCIA" />
+                                <f:selectItem itemLabel="Select One" itemValue="" />
+                                <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
+                                <f:selectItem itemLabel="PS4" itemValue="PS4" />
+                                <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
                             </p:selectOneMenu> 
 
                             <div style="font-weight:bold;">CÓDIGO</div>
