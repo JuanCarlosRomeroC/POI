@@ -4,133 +4,133 @@
       <TDBADiagramObject id="14" propertiesclass="TDiagramMetaTableProperties" objectname="sbd.detallef1">
         <TDiagramMetaTableProperties>
           <Glyph>
-            <Geometry left="1330" top="580" width="220" height="160"/>
+            <Geometry left="1450" top="650" width="220" height="160"/>
           </Glyph>
         </TDiagramMetaTableProperties>
       </TDBADiagramObject>
       <TDBADiagramObject id="23" propertiesclass="TDiagramMetaTableProperties" objectname="sbd.detallef4">
         <TDiagramMetaTableProperties>
           <Glyph>
-            <Geometry left="1330" top="1200" width="220" height="180"/>
+            <Geometry left="1450" top="1270" width="220" height="180"/>
           </Glyph>
         </TDiagramMetaTableProperties>
       </TDBADiagramObject>
       <TDBADiagramObject id="25" propertiesclass="TDiagramMetaTableProperties" objectname="sbd.detallef5">
         <TDiagramMetaTableProperties>
           <Glyph>
-            <Geometry left="1330" top="1410" width="220" height="110"/>
+            <Geometry left="1450" top="1480" width="220" height="110"/>
           </Glyph>
         </TDiagramMetaTableProperties>
       </TDBADiagramObject>
       <TDBADiagramObject id="30" propertiesclass="TDiagramMetaTableProperties" objectname="sbd.formato1">
         <TDiagramMetaTableProperties>
           <Glyph>
-            <Geometry left="1070" top="620" width="140" height="70"/>
+            <Geometry left="1190" top="690" width="140" height="70"/>
           </Glyph>
         </TDiagramMetaTableProperties>
       </TDBADiagramObject>
       <TDBADiagramObject id="32" propertiesclass="TDiagramMetaTableProperties" objectname="sbd.formato2">
         <TDiagramMetaTableProperties>
           <Glyph>
-            <Geometry left="1070" top="830" width="140" height="70"/>
+            <Geometry left="1190" top="900" width="140" height="70"/>
           </Glyph>
         </TDiagramMetaTableProperties>
       </TDBADiagramObject>
       <TDBADiagramObject id="36" propertiesclass="TDiagramMetaTableProperties" objectname="sbd.formato3">
         <TDiagramMetaTableProperties>
           <Glyph>
-            <Geometry left="1070" top="1060" width="140" height="70"/>
+            <Geometry left="1190" top="1130" width="140" height="70"/>
           </Glyph>
         </TDiagramMetaTableProperties>
       </TDBADiagramObject>
       <TDBADiagramObject id="40" propertiesclass="TDiagramMetaTableProperties" objectname="sbd.formato4">
         <TDiagramMetaTableProperties>
           <Glyph>
-            <Geometry left="1070" top="1250" width="140" height="70"/>
+            <Geometry left="1190" top="1320" width="140" height="70"/>
           </Glyph>
         </TDiagramMetaTableProperties>
       </TDBADiagramObject>
       <TDBADiagramObject id="44" propertiesclass="TDiagramMetaTableProperties" objectname="sbd.formato5">
         <TDiagramMetaTableProperties>
           <Glyph>
-            <Geometry left="1070" top="1430" width="170" height="100"/>
+            <Geometry left="1190" top="1460" width="170" height="100"/>
           </Glyph>
         </TDiagramMetaTableProperties>
       </TDBADiagramObject>
       <TDBADiagramObject id="61" propertiesclass="TDiagramMetaTableProperties" objectname="sbd.oe_pei">
         <TDiagramMetaTableProperties>
           <Glyph>
-            <Geometry left="1340" top="400" width="200" height="97"/>
+            <Geometry left="1460" top="490" width="200" height="97"/>
           </Glyph>
         </TDiagramMetaTableProperties>
       </TDBADiagramObject>
       <TDBADiagramObject id="75" propertiesclass="TDiagramMetaTableProperties" objectname="sbd.poi">
         <TDiagramMetaTableProperties>
           <Glyph>
-            <Geometry left="780" top="280" width="200" height="180"/>
+            <Geometry left="900" top="310" width="200" height="180"/>
           </Glyph>
         </TDiagramMetaTableProperties>
       </TDBADiagramObject>
       <TDBADiagramObject id="65" propertiesclass="TDiagramMetaTableProperties" objectname="sbd.documentos_gestion_referencial">
         <TDiagramMetaTableProperties>
           <Glyph>
-            <Geometry left="780" top="120" width="200" height="125"/>
+            <Geometry left="900" top="150" width="200" height="125"/>
           </Glyph>
         </TDiagramMetaTableProperties>
       </TDBADiagramObject>
       <TDBADiagramObject id="1" propertiesclass="TDiagramMetaTableProperties" objectname="sbd.detallef3">
         <TDiagramMetaTableProperties>
           <Glyph>
-            <Geometry left="1330" top="1000" width="220" height="170"/>
+            <Geometry left="1460" top="1070" width="220" height="170"/>
           </Glyph>
         </TDiagramMetaTableProperties>
       </TDBADiagramObject>
       <TDBADiagramObject id="4" propertiesclass="TDiagramMetaTableProperties" objectname="sbd.detallef2">
         <TDiagramMetaTableProperties>
           <Glyph>
-            <Geometry left="1330" top="770" width="220" height="200"/>
+            <Geometry left="1450" top="840" width="220" height="200"/>
           </Glyph>
         </TDiagramMetaTableProperties>
       </TDBADiagramObject>
       <TDBADiagramObject id="7" propertiesclass="TDiagramMetaTableProperties" objectname="sbd.programacion_actividades">
         <TDiagramMetaTableProperties>
           <Glyph>
-            <Geometry left="780" top="550" width="200" height="270"/>
+            <Geometry left="900" top="620" width="200" height="270"/>
           </Glyph>
         </TDiagramMetaTableProperties>
       </TDBADiagramObject>
       <TDBADiagramObject id="15" propertiesclass="TDiagramMetaTableProperties" objectname="sbd.formato6">
         <TDiagramMetaTableProperties>
           <Glyph>
-            <Geometry left="1070" top="1620" width="150" height="70"/>
+            <Geometry left="1190" top="1690" width="150" height="70"/>
           </Glyph>
         </TDiagramMetaTableProperties>
       </TDBADiagramObject>
       <TDBADiagramObject id="16" propertiesclass="TDiagramMetaTableProperties" objectname="sbd.formato7">
         <TDiagramMetaTableProperties>
           <Glyph>
-            <Geometry left="1070" top="1850" width="150" height="70"/>
+            <Geometry left="1190" top="1920" width="150" height="70"/>
           </Glyph>
         </TDiagramMetaTableProperties>
       </TDBADiagramObject>
       <TDBADiagramObject id="17" propertiesclass="TDiagramMetaTableProperties" objectname="sbd.formato8">
         <TDiagramMetaTableProperties>
           <Glyph>
-            <Geometry left="1070" top="2050" width="150" height="70"/>
+            <Geometry left="1190" top="2120" width="150" height="70"/>
           </Glyph>
         </TDiagramMetaTableProperties>
       </TDBADiagramObject>
       <TDBADiagramObject id="18" propertiesclass="TDiagramMetaTableProperties" objectname="sbd.formato9">
         <TDiagramMetaTableProperties>
           <Glyph>
-            <Geometry left="1070" top="2220" width="160" height="90"/>
+            <Geometry left="1190" top="2290" width="160" height="90"/>
           </Glyph>
         </TDiagramMetaTableProperties>
       </TDBADiagramObject>
       <TDiagramNote id="24" propertiesclass="TDiagramNoteProperties">
         <TDiagramNoteProperties>
           <Glyph>
-            <Geometry left="1040" top="110" width="300" height="130"/>
+            <Geometry left="1160" top="140" width="300" height="130"/>
           </Glyph>
           <Text>
 PLAN ESTAGICO INSTITUCIONAL (PEI)
@@ -146,8 +146,8 @@ PLAN ESTAGICO INSTITUCIONAL (PEI)
             <Geometry left="0" top="0" width="0" height="0"/>
             <Glyph>
               <Geometry>
-                <Point x="1140" y="190"/>
-                <Point x="920" y="190"/>
+                <Point x="1260" y="220"/>
+                <Point x="1040" y="220"/>
               </Geometry>
             </Glyph>
           </Relation>
@@ -156,7 +156,7 @@ PLAN ESTAGICO INSTITUCIONAL (PEI)
       <TDiagramTextBox id="27" propertiesclass="TDiagramTextBoxProperties">
         <TDiagramTextBoxProperties>
           <Glyph>
-            <Geometry left="800" top="70" width="170" height="30"/>
+            <Geometry left="920" top="100" width="170" height="30"/>
             <Font name="Verdana" color="255" size="30"/>
           </Glyph>
           <Text>
@@ -166,42 +166,42 @@ DB POI GRA          </Text>
       <TDBADiagramObject id="28" propertiesclass="TDiagramMetaTableProperties" objectname="sbd.organo_unidad">
         <TDiagramMetaTableProperties>
           <Glyph>
-            <Geometry left="510" top="640" width="180" height="110"/>
+            <Geometry left="610" top="710" width="180" height="110"/>
           </Glyph>
         </TDiagramMetaTableProperties>
       </TDBADiagramObject>
       <TDBADiagramObject id="31" propertiesclass="TDiagramMetaTableProperties" objectname="sbd.categoria_presupuestal">
         <TDiagramMetaTableProperties>
           <Glyph>
-            <Geometry left="510" top="800" width="180" height="110"/>
+            <Geometry left="710" top="1120" width="180" height="110"/>
           </Glyph>
         </TDiagramMetaTableProperties>
       </TDBADiagramObject>
       <TDBADiagramObject id="41" propertiesclass="TDiagramMetaTableProperties" objectname="sbd.accion_estrategica">
         <TDiagramMetaTableProperties>
           <Glyph>
-            <Geometry left="510" top="960" width="180" height="90"/>
+            <Geometry left="390" top="930" width="180" height="90"/>
           </Glyph>
         </TDiagramMetaTableProperties>
       </TDBADiagramObject>
       <TDBADiagramObject id="50" propertiesclass="TDiagramMetaTableProperties" objectname="sbd.actividad_operativa">
         <TDiagramMetaTableProperties>
           <Glyph>
-            <Geometry left="1780" top="600" width="180" height="90"/>
+            <Geometry left="1940" top="670" width="180" height="100"/>
           </Glyph>
         </TDiagramMetaTableProperties>
       </TDBADiagramObject>
       <TDBADiagramObject id="35" propertiesclass="TDiagramMetaTableProperties" objectname="sbd.subgrupo">
         <TDiagramMetaTableProperties>
           <Glyph>
-            <Geometry left="1760" top="450" width="220" height="110"/>
+            <Geometry left="690" top="1400" width="220" height="110"/>
           </Glyph>
         </TDiagramMetaTableProperties>
       </TDBADiagramObject>
       <TDiagramNote id="42" propertiesclass="TDiagramNoteProperties">
         <TDiagramNoteProperties>
           <Glyph>
-            <Geometry left="1950" top="300" width="130" height="90"/>
+            <Geometry left="470" top="1390" width="130" height="90"/>
           </Glyph>
           <Text>
 ACTIVIDAD
@@ -215,8 +215,8 @@ ACTIVIDAD
             <Geometry left="0" top="0" width="0" height="0"/>
             <Glyph>
               <Geometry>
-                <Point x="1990" y="350"/>
-                <Point x="1860" y="494"/>
+                <Point x="510" y="1440"/>
+                <Point x="790" y="1444"/>
               </Geometry>
             </Glyph>
           </Relation>
@@ -225,7 +225,7 @@ ACTIVIDAD
       <TDiagramNote id="38" propertiesclass="TDiagramNoteProperties">
         <TDiagramNoteProperties>
           <Glyph>
-            <Geometry left="1570" top="570" width="180" height="70"/>
+            <Geometry left="1690" top="640" width="180" height="70"/>
           </Glyph>
           <Text>
 Analizar bien la relacion de
@@ -235,14 +235,14 @@ Analizar bien la relacion de
       <TDBADiagramObject id="58" propertiesclass="TDiagramMetaTableProperties" objectname="sbd.detallef6">
         <TDiagramMetaTableProperties>
           <Glyph>
-            <Geometry left="1330" top="1550" width="220" height="210"/>
+            <Geometry left="1450" top="1620" width="220" height="210"/>
           </Glyph>
         </TDiagramMetaTableProperties>
       </TDBADiagramObject>
       <TDiagramNote id="3" propertiesclass="TDiagramNoteProperties">
         <TDiagramNoteProperties>
           <Glyph>
-            <Geometry left="2310" top="570" width="110" height="110"/>
+            <Geometry left="2430" top="640" width="110" height="110"/>
           </Glyph>
           <Text>
 1 - 1.1   
@@ -256,91 +256,91 @@ Analizar bien la relacion de
       <TDBADiagramObject id="6" propertiesclass="TDiagramMetaTableProperties" objectname="sbd.detallef7">
         <TDiagramMetaTableProperties>
           <Glyph>
-            <Geometry left="1330" top="1790" width="220" height="170"/>
+            <Geometry left="1450" top="1860" width="220" height="170"/>
           </Glyph>
         </TDiagramMetaTableProperties>
       </TDBADiagramObject>
       <TDBADiagramObject id="66" propertiesclass="TDiagramMetaTableProperties" objectname="sbd.detallef8">
         <TDiagramMetaTableProperties>
           <Glyph>
-            <Geometry left="1330" top="1990" width="220" height="180"/>
+            <Geometry left="1450" top="2060" width="220" height="180"/>
           </Glyph>
         </TDiagramMetaTableProperties>
       </TDBADiagramObject>
       <TDBADiagramObject id="69" propertiesclass="TDiagramMetaTableProperties" objectname="sbd.detallef9">
         <TDiagramMetaTableProperties>
           <Glyph>
-            <Geometry left="1330" top="2200" width="220" height="130"/>
+            <Geometry left="1450" top="2270" width="220" height="130"/>
           </Glyph>
         </TDiagramMetaTableProperties>
       </TDBADiagramObject>
       <TDBADiagramObject id="72" propertiesclass="TDiagramMetaTableProperties" objectname="sbd.asignacion_ae_cc">
         <TDiagramMetaTableProperties>
           <Glyph>
-            <Geometry left="190" top="1100" width="200" height="80"/>
+            <Geometry left="380" top="1100" width="200" height="80"/>
           </Glyph>
         </TDiagramMetaTableProperties>
       </TDBADiagramObject>
       <TDBADiagramObject id="74" propertiesclass="TDiagramMetaTableProperties" objectname="sbd.asignacion_ae_cp">
         <TDiagramMetaTableProperties>
           <Glyph>
-            <Geometry left="190" top="900" width="200" height="80"/>
+            <Geometry left="700" top="940" width="200" height="80"/>
           </Glyph>
         </TDiagramMetaTableProperties>
       </TDBADiagramObject>
       <TDBADiagramObject id="79" propertiesclass="TDiagramMetaTableProperties" objectname="sbd.centro_costo">
         <TDiagramMetaTableProperties>
           <Glyph>
-            <Geometry left="510" top="1240" width="180" height="90"/>
+            <Geometry left="390" top="1250" width="180" height="90"/>
           </Glyph>
         </TDiagramMetaTableProperties>
       </TDBADiagramObject>
       <TDBADiagramObject id="81" propertiesclass="TDiagramMetaTableProperties" objectname="sbd.asignacion_ae_oei">
         <TDiagramMetaTableProperties>
           <Glyph>
-            <Geometry left="0" top="530" width="200" height="111"/>
+            <Geometry left="380" top="480" width="200" height="111"/>
           </Glyph>
         </TDiagramMetaTableProperties>
       </TDBADiagramObject>
       <TDBADiagramObject id="84" propertiesclass="TDiagramMetaTableProperties" objectname="sbd.institucion">
         <TDiagramMetaTableProperties>
           <Glyph>
-            <Geometry left="510" top="500" width="180" height="90"/>
+            <Geometry left="610" top="570" width="180" height="90"/>
           </Glyph>
         </TDiagramMetaTableProperties>
       </TDBADiagramObject>
       <TDBADiagramObject id="86" propertiesclass="TDiagramMetaTableProperties" objectname="sbd.empleado">
         <TDiagramMetaTableProperties>
           <Glyph>
-            <Geometry left="210" top="610" width="200" height="167"/>
+            <Geometry left="120" top="690" width="200" height="167"/>
           </Glyph>
         </TDiagramMetaTableProperties>
       </TDBADiagramObject>
       <TDBADiagramObject id="88" propertiesclass="TDiagramMetaTableProperties" objectname="sbd.rol_usuario">
         <TDiagramMetaTableProperties>
           <Glyph>
-            <Geometry left="0" top="1420" width="200" height="83"/>
+            <Geometry left="120" top="1490" width="200" height="83"/>
           </Glyph>
         </TDiagramMetaTableProperties>
       </TDBADiagramObject>
       <TDBADiagramObject id="89" propertiesclass="TDiagramMetaTableProperties" objectname="sbd.usuario">
         <TDiagramMetaTableProperties>
           <Glyph>
-            <Geometry left="0" top="1220" width="200" height="125"/>
+            <Geometry left="120" top="1290" width="200" height="125"/>
           </Glyph>
         </TDiagramMetaTableProperties>
       </TDBADiagramObject>
       <TDBADiagramObject id="92" propertiesclass="TDiagramMetaTableProperties" objectname="sbd.especifica_gasto">
         <TDiagramMetaTableProperties>
           <Glyph>
-            <Geometry left="1620" top="1420" width="200" height="97"/>
+            <Geometry left="1740" top="1490" width="200" height="97"/>
           </Glyph>
         </TDiagramMetaTableProperties>
       </TDBADiagramObject>
       <TDBADiagramObject id="94" propertiesclass="TDiagramMetaTableProperties" objectname="sbd.gasto_presupuestario">
         <TDiagramMetaTableProperties>
           <Glyph>
-            <Geometry left="1620" top="1650" width="200" height="83"/>
+            <Geometry left="1740" top="1720" width="200" height="83"/>
           </Glyph>
         </TDiagramMetaTableProperties>
       </TDBADiagramObject>
@@ -350,8 +350,8 @@ Analizar bien la relacion de
             <Geometry left="752" top="752" width="200" height="100"/>
             <Glyph>
               <Geometry>
-                <Point x="1440" y="660"/>
-                <Point x="1140" y="660"/>
+                <Point x="1560" y="730"/>
+                <Point x="1260" y="730"/>
               </Geometry>
             </Glyph>
           </Relation>
@@ -363,8 +363,8 @@ Analizar bien la relacion de
             <Geometry left="768" top="768" width="200" height="100"/>
             <Glyph>
               <Geometry>
-                <Point x="1440" y="660"/>
-                <Point x="1440" y="450"/>
+                <Point x="1560" y="730"/>
+                <Point x="1560" y="540"/>
               </Geometry>
             </Glyph>
           </Relation>
@@ -376,8 +376,8 @@ Analizar bien la relacion de
             <Geometry left="800" top="800" width="200" height="100"/>
             <Glyph>
               <Geometry>
-                <Point x="1440" y="1290"/>
-                <Point x="1140" y="1290"/>
+                <Point x="1560" y="1360"/>
+                <Point x="1260" y="1360"/>
               </Geometry>
             </Glyph>
           </Relation>
@@ -389,8 +389,8 @@ Analizar bien la relacion de
             <Geometry left="832" top="832" width="200" height="100"/>
             <Glyph>
               <Geometry>
-                <Point x="1440" y="1470"/>
-                <Point x="1160" y="1480"/>
+                <Point x="1570" y="1500"/>
+                <Point x="1280" y="1500"/>
               </Geometry>
             </Glyph>
           </Relation>
@@ -402,8 +402,8 @@ Analizar bien la relacion de
             <Geometry left="864" top="864" width="200" height="100"/>
             <Glyph>
               <Geometry>
-                <Point x="1440" y="1470"/>
-                <Point x="1720" y="1470"/>
+                <Point x="1560" y="1540"/>
+                <Point x="1840" y="1540"/>
               </Geometry>
             </Glyph>
           </Relation>
@@ -415,8 +415,8 @@ Analizar bien la relacion de
             <Geometry left="880" top="880" width="200" height="100"/>
             <Glyph>
               <Geometry>
-                <Point x="880" y="690"/>
-                <Point x="1140" y="660"/>
+                <Point x="990" y="730"/>
+                <Point x="1260" y="730"/>
               </Geometry>
             </Glyph>
           </Relation>
@@ -428,8 +428,22 @@ Analizar bien la relacion de
             <Geometry left="896" top="896" width="200" height="100"/>
             <Glyph>
               <Geometry>
-                <Point x="1440" y="870"/>
-                <Point x="1140" y="870"/>
+                <Point x="1560" y="940"/>
+                <Point x="1260" y="940"/>
+              </Geometry>
+            </Glyph>
+          </Relation>
+        </TDiagramForeignKeyProperties>
+      </TDBADiagramObject>
+      <TDBADiagramObject id="21" propertiesclass="TDiagramForeignKeyProperties" objectname="sbd.programacion_actividades.fk_programacion_04">
+        <TDiagramForeignKeyProperties>
+          <Relation>
+            <Geometry left="912" top="912" width="200" height="100"/>
+            <Glyph>
+              <Geometry>
+                <Point x="1020" y="810"/>
+                <Point x="1260" y="810"/>
+                <Point x="1260" y="940"/>
               </Geometry>
             </Glyph>
           </Relation>
@@ -441,8 +455,8 @@ Analizar bien la relacion de
             <Geometry left="928" top="928" width="200" height="100"/>
             <Glyph>
               <Geometry>
-                <Point x="1440" y="1090"/>
-                <Point x="1140" y="1100"/>
+                <Point x="1570" y="1170"/>
+                <Point x="1260" y="1170"/>
               </Geometry>
             </Glyph>
           </Relation>
@@ -454,8 +468,37 @@ Analizar bien la relacion de
             <Geometry left="944" top="944" width="200" height="100"/>
             <Glyph>
               <Geometry>
-                <Point x="880" y="690"/>
-                <Point x="1140" y="1100"/>
+                <Point x="1070" y="770"/>
+                <Point x="1070" y="1170"/>
+                <Point x="1260" y="1170"/>
+              </Geometry>
+            </Glyph>
+          </Relation>
+        </TDiagramForeignKeyProperties>
+      </TDBADiagramObject>
+      <TDBADiagramObject id="33" propertiesclass="TDiagramForeignKeyProperties" objectname="sbd.programacion_actividades.fk_programacion_06">
+        <TDiagramForeignKeyProperties>
+          <Relation>
+            <Geometry left="960" top="960" width="200" height="100"/>
+            <Glyph>
+              <Geometry>
+                <Point x="1060" y="770"/>
+                <Point x="1060" y="1360"/>
+                <Point x="1260" y="1360"/>
+              </Geometry>
+            </Glyph>
+          </Relation>
+        </TDiagramForeignKeyProperties>
+      </TDBADiagramObject>
+      <TDBADiagramObject id="34" propertiesclass="TDiagramForeignKeyProperties" objectname="sbd.programacion_actividades.fk_programacion_07">
+        <TDiagramForeignKeyProperties>
+          <Relation>
+            <Geometry left="976" top="976" width="200" height="100"/>
+            <Glyph>
+              <Geometry>
+                <Point x="1050" y="770"/>
+                <Point x="1050" y="1510"/>
+                <Point x="1280" y="1510"/>
               </Geometry>
             </Glyph>
           </Relation>
@@ -467,8 +510,8 @@ Analizar bien la relacion de
             <Geometry left="992" top="992" width="200" height="100"/>
             <Glyph>
               <Geometry>
-                <Point x="100" y="590"/>
-                <Point x="1440" y="450"/>
+                <Point x="480" y="540"/>
+                <Point x="1560" y="540"/>
               </Geometry>
             </Glyph>
           </Relation>
@@ -480,8 +523,9 @@ Analizar bien la relacion de
             <Geometry left="1008" top="1008" width="200" height="100"/>
             <Glyph>
               <Geometry>
-                <Point x="880" y="370"/>
-                <Point x="1440" y="450"/>
+                <Point x="1000" y="400"/>
+                <Point x="1560" y="400"/>
+                <Point x="1560" y="540"/>
               </Geometry>
             </Glyph>
           </Relation>
@@ -493,8 +537,8 @@ Analizar bien la relacion de
             <Geometry left="1024" top="1024" width="200" height="100"/>
             <Glyph>
               <Geometry>
-                <Point x="880" y="370"/>
-                <Point x="880" y="180"/>
+                <Point x="1000" y="400"/>
+                <Point x="1000" y="210"/>
               </Geometry>
             </Glyph>
           </Relation>
@@ -506,8 +550,8 @@ Analizar bien la relacion de
             <Geometry left="1040" top="1040" width="200" height="100"/>
             <Glyph>
               <Geometry>
-                <Point x="880" y="370"/>
-                <Point x="880" y="180"/>
+                <Point x="1000" y="400"/>
+                <Point x="1000" y="210"/>
               </Geometry>
             </Glyph>
           </Relation>
@@ -519,8 +563,8 @@ Analizar bien la relacion de
             <Geometry left="1056" top="1056" width="200" height="100"/>
             <Glyph>
               <Geometry>
-                <Point x="880" y="690"/>
-                <Point x="880" y="370"/>
+                <Point x="1000" y="760"/>
+                <Point x="1000" y="400"/>
               </Geometry>
             </Glyph>
           </Relation>
@@ -532,8 +576,64 @@ Analizar bien la relacion de
             <Geometry left="1088" top="1088" width="200" height="100"/>
             <Glyph>
               <Geometry>
-                <Point x="880" y="690"/>
-                <Point x="600" y="695"/>
+                <Point x="1020" y="760"/>
+                <Point x="700" y="760"/>
+              </Geometry>
+            </Glyph>
+          </Relation>
+        </TDiagramForeignKeyProperties>
+      </TDBADiagramObject>
+      <TDBADiagramObject id="52" propertiesclass="TDiagramForeignKeyProperties" objectname="sbd.programacion_actividades.fk_programacion_08">
+        <TDiagramForeignKeyProperties>
+          <Relation>
+            <Geometry left="1104" top="1104" width="200" height="100"/>
+            <Glyph>
+              <Geometry>
+                <Point x="1040" y="770"/>
+                <Point x="1040" y="1730"/>
+                <Point x="1270" y="1730"/>
+              </Geometry>
+            </Glyph>
+          </Relation>
+        </TDiagramForeignKeyProperties>
+      </TDBADiagramObject>
+      <TDBADiagramObject id="53" propertiesclass="TDiagramForeignKeyProperties" objectname="sbd.programacion_actividades.fk_programacion_09">
+        <TDiagramForeignKeyProperties>
+          <Relation>
+            <Geometry left="1120" top="1120" width="200" height="100"/>
+            <Glyph>
+              <Geometry>
+                <Point x="1030" y="770"/>
+                <Point x="1030" y="1960"/>
+                <Point x="1270" y="1960"/>
+              </Geometry>
+            </Glyph>
+          </Relation>
+        </TDiagramForeignKeyProperties>
+      </TDBADiagramObject>
+      <TDBADiagramObject id="54" propertiesclass="TDiagramForeignKeyProperties" objectname="sbd.programacion_actividades.fk_programacion_10">
+        <TDiagramForeignKeyProperties>
+          <Relation>
+            <Geometry left="1136" top="1136" width="200" height="100"/>
+            <Glyph>
+              <Geometry>
+                <Point x="1020" y="770"/>
+                <Point x="1020" y="2170"/>
+                <Point x="1270" y="2170"/>
+              </Geometry>
+            </Glyph>
+          </Relation>
+        </TDiagramForeignKeyProperties>
+      </TDBADiagramObject>
+      <TDBADiagramObject id="55" propertiesclass="TDiagramForeignKeyProperties" objectname="sbd.programacion_actividades.fk_programacion_11">
+        <TDiagramForeignKeyProperties>
+          <Relation>
+            <Geometry left="1152" top="1152" width="200" height="100"/>
+            <Glyph>
+              <Geometry>
+                <Point x="1010" y="770"/>
+                <Point x="1010" y="2340"/>
+                <Point x="1270" y="2340"/>
               </Geometry>
             </Glyph>
           </Relation>
@@ -545,8 +645,9 @@ Analizar bien la relacion de
             <Geometry left="1168" top="1168" width="200" height="100"/>
             <Glyph>
               <Geometry>
-                <Point x="880" y="690"/>
-                <Point x="600" y="860"/>
+                <Point x="960" y="770"/>
+                <Point x="960" y="1180"/>
+                <Point x="800" y="1180"/>
               </Geometry>
             </Glyph>
           </Relation>
@@ -558,8 +659,11 @@ Analizar bien la relacion de
             <Geometry left="1184" top="1184" width="200" height="100"/>
             <Glyph>
               <Geometry>
-                <Point x="880" y="690"/>
-                <Point x="600" y="1010"/>
+                <Point x="1010" y="800"/>
+                <Point x="840" y="800"/>
+                <Point x="840" y="880"/>
+                <Point x="530" y="880"/>
+                <Point x="530" y="990"/>
               </Geometry>
             </Glyph>
           </Relation>
@@ -571,8 +675,9 @@ Analizar bien la relacion de
             <Geometry left="1200" top="1200" width="200" height="100"/>
             <Glyph>
               <Geometry>
-                <Point x="880" y="690"/>
-                <Point x="1870" y="510"/>
+                <Point x="1000" y="760"/>
+                <Point x="1000" y="1460"/>
+                <Point x="800" y="1460"/>
               </Geometry>
             </Glyph>
           </Relation>
@@ -584,8 +689,8 @@ Analizar bien la relacion de
             <Geometry left="1232" top="1232" width="200" height="100"/>
             <Glyph>
               <Geometry>
-                <Point x="1440" y="1660"/>
-                <Point x="1150" y="1660"/>
+                <Point x="1560" y="1730"/>
+                <Point x="1270" y="1730"/>
               </Geometry>
             </Glyph>
           </Relation>
@@ -597,8 +702,8 @@ Analizar bien la relacion de
             <Geometry left="1248" top="1248" width="200" height="100"/>
             <Glyph>
               <Geometry>
-                <Point x="1440" y="1880"/>
-                <Point x="1150" y="1890"/>
+                <Point x="1580" y="1960"/>
+                <Point x="1270" y="1960"/>
               </Geometry>
             </Glyph>
           </Relation>
@@ -610,8 +715,8 @@ Analizar bien la relacion de
             <Geometry left="1264" top="1264" width="200" height="100"/>
             <Glyph>
               <Geometry>
-                <Point x="1440" y="2080"/>
-                <Point x="1150" y="2090"/>
+                <Point x="1580" y="2160"/>
+                <Point x="1270" y="2160"/>
               </Geometry>
             </Glyph>
           </Relation>
@@ -623,8 +728,8 @@ Analizar bien la relacion de
             <Geometry left="1280" top="1280" width="200" height="100"/>
             <Glyph>
               <Geometry>
-                <Point x="1440" y="2270"/>
-                <Point x="1150" y="2270"/>
+                <Point x="1560" y="2340"/>
+                <Point x="1270" y="2340"/>
               </Geometry>
             </Glyph>
           </Relation>
@@ -636,8 +741,8 @@ Analizar bien la relacion de
             <Geometry left="1296" top="1296" width="200" height="100"/>
             <Glyph>
               <Geometry>
-                <Point x="600" y="695"/>
-                <Point x="600" y="550"/>
+                <Point x="700" y="765"/>
+                <Point x="700" y="620"/>
               </Geometry>
             </Glyph>
           </Relation>
@@ -649,8 +754,8 @@ Analizar bien la relacion de
             <Geometry left="1312" top="1312" width="200" height="100"/>
             <Glyph>
               <Geometry>
-                <Point x="310" y="690"/>
-                <Point x="600" y="695"/>
+                <Point x="220" y="770"/>
+                <Point x="700" y="770"/>
               </Geometry>
             </Glyph>
           </Relation>
@@ -662,8 +767,8 @@ Analizar bien la relacion de
             <Geometry left="1328" top="1328" width="200" height="100"/>
             <Glyph>
               <Geometry>
-                <Point x="290" y="940"/>
-                <Point x="600" y="860"/>
+                <Point x="800" y="980"/>
+                <Point x="800" y="1180"/>
               </Geometry>
             </Glyph>
           </Relation>
@@ -675,8 +780,8 @@ Analizar bien la relacion de
             <Geometry left="1344" top="1344" width="200" height="100"/>
             <Glyph>
               <Geometry>
-                <Point x="1870" y="510"/>
-                <Point x="600" y="860"/>
+                <Point x="800" y="1460"/>
+                <Point x="800" y="1180"/>
               </Geometry>
             </Glyph>
           </Relation>
@@ -688,8 +793,8 @@ Analizar bien la relacion de
             <Geometry left="1360" top="1360" width="200" height="100"/>
             <Glyph>
               <Geometry>
-                <Point x="290" y="1140"/>
-                <Point x="600" y="1010"/>
+                <Point x="480" y="1140"/>
+                <Point x="480" y="980"/>
               </Geometry>
             </Glyph>
           </Relation>
@@ -701,8 +806,8 @@ Analizar bien la relacion de
             <Geometry left="1376" top="1376" width="200" height="100"/>
             <Glyph>
               <Geometry>
-                <Point x="290" y="940"/>
-                <Point x="600" y="1010"/>
+                <Point x="800" y="980"/>
+                <Point x="480" y="980"/>
               </Geometry>
             </Glyph>
           </Relation>
@@ -714,8 +819,8 @@ Analizar bien la relacion de
             <Geometry left="1392" top="1392" width="200" height="100"/>
             <Glyph>
               <Geometry>
-                <Point x="100" y="590"/>
-                <Point x="600" y="1010"/>
+                <Point x="480" y="540"/>
+                <Point x="480" y="980"/>
               </Geometry>
             </Glyph>
           </Relation>
@@ -727,8 +832,9 @@ Analizar bien la relacion de
             <Geometry left="1456" top="1456" width="200" height="100"/>
             <Glyph>
               <Geometry>
-                <Point x="1440" y="2270"/>
-                <Point x="1870" y="650"/>
+                <Point x="1560" y="2340"/>
+                <Point x="2070" y="2340"/>
+                <Point x="2070" y="720"/>
               </Geometry>
             </Glyph>
           </Relation>
@@ -740,8 +846,8 @@ Analizar bien la relacion de
             <Geometry left="1488" top="1488" width="200" height="100"/>
             <Glyph>
               <Geometry>
-                <Point x="290" y="1140"/>
-                <Point x="600" y="1290"/>
+                <Point x="480" y="1140"/>
+                <Point x="480" y="1300"/>
               </Geometry>
             </Glyph>
           </Relation>
@@ -753,8 +859,8 @@ Analizar bien la relacion de
             <Geometry left="1504" top="1504" width="200" height="100"/>
             <Glyph>
               <Geometry>
-                <Point x="100" y="1280"/>
-                <Point x="310" y="690"/>
+                <Point x="220" y="1350"/>
+                <Point x="220" y="770"/>
               </Geometry>
             </Glyph>
           </Relation>
@@ -766,8 +872,8 @@ Analizar bien la relacion de
             <Geometry left="1520" top="1520" width="200" height="100"/>
             <Glyph>
               <Geometry>
-                <Point x="100" y="1460"/>
-                <Point x="100" y="1280"/>
+                <Point x="220" y="1530"/>
+                <Point x="220" y="1350"/>
               </Geometry>
             </Glyph>
           </Relation>
@@ -779,8 +885,8 @@ Analizar bien la relacion de
             <Geometry left="1536" top="1536" width="200" height="100"/>
             <Glyph>
               <Geometry>
-                <Point x="1720" y="1470"/>
-                <Point x="1720" y="1690"/>
+                <Point x="1840" y="1540"/>
+                <Point x="1840" y="1760"/>
               </Geometry>
             </Glyph>
           </Relation>
@@ -792,8 +898,10 @@ Analizar bien la relacion de
             <Geometry left="1472" top="1472" width="200" height="100"/>
             <Glyph>
               <Geometry>
-                <Point x="1870" y="650"/>
-                <Point x="1870" y="510"/>
+                <Point x="2090" y="730"/>
+                <Point x="2090" y="2460"/>
+                <Point x="800" y="2460"/>
+                <Point x="800" y="1460"/>
               </Geometry>
             </Glyph>
           </Relation>
@@ -802,7 +910,7 @@ Analizar bien la relacion de
       <TDBADiagramObject id="56" propertiesclass="TDiagramMetaTableProperties" objectname="sbd.meta_operativa">
         <TDiagramMetaTableProperties>
           <Glyph>
-            <Geometry left="1880" top="840" width="200" height="83"/>
+            <Geometry left="1780" top="1180" width="200" height="83"/>
           </Glyph>
         </TDiagramMetaTableProperties>
       </TDBADiagramObject>
@@ -812,8 +920,9 @@ Analizar bien la relacion de
             <Geometry left="1504" top="1504" width="200" height="100"/>
             <Glyph>
               <Geometry>
-                <Point x="1980" y="880"/>
-                <Point x="1870" y="650"/>
+                <Point x="1880" y="1220"/>
+                <Point x="2030" y="1220"/>
+                <Point x="2030" y="725"/>
               </Geometry>
             </Glyph>
           </Relation>
@@ -825,8 +934,8 @@ Analizar bien la relacion de
             <Geometry left="1504" top="1504" width="200" height="100"/>
             <Glyph>
               <Geometry>
-                <Point x="1440" y="660"/>
-                <Point x="1870" y="650"/>
+                <Point x="1550" y="730"/>
+                <Point x="2030" y="730"/>
               </Geometry>
             </Glyph>
           </Relation>
@@ -838,8 +947,8 @@ Analizar bien la relacion de
             <Geometry left="1488" top="1488" width="200" height="100"/>
             <Glyph>
               <Geometry>
-                <Point x="1440" y="1090"/>
-                <Point x="1980" y="880"/>
+                <Point x="1570" y="1210"/>
+                <Point x="1890" y="1210"/>
               </Geometry>
             </Glyph>
           </Relation>
@@ -851,8 +960,9 @@ Analizar bien la relacion de
             <Geometry left="1504" top="1504" width="200" height="100"/>
             <Glyph>
               <Geometry>
-                <Point x="1440" y="1290"/>
-                <Point x="1980" y="880"/>
+                <Point x="1560" y="1360"/>
+                <Point x="1880" y="1360"/>
+                <Point x="1880" y="1220"/>
               </Geometry>
             </Glyph>
           </Relation>
@@ -864,14 +974,15 @@ Analizar bien la relacion de
             <Geometry left="1504" top="1504" width="200" height="100"/>
             <Glyph>
               <Geometry>
-                <Point x="1440" y="1470"/>
-                <Point x="1870" y="510"/>
+                <Point x="1560" y="1580"/>
+                <Point x="820" y="1580"/>
+                <Point x="820" y="1480"/>
               </Geometry>
             </Glyph>
           </Relation>
         </TDiagramForeignKeyProperties>
       </TDBADiagramObject>
     </Elements>
-    <Surface zoom="80" scrollx="0" scrolly="813"/>
+    <Surface zoom="32.768" scrollx="0" scrolly="174"/>
   </TDBADiagramController>
 </XMLDiagram>
