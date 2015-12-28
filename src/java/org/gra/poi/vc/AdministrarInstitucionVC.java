@@ -31,6 +31,7 @@ public class AdministrarInstitucionVC {
     public void recuperarInstitucion(long id){
         setInstitucion(getInstitucionBL().buscar(id));
     }
+    
     public void registrar(){
         Utilitario.setTareaEvento(new Tarea(Tarea.REGISTRO, getInstitucionBL().registrar(getInstitucion())) {
             @Override

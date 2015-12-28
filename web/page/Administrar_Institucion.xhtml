@@ -34,11 +34,11 @@
                                      paginator="true" paginatorPosition="bottom" rowIndexVar="rowIndex"
                                      paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                                      rowsPerPageTemplate="5,10,15">
-                            <p:column headerText="N°" style="width: 30px;text-align: center;">
+                            <p:column headerText="N°" style="text-align: left;width: 30px;"><!-- width: 30px; -->
                                 <h:outputText value="#{rowIndex+1}" />
                             </p:column>
 
-                            <p:column headerText="CÓDIGO" style="width: 90px;text-align: center;">
+                            <p:column headerText="CÓDIGO" style="text-align: left;width: 90px;"><!-- width: 90px; -->
                                 <h:outputText value="#{iins.codigo}" />
                             </p:column>
 
@@ -46,12 +46,12 @@
                                 <h:outputText value="#{iins.denominacion}" />
                             </p:column>
 
-                            <p:column headerText="" style="width: 30px;"> 
+                            <p:column headerText="" style="width: 30px;"><!-- width: 30px; --> 
                                 <p:commandButton title="EDITAR" icon="ui-icon-pencil" immediate="True" oncomplete="PF('dialog_editar').show();"
                                                  update="form_edit:controles" actionListener="#{administrarInstitucionVC.recuperarInstitucion(iins.idinstitucion)}"/>    
                             </p:column>
 
-                            <p:column headerText="" style="width: 30px;"> 
+                            <p:column headerText="" style="width: 30px;"> <!-- width: 30px; --> 
                                 <p:commandButton title="ELIMINAR" icon="ui-icon-close" immediate="True" oncomplete="PF('dialog_eliminar').show();" 
                                                  update="" actionListener="#{administrarInstitucionVC.recuperarInstitucion(iins.idinstitucion)}"/>
                             </p:column>
