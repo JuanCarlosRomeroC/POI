@@ -15,7 +15,6 @@ public class CentroCosto  implements java.io.Serializable {
 
     public CentroCosto() {
     }
-
 	
     public CentroCosto(long idcentroCosto) {
         this.idcentroCosto = idcentroCosto;
@@ -55,10 +54,6 @@ public class CentroCosto  implements java.io.Serializable {
     public void setAsignacionAeCcs(Set asignacionAeCcs) {
         this.asignacionAeCcs = asignacionAeCcs;
     }
-
-
-
-
 }
 
 

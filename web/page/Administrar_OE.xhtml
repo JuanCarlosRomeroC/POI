@@ -11,6 +11,10 @@
 
         <ui:composition template="./../template/layout.xhtml">
             <ui:define name="content">
+                <f:metadata>  
+                    <f:viewAction action="#{administrarOEVC.init()}" />
+                </f:metadata>
+                
                 <h:form>
                     <p:panel id="basic" style="margin: 0 auto; "> 
                         <f:facet name="header">
@@ -23,24 +27,32 @@
                             <p:commandButton value="NUEVO" icon="ui-icon-plusthick" type="button" onclick="PF('dialog_nuevo').show();" />
                         </p:panelGrid> 
                         <div style="font-weight:bold;">LISTA DE OBJETIVOS ESTRATÉGICOS</div>
-                        <p:dataTable var="car" rows="10" reflow="true"
-                                     paginator="true" paginatorPosition="bottom"
+                        <p:dataTable rows="10" reflow="true" value="#{administrarOEVC.listaOePei}" var="ioe"
+                                     paginator="true" paginatorPosition="bottom" rowIndexVar="rowIndex"
                                      paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                                      rowsPerPageTemplate="5,10,15">
                             <p:column headerText="N°" style="width: 30px;text-align: center;">
-                                <h:outputText value="" />
+                                <h:outputText value="#{rowIndex+1}" />
                             </p:column>
 
                             <p:column headerText="ABREVIATURA" style="width: 90px;text-align: center;">
-                                <h:outputText value="" />
+                                <h:outputText value="#{ioe.abreviatura}" />
                             </p:column>
 
                             <p:column headerText="CORRELATIVO" style="width: 90px;text-align: center;">
-                                <h:outputText value="" />
+                                <h:outputText value="#{ioe.correlativo}" />
                             </p:column>
 
                             <p:column headerText="DENOMINACIÓN" style="text-align: left;">
-                                <h:outputText value="" />
+                                <h:outputText value="#{ioe.denominacion}" />
+                            </p:column>
+                            
+                            <p:column headerText="" style="width: 40px;">
+                                <p:commandButton title="EDITAR" icon="ui-icon-pencil" type="button" onclick="PF('dialog_editar').show();" />                                
+                            </p:column>
+                            
+                            <p:column headerText="" style="width: 40px;">                                
+                                <p:commandButton title="ELIMINAR" icon="ui-icon-close" type="button" onclick="PF('dialog_eliminar').show();" />
                             </p:column>
 
                         </p:dataTable>
