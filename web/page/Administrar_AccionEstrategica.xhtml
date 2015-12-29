@@ -12,8 +12,14 @@
         <ui:composition template="./../template/layout.xhtml">
             <ui:define name="content">
 
-                <h:form>
-                    <p:panel id="basic" style="margin: 0 auto; "> 
+                <f:metadata>  
+                    <f:viewAction action="#{administrarAccionEstrategicaVC.init()}" />
+                </f:metadata>
+
+                <p:growl id="msg" sticky="true" showDetail="true" life="2000"/>
+
+                <h:form id="form_admin">
+                    <p:panel id="control" style="margin: 0 auto; "> 
                         <f:facet name="header">
                             ADMINISTRAR ACCIÓN ESTRATÉGICA
                         </f:facet>
@@ -25,22 +31,31 @@
                         </p:panelGrid> 
 
                         <div style="font-weight:bold;">LISTA DE ACCIONES ESTRATÉGICAS</div>
-                        <p:dataTable var="car" rows="10" reflow="true"
+                        <p:dataTable rows="10" reflow="true" value="#{administrarAccionEstrategicaVC.listaAccionEstrategica}" var="iae"
                                      paginator="true" paginatorPosition="bottom"
                                      paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                                      rowsPerPageTemplate="5,10,15">
                             <p:column headerText="N°" style="width: 30px;text-align: center;">
-                                <h:outputText value="" />
+                                <h:outputText value="#{rowIndex+1}" />
                             </p:column>
 
                             <p:column headerText="CÓDIGO" style="width: 90px;text-align: center;">
-                                <h:outputText value="" />
+                                <h:outputText value="#{iae.codigo}" />
                             </p:column>
 
                             <p:column headerText="DENOMINACIÓN" style="text-align: left;">
-                                <h:outputText value="" />
+                                <h:outputText value="#{iae.denominacion}" />
                             </p:column>
 
+                            <p:column headerText="" style="width: 30px;"><!-- width: 30px; --> 
+                                <p:commandButton title="EDITAR" icon="ui-icon-pencil" immediate="True" oncomplete="PF('dialog_editar').show();"
+                                                 update="form_edit:controles" actionListener="#{administrarAccionEstrategicaVC.recuperarAccionEstrategica(iae.idaccionEstrategica)}"/>    
+                            </p:column>
+
+                            <p:column headerText="" style="width: 30px;"> <!-- width: 30px; --> 
+                                <p:commandButton title="ELIMINAR" icon="ui-icon-close" immediate="True" oncomplete="PF('dialog_eliminar').show();" 
+                                                 update="" actionListener="#{administrarAccionEstrategicaVC.recuperarAccionEstrategica(iae.idaccionEstrategica)}"/>
+                            </p:column>
                         </p:dataTable>
 
                         <f:facet name="footer">
@@ -49,128 +64,79 @@
                     </p:panel>
                 </h:form>
 
-                <h:form><!-- FORM NUEVO -->
-                    <p:dialog  id="dialog_nuevo" widgetVar="dialog_nuevo" modal="true" resizable="false" draggable="false">
+                <h:form id="form_new"><!-- FORM NUEVO -->
+                    <p:dialog  widgetVar="dialog_nuevo" modal="true" resizable="false" draggable="false">
                         <f:facet name="header">
                             REGISTRAR ACCIÓN ESTRATÉGICA
                         </f:facet>
 
-                        <h:panelGrid style="width: 100%;" columns="1" columnClasses="ui-grid-col-12" layout="grid" styleClass="ui-panelgrid-blank">      
-                            <div style="font-weight:bold;">OBJETIVO ESTRATÉGICO INSTITUCIONAL</div>
-                            <p:selectOneMenu id="oeInst">
-                                <f:selectItem itemLabel="Select One" itemValue="" />
-                                <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
-                                <f:selectItem itemLabel="PS4" itemValue="PS4" />
-                                <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
-                            </p:selectOneMenu>
-
-                            <div style="font-weight:bold;">ABREVIATURA</div>
-                            <p:inputText id="abreviatura"/>
-
-                            <div style="font-weight:bold;">CORRELATIVO</div>
-                            <p:inputText id="correlativo"/> 
-
+                        <h:panelGrid id="controles" style="width: 100%;" columns="1" columnClasses="ui-grid-col-12" layout="grid" styleClass="ui-panelgrid-blank">      
                             <div style="font-weight:bold;">CÓDIGO</div>
-                            <p:inputText id="codigo"/>
+                            <p:inputText id="codigo" value="#{administrarAccionEstrategicaVC.accionEstrategica.codigo}" required="true" maxlength="10"/>
 
                             <div style="font-weight:bold;">DENOMINACIÓN</div>
-                            <h:inputTextarea id="denominacion" style="height: 50px; resize: none;width: 100%;"/>
-
-                            <div style="font-weight:bold;">CATEGORÍA PRESUPUESTAL</div>
-                            <p:selectOneMenu id="categPres">
-                                <f:selectItem itemLabel="Select One" itemValue="" />
-                                <f:selectItem itemLabel="0091 INCREMENTO EN EL ACCESO DE LA POBLACION DE 3 A 16 A LOS SERVICIOS EDUCATIVOS PUBLICOS DE LA EDUCACION BASICA REGULAR" itemValue="Xbox One" />
-                                <f:selectItem itemLabel="dasd as das d as d as d as d as das d as d a das d a sd a dasdasd asd as das da" itemValue="PS4" />
-                                <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
-                            </p:selectOneMenu>
-
-                            <div style="font-weight:bold;">CENTRO DE COSTO</div>
-                            <p:selectOneMenu id="centroCosto">
-                                <f:selectItem itemLabel="Select One" itemValue="" />
-                                <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
-                                <f:selectItem itemLabel="PS4" itemValue="PS4" />
-                                <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
-                            </p:selectOneMenu>
-                        </h:panelGrid>                        
-
+                            <h:inputTextarea id="denominacion" value="#{administrarAccionEstrategicaVC.accionEstrategica.denominacion}" required="true" style="height: 50px; resize: none;width: 100%;"/>
+                        </h:panelGrid>
                         <f:facet name="footer">
-                            <p:panelGrid columns="2" columnClasses="ui-grid-col-6,ui-grid-col-6" layout="grid" styleClass="ui-panelgrid-blank">
-                                <p:commandButton value="REGISTRAR" icon="ui-icon-disk"/>                            
-                                <p:commandButton value="CANCELAR" icon="ui-icon-closethick" />
-                            </p:panelGrid>                                
+                            <h:panelGrid columns="2" columnClasses="ui-grid-col-6,ui-grid-col-6" layout="grid" styleClass="ui-panelgrid-blank">
+                                <p:commandButton value="REGISTRAR" icon="ui-icon-disk" validateClient="true"
+                                                 oncomplete="if (args &amp;&amp; !args.validationFailed){PF('dialog_nuevo').hide();}"
+                                                 actionListener="#{administrarAccionEstrategicaVC.registrar}" 
+                                                 update="msg,controles,form_admin:control"/> 
+
+                                <p:commandButton value="CANCELAR" icon="ui-icon-closethick" update="msg,controles"                                                 
+                                                 process="@this">
+                                    <p:resetInput target="msg,controles" />
+                                </p:commandButton>
+                            </h:panelGrid>                                
                         </f:facet>
                     </p:dialog> 
                 </h:form>
 
-                <h:form><!-- FORM EDITAR -->
+                <h:form id="form_edit"><!-- FORM EDITAR -->
                     <p:dialog  id="dialog_editar" widgetVar="dialog_editar" modal="true" resizable="false" draggable="false">
                         <f:facet name="header">
                             EDITAR ACCIÓN ESTRATÉGICA
                         </f:facet>
 
-                        <h:panelGrid style="width: 100%;" columns="1" columnClasses="ui-grid-col-12" layout="grid" styleClass="ui-panelgrid-blank">
-                            <div style="font-weight:bold;">OBJETIVO ESTRATÉGICO INSTITUCIONAL</div>
-                            <p:selectOneMenu id="oeInst">
-                                <f:selectItem itemLabel="Select One" itemValue="" />
-                                <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
-                                <f:selectItem itemLabel="PS4" itemValue="PS4" />
-                                <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
-                            </p:selectOneMenu>
-
-                            <div style="font-weight:bold;">ABREVIATURA</div>
-                            <p:inputText id="abreviatura" style="resize: none;"/>
-
-                            <div style="font-weight:bold;">CORRELATIVO</div>
-                            <p:inputText id="correlativo" style="resize: none;"/> 
-
+                        <h:panelGrid  id="controles" style="width: 100%;" columns="1" columnClasses="ui-grid-col-12" layout="grid" styleClass="ui-panelgrid-blank">
                             <div style="font-weight:bold;">CÓDIGO</div>
-                            <p:inputText id="codigo" style="resize: none;"/>
+                            <p:inputText id="codigo" value="#{administrarAccionEstrategicaVC.accionEstrategica.codigo}" required="true" maxlength="10" style="resize: none;"/>
 
                             <div style="font-weight:bold;">DENOMINACIÓN</div>
-                            <h:inputTextarea id="denominacion" style="height: 50px; resize: none;width: 100%;"/>   
-
-                            <div style="font-weight:bold;">CATEGORÍA PRESUPUESTAL</div>
-                            <p:selectOneMenu id="categPres">
-                                <f:selectItem itemLabel="Select One" itemValue="" />
-                                <f:selectItem itemLabel="0091 INCREMENTO EN EL ACCESO DE LA POBLACION DE 3 A 16 A LOS SERVICIOS EDUCATIVOS PUBLICOS DE LA EDUCACION BASICA REGULAR" itemValue="Xbox One" />
-                                <f:selectItem itemLabel="dasd as das d as d as d as d as das d as d a das d a sd a dasdasd asd as das da" itemValue="PS4" />
-                                <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
-                            </p:selectOneMenu>
-
-                            <div style="font-weight:bold;">CENTRO DE COSTO</div>
-                            <p:selectOneMenu id="centroCosto">
-                                <f:selectItem itemLabel="Select One" itemValue="" />
-                                <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
-                                <f:selectItem itemLabel="PS4" itemValue="PS4" />
-                                <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
-                            </p:selectOneMenu>
+                            <h:inputTextarea id="denominacion" value="#{administrarAccionEstrategicaVC.accionEstrategica.denominacion}" required="true" style="height: 50px; resize: none;width: 100%;"/>   
                         </h:panelGrid>
 
                         <f:facet name="footer">
-                            <p:panelGrid columns="4" columnClasses="ui-grid-col-3,ui-grid-col-3,ui-grid-col-3,ui-grid-col-3" layout="grid" styleClass="ui-panelgrid-blank">
-                                <h:outputText value="" />
-                                <h:outputText value="" />
-                                <p:commandButton value="GUARDAR" icon="ui-icon-disk"/>                            
-                                <p:commandButton value="CANCELAR" icon="ui-icon-closethick" />
+                            <p:panelGrid columns="2" columnClasses="ui-grid-col-6,ui-grid-col-6" layout="grid" styleClass="ui-panelgrid-blank">
+                                <p:commandButton value="GUARDAR" icon="ui-icon-disk" validateClient="true"
+                                                 oncomplete="if (args &amp;&amp; !args.validationFailed){PF('dialog_editar').hide();}"
+                                                 actionListener="#{administrarAccionEstrategicaVC.actualizar}" 
+                                                 update="msg,controles,form_admin:control"/> 
+
+                                <p:commandButton value="CANCELAR" icon="ui-icon-closethick" update="msg,controles"                                                 
+                                                 process="@this">
+                                    <p:resetInput target="msg,controles" />
+                                </p:commandButton>
                             </p:panelGrid>                                
                         </f:facet>
                     </p:dialog> 
                 </h:form>
 
-                <h:form><!-- FORM ELIMINAR -->
-                    <p:confirmDialog id="dialog_eliminar" widgetVar="dialog_eliminar"  
-                                     message="¿ESTÁ SEGURO QUE DESEA ELIMINAR EL REGISTRO?" 
-                                     header="ELIMINAR REGISTRO">
+                <h:form id="form_del"><!-- FORM ELIMINAR -->
+                    <p:confirmDialog  widgetVar="dialog_eliminar"  
+                                      message="¿ESTÁ SEGURO QUE DESEA ELIMINAR EL REGISTRO?" 
+                                      header="ELIMINAR REGISTRO">
+                        <p:panelGrid columns="2" columnClasses="ui-grid-col-6,ui-grid-col-6" layout="grid" styleClass="ui-panelgrid-blank">
+                            <p:commandButton value="SI" icon="ui-icon-check" oncomplete="PF('dialog_eliminar').hide()"                                             
+                                             actionListener="#{administrarAccionEstrategicaVC.eliminar}" 
+                                             update="msg,form_admin:control"/> 
 
-                        <p:growl id="msg" sticky="true" showDetail="true" life="2000"/>
-                        <p:commandButton icon="ui-icon-close" update="msg" value="NO" process="@this" 
-                                         style="float: right; margin-right: .3em;" oncomplete="PF('dialog_eliminar').hide()">
-                            <p:resetInput target="dialog_editar" />
-                        </p:commandButton>
-                        <p:commandButton update="msg" value="SI"
-                                         style="float: right; margin-right: .3em;"                                                       
-                                         icon="ui-icon-check" oncomplete="PF('dialog_eliminar').hide()"/>       
-
+                            <p:commandButton value="NO" icon="ui-icon-closethick" update="msg"                                                 
+                                             process="@this" oncomplete="PF('dialog_eliminar').hide()">
+                                <p:resetInput target="msg" />
+                            </p:commandButton>
+                        </p:panelGrid> 
                     </p:confirmDialog>
                 </h:form>
             </ui:define>
