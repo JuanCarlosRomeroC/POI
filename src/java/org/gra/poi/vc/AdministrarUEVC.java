@@ -41,6 +41,11 @@ public class AdministrarUEVC {
         getListaInstitucion().addAll(getInstitucionBL().listar());
     }
     
+    public void recuperarUnidadOrganica(long id){
+        setOrganoUnidad(getOrganoUnidadBL().buscar(id));
+        setId_institucion(getOrganoUnidad().getInstitucion().getIdinstitucion());
+    }
+    
     public void registrar(){
         getOrganoUnidad().setInstitucion(getInstitucionBL().buscar(id_institucion));
         Utilitario.setTareaEvento(new Tarea(Accion.REGISTRO, getOrganoUnidadBL().registrar(getOrganoUnidad())) {

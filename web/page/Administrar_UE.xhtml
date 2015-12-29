@@ -48,11 +48,13 @@
                             </p:column>
                             
                             <p:column headerText="" style="width: 30px;">
-                                <p:commandButton title="EDITAR" icon="ui-icon-pencil" type="button" onclick="PF('dialog_editar').show();" />                                
+                                <p:commandButton title="EDITAR" icon="ui-icon-pencil" immediate="True" oncomplete="PF('dialog_editar').show();"
+                                                 update="form_edit:controles" actionListener="#{administrarUEVC.recuperarUnidadOrganica(iue.idorgano)}"/>    
                             </p:column>
                             
                             <p:column headerText="" style="width: 30px;">                                
-                                <p:commandButton title="ELIMINAR" icon="ui-icon-close" type="button" onclick="PF('dialog_eliminar').show();" />
+                                <p:commandButton title="ELIMINAR" icon="ui-icon-close" immediate="True" oncomplete="PF('dialog_eliminar').show();" 
+                                                 update="" actionListener="#{administrarUEVC.recuperarUnidadOrganica(iue.idorgano)}"/>
                             </p:column>
                         </p:dataTable>
 
@@ -71,7 +73,7 @@
                         <h:panelGrid id="controles" style="width: 100%;" columns="1" columnClasses="ui-grid-col-12" layout="grid" styleClass="ui-panelgrid-blank">
                             <div style="font-weight:bold;">INSTITUCIÓN</div>
                             <p:selectOneMenu id="institucion"  style="width: 300px;" value="#{administrarUEVC.id_institucion}">
-                                <f:selectItem itemLabel="SELECCIONAR" itemValue="" />
+                                <f:selectItem itemLabel="SELECCIONAR" itemValue="0" />
                                 <f:selectItems value="#{administrarUEVC.listaInstitucion}" var="ins" itemLabel="#{ins.denominacion}" itemValue="#{ins.idinstitucion}"/>
                             </p:selectOneMenu>
 
