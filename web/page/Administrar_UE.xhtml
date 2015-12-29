@@ -15,9 +15,11 @@
                 <f:metadata>  
                     <f:viewAction action="#{administrarUEVC.init()}" />
                 </f:metadata>
+                
+                <p:growl id="msg" sticky="true" showDetail="true" life="2000"/>
 
-                <h:form>
-                    <p:panel id="basic" style="margin: 0 auto;"> 
+                <h:form id="form_admin">
+                    <p:panel id="control" style="margin: 0 auto;"> 
                         <f:facet name="header">
                             ADMINISTRAR UNIDAD EJECUTORA
                         </f:facet>
@@ -60,97 +62,111 @@
                     </p:panel>
                 </h:form>
 
-                <h:form><!-- FORM NUEVO -->
+                <h:form id="form_new"><!-- FORM NUEVO -->
                     <p:dialog  widgetVar="dialog_nuevo" modal="true" resizable="false" draggable="false">
                         <f:facet name="header">
                             REGISTRAR UNIDAD EJECUTORA U ÓRGANO
                         </f:facet>
 
-                        <h:panelGrid style="width: 100%;" columns="1" columnClasses="ui-grid-col-12" layout="grid" styleClass="ui-panelgrid-blank">
+                        <h:panelGrid id="controles" style="width: 100%;" columns="1" columnClasses="ui-grid-col-12" layout="grid" styleClass="ui-panelgrid-blank">
                             <div style="font-weight:bold;">INSTITUCIÓN</div>
-                            <p:selectOneMenu id="institucion"  style="width: 300px;">
-                                <f:selectItem itemLabel="Select One" itemValue="" />
-                                <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
-                                <f:selectItem itemLabel="PS4" itemValue="PS4" />
-                                <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
+                            <p:selectOneMenu id="institucion"  style="width: 300px;" value="#{administrarUEVC.id_institucion}">
+                                <f:selectItem itemLabel="SELECCIONAR" itemValue="" />
+                                <f:selectItems value="#{administrarUEVC.listaInstitucion}" var="ins" itemLabel="#{ins.denominacion}" itemValue="#{ins.idinstitucion}"/>
                             </p:selectOneMenu>
 
                             <div style="font-weight:bold;">TIPO</div>
-                            <p:selectOneMenu id="tipo"  style="width: 300px;">
-                                <f:selectItem itemLabel="Select One" itemValue="" />
-                                <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
-                                <f:selectItem itemLabel="PS4" itemValue="PS4" />
-                                <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
+                            <p:selectOneMenu id="tipo"  style="width: 300px;" value="#{administrarUEVC.organoUnidad.tipoOrgano}">
+                                <f:selectItem itemLabel="SELECCIONAR" itemValue="" />
+                                <f:selectItem itemLabel="SEDE" itemValue="SEDE" />
+                                <f:selectItem itemLabel="DIRECCION REGIONAL" itemValue="DIRECCION_REGIONAL" />
+                                <f:selectItem itemLabel="UNIDAD EJECUTORA" itemValue="UNIDAD_EJECUTORA" />
+                                <f:selectItem itemLabel="DEPENDENCIA" itemValue="DEPENDENCIA" />
                             </p:selectOneMenu> 
 
                             <div style="font-weight:bold;">CÓDIGO</div>
-                            <p:inputText id="codigo"/>
+                            <p:inputText id="codigo" value="#{administrarUEVC.organoUnidad.codigo}" required="true" maxlength="10"/>
 
                             <div style="font-weight:bold;">DENOMINACIÓN</div>
-                            <p:inputText id="denominacion"/>
+                            <p:inputText id="denominacion" value="#{administrarUEVC.organoUnidad.denominacion}" required="true" />
                         </h:panelGrid>
 
                         <f:facet name="footer">
                             <p:panelGrid columns="2" columnClasses="ui-grid-col-6,ui-grid-col-6" layout="grid" styleClass="ui-panelgrid-blank">
-                                <p:commandButton value="REGISTRAR" icon="ui-icon-disk"/>                            
-                                <p:commandButton value="CANCELAR" icon="ui-icon-closethick" />
+                                <p:commandButton value="REGISTRAR" icon="ui-icon-disk" validateClient="true"
+                                                 oncomplete="if (args &amp;&amp; !args.validationFailed){PF('dialog_nuevo').hide();}"
+                                                 actionListener="#{administrarUEVC.registrar}" 
+                                                 update="msg,controles,form_admin:control"/> 
+
+                                <p:commandButton value="CANCELAR" icon="ui-icon-closethick" update="msg,controles"                                                 
+                                                 process="@this">
+                                    <p:resetInput target="msg,controles" />
+                                </p:commandButton>
                             </p:panelGrid>                                
                         </f:facet>
                     </p:dialog> 
                 </h:form>
 
-                <h:form><!-- FORM EDITAR -->
+                <h:form id="form_edit"><!-- FORM EDITAR -->
                     <p:dialog  widgetVar="dialog_editar" modal="true" resizable="false" draggable="false">
                         <f:facet name="header">
                             EDITAR UNIDAD EJECUTORA U ÓRGANO
                         </f:facet>
 
-                        <h:panelGrid style="width: 100%;" columns="1" columnClasses="ui-grid-col-12" layout="grid" styleClass="ui-panelgrid-blank">
+                        <h:panelGrid id="controles" style="width: 100%;" columns="1" columnClasses="ui-grid-col-12" layout="grid" styleClass="ui-panelgrid-blank">
                             <div style="font-weight:bold;">INSTITUCIÓN</div>
-                            <p:selectOneMenu id="institucion"  style="width: 300px;">
-                                <f:selectItem itemLabel="Select One" itemValue="" />
-                                <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
-                                <f:selectItem itemLabel="PS4" itemValue="PS4" />
-                                <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
+                            <p:selectOneMenu id="institucion"  style="width: 300px;" value="#{administrarUEVC.id_institucion}">
+                                <f:selectItem itemLabel="SELECCIONAR" itemValue="" />
+                                <f:selectItems value="#{administrarUEVC.listaInstitucion}" var="ins" itemLabel="#{ins.denominacion}" itemValue="#{ins.idinstitucion}"/>
                             </p:selectOneMenu>
 
                             <div style="font-weight:bold;">TIPO</div>
-                            <p:selectOneMenu id="tipo"  style="width: 300px;">
-                                <f:selectItem itemLabel="Select One" itemValue="" />
-                                <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
-                                <f:selectItem itemLabel="PS4" itemValue="PS4" />
-                                <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
+                            <p:selectOneMenu id="tipo"  style="width: 300px;" value="#{administrarUEVC.organoUnidad.tipoOrgano}">
+                                <f:selectItem itemLabel="SELECCIONAR" itemValue="" />
+                                <f:selectItem itemLabel="SEDE" itemValue="SEDE" />
+                                <f:selectItem itemLabel="DIRECCION REGIONAL" itemValue="DIRECCION_REGIONAL" />
+                                <f:selectItem itemLabel="UNIDAD EJECUTORA" itemValue="UNIDAD_EJECUTORA" />
+                                <f:selectItem itemLabel="DEPENDENCIA" itemValue="DEPENDENCIA" />
                             </p:selectOneMenu> 
 
                             <div style="font-weight:bold;">CÓDIGO</div>
-                            <p:inputText id="codigo"/>
+                            <p:inputText id="codigo" value="#{administrarUEVC.organoUnidad.codigo}" required="true" maxlength="10"/>
 
                             <div style="font-weight:bold;">DENOMINACIÓN</div>
-                            <p:inputText id="denominacion"/>
+                            <p:inputText id="denominacion" value="#{administrarUEVC.organoUnidad.denominacion}" required="true" />
                         </h:panelGrid>
 
                         <f:facet name="footer">
                             <p:panelGrid columns="2" columnClasses="ui-grid-col-6,ui-grid-col-6" layout="grid" styleClass="ui-panelgrid-blank">
-                                <p:commandButton value="GUARDAR" icon="ui-icon-disk"/>                            
-                                <p:commandButton value="CANCELAR" icon="ui-icon-closethick" />
+                                <p:commandButton value="GUARDAR" icon="ui-icon-disk" validateClient="true"
+                                                 oncomplete="if (args &amp;&amp; !args.validationFailed){PF('dialog_editar').hide();}"
+                                                 actionListener="#{administrarUEVC.actualizar}" 
+                                                 update="msg,controles,form_admin:control"/> 
+
+                                <p:commandButton value="CANCELAR" icon="ui-icon-closethick" update="msg,controles"                                                 
+                                                 process="@this">
+                                    <p:resetInput target="msg,controles" />
+                                </p:commandButton>
                             </p:panelGrid>                                
                         </f:facet>
                     </p:dialog> 
                 </h:form>
 
-                <h:form><!-- FORM ELIMINAR -->
+                <h:form id="form_del"><!-- FORM ELIMINAR -->
                     <p:confirmDialog widgetVar="dialog_eliminar" id="dialog_eliminar" 
                                      message="¿ESTÁ SEGURO QUE DESEA ELIMINAR EL REGISTRO?" 
                                      header="ELIMINAR REGISTRO">
 
-                        <p:growl id="msg" sticky="true" showDetail="true" life="2000"/>
-                        <p:commandButton icon="ui-icon-close" update="msg" value="No" process="@this" 
-                                         style="float: right; margin-right: .3em;" oncomplete="PF('dialog_eliminar').hide()">
-                            <p:resetInput target="dialog_editar" />
-                        </p:commandButton>
-                        <p:commandButton update="msg" value="Si"
-                                         style="float: right; margin-right: .3em;"                                                       
-                                         icon="ui-icon-check" oncomplete="PF('dialog_eliminar').hide()"/>       
+                        <p:panelGrid columns="2" columnClasses="ui-grid-col-6,ui-grid-col-6" layout="grid" styleClass="ui-panelgrid-blank">
+                            <p:commandButton value="SI" icon="ui-icon-check" oncomplete="PF('dialog_eliminar').hide()"                                             
+                                             actionListener="#{administrarUEVC.eliminar}" 
+                                             update="msg,form_admin:control"/> 
+
+                            <p:commandButton value="NO" icon="ui-icon-closethick" update="msg"                                                 
+                                             process="@this" oncomplete="PF('dialog_eliminar').hide()">
+                                <p:resetInput target="msg" />
+                            </p:commandButton>
+                        </p:panelGrid>     
 
                     </p:confirmDialog>
                 </h:form>

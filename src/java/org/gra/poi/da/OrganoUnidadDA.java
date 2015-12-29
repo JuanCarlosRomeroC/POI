@@ -26,7 +26,7 @@ public class OrganoUnidadDA  extends AbstractDA<OrganoUnidad> implements Seriali
 
     @Override
     public List<OrganoUnidad> listar() {
-        return list(OrganoUnidad.class);
+        return list("FROM OrganoUnidad");
     }
 
     @Override
