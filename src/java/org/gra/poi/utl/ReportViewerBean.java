@@ -15,16 +15,16 @@ public class ReportViewerBean implements Serializable {
     public String file_path = "/resources/t/";
     public String rsc_report_path = "/org/edessco/sva/rpt/";
     private String report = "";
-    private String existe="";
+    private String existe = "";
 
     @ManagedProperty(value = "#{sessionFactory}")
     private SessionFactory sessionFactory;
 
-    public void generarReporte(String dir, String rpt, String... srptn) {        
-        generarReporte(dir, rpt,new String[]{}, new Object[]{}, srptn);
+    public void generarReporte(String dir, String rpt) {
+        generarReporte(dir, rpt, new String[]{}, new Object[]{});
     }
 
-    public void generarReporte(String dir, String rpt, String[] k, Object[] v, String... srptn) {
+    public void generarReporte(String dir, String rpt, String[] k, Object[] v) {
         //<editor-fold defaultstate="collapsed" desc="CUERPO">
         if (k != null && v != null && k.length == v.length) {
 //            String real_path = "";
@@ -99,12 +99,13 @@ public class ReportViewerBean implements Serializable {
         }
         //</editor-fold>
     }
-    public String extractResource(String dir, String... rsc){
+
+    public String extractResource(String dir, String... rsc) {
         String real_path = "";
-            for (String srn : rsc) {
+        for (String srn : rsc) {
             real_path = extractResource(dir, srn + ".jasper");
         }
-       return real_path;
+        return real_path;
     }
 
     public String extractResource(String dir, String rsc) {
@@ -118,8 +119,8 @@ public class ReportViewerBean implements Serializable {
                 f.mkdir();
             }
             String path = f.getAbsolutePath() + File.separator;
-            InputStream fis = getClass().getResourceAsStream(rsc_report_path + rsc +".jasper");
-            f = new File(path + File.separator + rsc +".jasper");
+            InputStream fis = getClass().getResourceAsStream(rsc_report_path + rsc + ".jasper");
+            f = new File(path + File.separator + rsc + ".jasper");
             FileOutputStream fos = new FileOutputStream(f);
             int sz;
             while ((sz = fis.available()) > 0) {
