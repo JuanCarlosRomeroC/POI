@@ -11,8 +11,15 @@
 
         <ui:composition template="./../template/layout.xhtml">
             <ui:define name="content">
-                <h:form>
-                    <p:panel id="basic" style="margin: 0 auto; "> 
+                
+                <f:metadata>  
+                    <f:viewAction action="#{administrarCentroCostoVC.init()}" />
+                </f:metadata>
+
+                <p:growl id="msg" sticky="true" showDetail="true" life="2000"/>
+                
+                <h:form id="form_admin">
+                    <p:panel id="control" style="margin: 0 auto; "> 
                         <f:facet name="header">
                             ADMINISTRAR CENTRO COSTO
                         </f:facet>
@@ -25,18 +32,27 @@
                         </p:panelGrid> 
 
                         <div style="font-weight:bold;">LISTA DE CENTROS DE COSTO:</div>
-                        <p:dataTable var="car" rows="10" reflow="true"
-                                     paginator="true" paginatorPosition="bottom"
+                        <p:dataTable rows="10" reflow="true" value="#{administrarCentroCostoVC.listacentroCosto}" var="icc"
+                                     paginator="true" paginatorPosition="bottom" rowIndexVar="rowIndex"
                                      paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                                      rowsPerPageTemplate="5,10,15">
                             <p:column headerText="N°" style="width: 30px;text-align: center;">
-                                <h:outputText value="" />
+                                <h:outputText value="#{rowIndex+1}" />
                             </p:column>
 
                             <p:column headerText="DENOMINACIÓN" style="text-align: left;">
-                                <h:outputText value="" />
+                                <h:outputText value="#{icc.denominacion}" />
+                            </p:column>
+                            
+                            <p:column headerText="" style="width: 30px;"><!-- width: 30px; --> 
+                                <p:commandButton title="EDITAR" icon="ui-icon-pencil" immediate="True" oncomplete="PF('dialog_editar').show();"
+                                                 update="form_edit:controles" actionListener="#{administrarCentroCostoVC.recuperarCentroCosto(icc.idcentroCosto)}"/>    
                             </p:column>
 
+                            <p:column headerText="" style="width: 30px;"> <!-- width: 30px; --> 
+                                <p:commandButton title="ELIMINAR" icon="ui-icon-close" immediate="True" oncomplete="PF('dialog_eliminar').show();" 
+                                                 update="" actionListener="#{administrarCentroCostoVC.recuperarCentroCosto(icc.idcentroCosto)}"/>
+                            </p:column>
                         </p:dataTable>
 
                         <f:facet name="footer">
@@ -45,25 +61,75 @@
                     </p:panel>
                 </h:form>
 
-                <h:form>
-                    <p:dialog  widgetVar="dialog_nuevo" modal="true" height="50" resizable="false" draggable="false">
+                <h:form id="form_new">
+                    <p:dialog  widgetVar="dialog_nuevo" modal="true" resizable="false" draggable="false">
                         <f:facet name="header">
                             REGISTRAR CENTRO COSTO
                         </f:facet>
 
-                        <h:panelGrid columns="2" cellpadding="10">
-
+                        <h:panelGrid id="controles" style="width: 100%;" columns="1" columnClasses="ui-grid-col-12" layout="grid" styleClass="ui-panelgrid-blank">
                             <div style="font-weight:bold;">DENOMINACIÓN</div>
-                            <p:inputText id="denominacion" style="width: 600px; resize: none;"/>                            
+                            <p:inputText id="denominacion" value="#{administrarCentroCostoVC.centroCosto.denominacion}" required="true"/>                            
                         </h:panelGrid>
 
                         <f:facet name="footer">
-                            <div style="width: 100%;text-align: right;">
-                                <p:commandButton value="REGISTRAR" icon="ui-icon-disk" style="margin-right: 5px;" />                            
-                                <p:commandButton value="CANCELAR" icon="ui-icon-closethick" onclick="PF('dialog_nuevo').hide();"/>
-                            </div>
+                            <h:panelGrid columns="2" columnClasses="ui-grid-col-6,ui-grid-col-6" layout="grid" styleClass="ui-panelgrid-blank">
+                                <p:commandButton value="REGISTRAR" icon="ui-icon-disk" validateClient="true"
+                                                 oncomplete="if (args &amp;&amp; !args.validationFailed){PF('dialog_nuevo').hide();}"
+                                                 actionListener="#{administrarCentroCostoVC.registrar}" 
+                                                 update="msg,controles,form_admin:control"/> 
+
+                                <p:commandButton value="CANCELAR" icon="ui-icon-closethick" update="msg,controles"                                                 
+                                                 process="@this">
+                                    <p:resetInput target="msg,controles" />
+                                </p:commandButton>
+                            </h:panelGrid>
                         </f:facet>
                     </p:dialog> 
+                </h:form>
+                
+                <h:form id="form_edit"><!-- FORM EDITAr -->
+                    <p:dialog  widgetVar="dialog_editar" modal="true" resizable="false" draggable="false">
+                        <f:facet name="header">
+                            EDITAR CENTRO DE COSTO
+                        </f:facet>
+
+                        <h:panelGrid id="controles" style="width: 100%;" columns="1" columnClasses="ui-grid-col-12" layout="grid" styleClass="ui-panelgrid-blank">
+                            <div style="font-weight:bold;">DENOMINACIÓN</div>
+                            <p:inputText id="denominacion" value="#{administrarCentroCostoVC.centroCosto.denominacion}" required="true" />
+                        </h:panelGrid>
+
+                        <f:facet name="footer">
+                            <p:panelGrid columns="2" columnClasses="ui-grid-col-6,ui-grid-col-6" layout="grid" styleClass="ui-panelgrid-blank">
+                                <p:commandButton value="GUARDAR" icon="ui-icon-disk" validateClient="true"
+                                                 oncomplete="if (args &amp;&amp; !args.validationFailed){PF('dialog_editar').hide();}"
+                                                 actionListener="#{administrarCentroCostoVC.actualizar}" 
+                                                 update="msg,controles,form_admin:control"/> 
+
+                                <p:commandButton value="CANCELAR" icon="ui-icon-closethick" update="msg,controles"                                                 
+                                                 process="@this">
+                                    <p:resetInput target="msg,controles" />
+                                </p:commandButton>
+                            </p:panelGrid>                                
+                        </f:facet>
+                    </p:dialog> 
+                </h:form>
+
+                <h:form id="form_del"><!-- FORM ELIMINAR -->
+                    <p:confirmDialog  widgetVar="dialog_eliminar"  
+                                      message="¿ESTÁ SEGURO QUE DESEA ELIMINAR EL REGISTRO?" 
+                                      header="ELIMINAR REGISTRO">
+                        <p:panelGrid columns="2" columnClasses="ui-grid-col-6,ui-grid-col-6" layout="grid" styleClass="ui-panelgrid-blank">
+                            <p:commandButton value="SI" icon="ui-icon-check" oncomplete="PF('dialog_eliminar').hide()"                                             
+                                             actionListener="#{administrarCentroCostoVC.eliminar}" 
+                                             update="msg,form_admin:control"/> 
+
+                            <p:commandButton value="NO" icon="ui-icon-closethick" update="msg"                                                 
+                                             process="@this" oncomplete="PF('dialog_eliminar').hide()">
+                                <p:resetInput target="msg" />
+                            </p:commandButton>
+                        </p:panelGrid> 
+                    </p:confirmDialog>
                 </h:form>
             </ui:define>
         </ui:composition>

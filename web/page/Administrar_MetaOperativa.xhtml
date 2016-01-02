@@ -11,9 +11,15 @@
 
         <ui:composition template="./../template/layout.xhtml">
             <ui:define name="content">
+                
+                <f:metadata>  
+                    <f:viewAction action="#{administrarMetaOperativaVC.init()}" />
+                </f:metadata>
+                
+                <p:growl id="msg" sticky="true" showDetail="true" life="2000"/>
 
-                <h:form>
-                    <p:panel id="basic" style="margin: 0 auto; "> 
+                <h:form id="form_admin">
+                    <p:panel id="control" style="margin: 0 auto; "> 
                         <f:facet name="header">
                             ADMINISTRAR META OPERATIVA
                         </f:facet>
@@ -25,18 +31,27 @@
                         </p:panelGrid> 
 
                         <div style="font-weight:bold;">LISTA DE METAS OPERATIVAS</div>
-                        <p:dataTable var="car" rows="10" reflow="true"
-                                     paginator="true" paginatorPosition="bottom"
+                        <p:dataTable rows="10" reflow="true" value="#{administrarMetaOperativaVC.listaMetaOperativa}" var="imo"
+                                     paginator="true" paginatorPosition="bottom" rowIndexVar="rowIndex"
                                      paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                                      rowsPerPageTemplate="5,10,15">
                             <p:column headerText="N°" style="width: 30px;text-align: center;">
-                                <h:outputText value="" />
+                                <h:outputText value="#{rowIndex+1}" />
                             </p:column>
 
                             <p:column headerText="DENOMINACIÓN" style="text-align: left;">
-                                <h:outputText value="" />
+                                <h:outputText value="#{imo.denominacion}" />
                             </p:column>
-
+                            
+                            <p:column headerText="" style="width: 30px;">
+                                <p:commandButton title="EDITAR" icon="ui-icon-pencil" immediate="True" oncomplete="PF('dialog_editar').show();"
+                                                 update="form_edit:controles" actionListener="#{administrarMetaOperativaVC.recuperarMetaOperativa(imo.idmetaOperativa)}"/>    
+                            </p:column>
+                            
+                            <p:column headerText="" style="width: 30px;">                                
+                                <p:commandButton title="ELIMINAR" icon="ui-icon-close" immediate="True" oncomplete="PF('dialog_eliminar').show();" 
+                                                 update="" actionListener="#{administrarMetaOperativaVC.recuperarMetaOperativa(imo.idmetaOperativa)}"/>
+                            </p:column>
                         </p:dataTable>
 
                         <f:facet name="footer">
@@ -45,75 +60,94 @@
                     </p:panel>
                 </h:form>
 
-                <h:form><!-- FORM NUEVO -->
-                    <p:dialog  widgetVar="dialog_nuevo" modal="true" resizable="false" draggable="false">
+                <h:form id="form_new"><!-- FORM NUEVO -->
+                    <p:dialog  id="dialog_nuevo" widgetVar="dialog_nuevo" modal="true" resizable="false" draggable="false">
                         <f:facet name="header">
                             REGISTRAR META OPERATIVA
                         </f:facet>
 
-                        <h:panelGrid style="width: 100%;" columns="1" columnClasses="ui-grid-col-12" layout="grid" styleClass="ui-panelgrid-blank"> 
-                            <div style="font-weight:bold;">DENOMINACIÓN</div>
-                            <h:inputTextarea id="denominacion" style="width: 100%; height: 30px; resize: none;"/>   
+                        <h:panelGrid id="controles" style="width: 100%;" columns="1" columnClasses="ui-grid-col-12" layout="grid" styleClass="ui-panelgrid-blank"> 
+                            <div style="font-weight:bold;">ACTIVIDAD/OBRA</div>
+                            <p:selectOneMenu id="actObra" style="width: 300px;" value="#{administrarMetaOperativaVC.id_subgrupo}" >
+                                <p:ajax listener="#{administrarMetaOperativaVC.listarActividadesOperativas}" update="actOperativa" />
+                                <f:selectItem itemLabel="SELECCIONAR" itemValue="0" />
+                                <f:selectItems value="#{administrarMetaOperativaVC.listaSubgrupo}" var="isg" itemLabel="#{isg.denominacion}" itemValue="#{isg.idsubgrupo}"/>
+                            </p:selectOneMenu>
                             
                             <div style="font-weight:bold;">ACTIVIDAD OPERATIVA</div>
-                            <p:selectOneMenu id="oeInst" >
-                                <f:selectItem itemLabel="Select One" itemValue="" />
-                                <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
-                                <f:selectItem itemLabel="PS4" itemValue="PS4" />
-                                <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
+                            <p:selectOneMenu id="actOperativa" style="width: 300px;" value="#{administrarMetaOperativaVC.id_actividadOperativa}" >
+                                <f:selectItem itemLabel="SELECCIONAR" itemValue="0" />
+                                <f:selectItems value="#{administrarMetaOperativaVC.listaActividadOperativa}" var="iao" itemLabel="#{iao.denominacion}" itemValue="#{iao.idactividadOperativa}"/>
                             </p:selectOneMenu>
+                            
+                            <div style="font-weight:bold;">DENOMINACIÓN</div>
+                            <p:inputTextarea id="denominacion" value="#{administrarMetaOperativaVC.metaOperativa.denominacion}" required="true"/>                              
                         </h:panelGrid>
 
                         <f:facet name="footer">
                             <p:panelGrid columns="2" columnClasses="ui-grid-col-6,ui-grid-col-6" layout="grid" styleClass="ui-panelgrid-blank">
-                                <p:commandButton value="REGISTRAR" icon="ui-icon-disk"/>                            
-                                <p:commandButton value="CANCELAR" icon="ui-icon-closethick" />
+                                <p:commandButton value="REGISTRAR" icon="ui-icon-disk" validateClient="true"
+                                                 oncomplete="if (args &amp;&amp; !args.validationFailed){PF('dialog_nuevo').hide();}"
+                                                 actionListener="#{administrarMetaOperativaVC.registrar}" 
+                                                 update="msg,controles,form_admin:control"/> 
+
+                                <p:commandButton value="CANCELAR" icon="ui-icon-closethick" update="msg,controles"                                                 
+                                                 process="@this">
+                                    <p:resetInput target="msg,controles" />
+                                </p:commandButton>
                             </p:panelGrid>                                
                         </f:facet>
                     </p:dialog> 
                 </h:form>
                 
-                <h:form><!-- FORM EDITAR -->
-                    <p:dialog  widgetVar="dialog_editar" modal="true" resizable="false" draggable="false">
+                <h:form id="form_edit"><!-- FORM EDITAR -->
+                    <p:dialog  id="dialog_editar" widgetVar="dialog_editar" modal="true" resizable="false" draggable="false">
                         <f:facet name="header">
                             EDITAR META OPERATIVA
                         </f:facet>
 
-                        <h:panelGrid style="width: 100%;" columns="1" columnClasses="ui-grid-col-12" layout="grid" styleClass="ui-panelgrid-blank"> 
-                            <div style="font-weight:bold;">DENOMINACIÓN</div>
-                            <h:inputTextarea id="denominacion" style="width: 100%; height: 30px; resize: none;"/>   
-                            
+                        <h:panelGrid id="controles" style="width: 100%;" columns="1" columnClasses="ui-grid-col-12" layout="grid" styleClass="ui-panelgrid-blank"> 
                             <div style="font-weight:bold;">ACTIVIDAD OPERATIVA</div>
-                            <p:selectOneMenu id="oeInst" >
-                                <f:selectItem itemLabel="Select One" itemValue="" />
-                                <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
-                                <f:selectItem itemLabel="PS4" itemValue="PS4" />
-                                <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
+                            <p:selectOneMenu id="actOperativa" style="width: 300px;" value="#{administrarMetaOperativaVC.id_actividadOperativa}" >
+                                <f:selectItem itemLabel="SELECCIONAR" itemValue="" />
+                                <f:selectItems value="#{administrarMetaOperativaVC.listaActividadOperativa}" var="iao" itemLabel="#{iao.denominacion}" itemValue="#{iao.idactividadOperativa}"/>
                             </p:selectOneMenu>
+                            
+                            <div style="font-weight:bold;">DENOMINACIÓN</div>
+                            <p:inputTextarea id="denominacion" value="#{administrarMetaOperativaVC.metaOperativa.denominacion}" required="true"/> 
                         </h:panelGrid>
 
                         <f:facet name="footer">
                             <p:panelGrid columns="2" columnClasses="ui-grid-col-6,ui-grid-col-6" layout="grid" styleClass="ui-panelgrid-blank">
-                                <p:commandButton value="GUARDAR" icon="ui-icon-disk"/>                            
-                                <p:commandButton value="CANCELAR" icon="ui-icon-closethick" />
-                            </p:panelGrid>                                
+                                <p:commandButton value="GUARDAR" icon="ui-icon-disk" validateClient="true"
+                                                 oncomplete="if (args &amp;&amp; !args.validationFailed){PF('dialog_editar').hide();}"
+                                                 actionListener="#{administrarMetaOperativaVC.actualizar}" 
+                                                 update="msg,controles,form_admin:control"/> 
+
+                                <p:commandButton value="CANCELAR" icon="ui-icon-closethick" update="msg,controles"                                                 
+                                                 process="@this">
+                                    <p:resetInput target="msg,controles" />
+                                </p:commandButton>
+                            </p:panelGrid>                               
                         </f:facet>
                     </p:dialog> 
                 </h:form>
                 
-                <h:form><!-- FORM ELIMINAR -->
-                    <p:confirmDialog id="dialog_eliminar" widgetVar="dialog_eliminar"  
+                <h:form id="form_del"><!-- FORM ELIMINAR -->
+                    <p:confirmDialog widgetVar="dialog_eliminar" id="dialog_eliminar" 
                                      message="¿ESTÁ SEGURO QUE DESEA ELIMINAR EL REGISTRO?" 
                                      header="ELIMINAR REGISTRO">
 
-                        <p:growl id="msg" sticky="true" showDetail="true" life="2000"/>
-                        <p:commandButton icon="ui-icon-close" update="msg" value="NO" process="@this" 
-                                         style="float: right; margin-right: .3em;" oncomplete="PF('dialog_eliminar').hide()">
-                            <p:resetInput target="dialog_editar" />
-                        </p:commandButton>
-                        <p:commandButton update="msg" value="SI"
-                                         style="float: right; margin-right: .3em;"                                                       
-                                         icon="ui-icon-check" oncomplete="PF('dialog_eliminar').hide()"/>       
+                        <p:panelGrid columns="2" columnClasses="ui-grid-col-6,ui-grid-col-6" layout="grid" styleClass="ui-panelgrid-blank">
+                            <p:commandButton value="SI" icon="ui-icon-check" oncomplete="PF('dialog_eliminar').hide()"                                             
+                                             actionListener="#{administrarMetaOperativaVC.eliminar}" 
+                                             update="msg,form_admin:control"/> 
+
+                            <p:commandButton value="NO" icon="ui-icon-closethick" update="msg"                                                 
+                                             process="@this" oncomplete="PF('dialog_eliminar').hide()">
+                                <p:resetInput target="msg" />
+                            </p:commandButton>
+                        </p:panelGrid>     
 
                     </p:confirmDialog>
                 </h:form>                

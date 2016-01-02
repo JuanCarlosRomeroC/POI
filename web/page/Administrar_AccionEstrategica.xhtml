@@ -32,7 +32,7 @@
 
                         <div style="font-weight:bold;">LISTA DE ACCIONES ESTRATÉGICAS</div>
                         <p:dataTable rows="10" reflow="true" value="#{administrarAccionEstrategicaVC.listaAccionEstrategica}" var="iae"
-                                     paginator="true" paginatorPosition="bottom"
+                                     paginator="true" paginatorPosition="bottom" rowIndexVar="rowIndex"
                                      paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                                      rowsPerPageTemplate="5,10,15">
                             <p:column headerText="N°" style="width: 30px;text-align: center;">
@@ -75,7 +75,7 @@
                             <p:inputText id="codigo" value="#{administrarAccionEstrategicaVC.accionEstrategica.codigo}" required="true" maxlength="10"/>
 
                             <div style="font-weight:bold;">DENOMINACIÓN</div>
-                            <h:inputTextarea id="denominacion" value="#{administrarAccionEstrategicaVC.accionEstrategica.denominacion}" required="true" style="height: 50px; resize: none;width: 100%;"/>
+                            <h:inputTextarea id="denominacion" value="#{administrarAccionEstrategicaVC.accionEstrategica.denominacion}" required="true" style="height: 80px; resize: none;width: 100%;"/>
                         </h:panelGrid>
                         <f:facet name="footer">
                             <h:panelGrid columns="2" columnClasses="ui-grid-col-6,ui-grid-col-6" layout="grid" styleClass="ui-panelgrid-blank">
