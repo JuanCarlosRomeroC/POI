@@ -10,35 +10,29 @@
                 <param name="sequence">sbd.accion_estrategica_idaccion_estrategica_seq</param>                
             </generator>
         </id>
+        <many-to-one name="oePei" class="org.gra.poi.be.OePei" fetch="select">
+            <column name="id_oe_pei" />
+        </many-to-one>
+        <many-to-one name="categoriaPresupuestal" class="org.gra.poi.be.CategoriaPresupuestal" fetch="select">
+            <column name="id_categoria_presupuestal" />
+        </many-to-one>        
+        <many-to-one name="centroCosto" class="org.gra.poi.be.CentroCosto" fetch="select">
+            <column name="id_centro_costo" />
+        </many-to-one>
         <property name="denominacion" type="string">
             <column name="denominacion" length="200" />
         </property>
         <property name="codigo" type="string">
             <column name="codigo" length="10" />
         </property>
-        <set name="asignacionAeCcs" table="asignacion_ae_cc" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="id_accion_estrategica" />
-            </key>
-            <one-to-many class="org.gra.poi.be.AsignacionAeCc" />
-        </set>
+        <property name="correlativo" type="string">
+            <column name="correlativo" length="10" />
+        </property>        
         <set name="programacionActividadeses" table="programacion_actividades" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="id_accion_estategica" />
             </key>
             <one-to-many class="org.gra.poi.be.ProgramacionActividades" />
-        </set>
-        <set name="asignacionAeCps" table="asignacion_ae_cp" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="id_accion_estrategica" />
-            </key>
-            <one-to-many class="org.gra.poi.be.AsignacionAeCp" />
-        </set>
-        <set name="asignacionAeOeis" table="asignacion_ae_oei" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="id_accion_estrategica" />
-            </key>
-            <one-to-many class="org.gra.poi.be.AsignacionAeOei" />
         </set>
     </class>
 </hibernate-mapping>

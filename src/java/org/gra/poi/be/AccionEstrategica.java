@@ -6,31 +6,30 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class AccionEstrategica  implements java.io.Serializable {
-
-
      private long idaccionEstrategica;
+     private OePei oePei;
+     private CategoriaPresupuestal categoriaPresupuestal;
+     private CentroCosto centroCosto;
      private String denominacion;
      private String codigo;
-     private Set asignacionAeCcs = new HashSet(0);
+     private String correlativo;
      private Set programacionActividadeses = new HashSet(0);
-     private Set asignacionAeCps = new HashSet(0);
-     private Set asignacionAeOeis = new HashSet(0);
 
     public AccionEstrategica() {
     }
-
 	
     public AccionEstrategica(long idaccionEstrategica) {
         this.idaccionEstrategica = idaccionEstrategica;
     }
-    public AccionEstrategica(long idaccionEstrategica, String denominacion, String codigo, Set asignacionAeCcs, Set programacionActividadeses, Set asignacionAeCps, Set asignacionAeOeis) {
+    public AccionEstrategica(long idaccionEstrategica, OePei oePei ,CategoriaPresupuestal categoriaPresupuestal, CentroCosto centroCosto, String denominacion, String codigo,String correlativo , Set programacionActividadeses) {
        this.idaccionEstrategica = idaccionEstrategica;
+       this.oePei = oePei;
+       this.categoriaPresupuestal = categoriaPresupuestal;
+       this.centroCosto = centroCosto;
        this.denominacion = denominacion;
        this.codigo = codigo;
-       this.asignacionAeCcs = asignacionAeCcs;
+       this.correlativo = correlativo;
        this.programacionActividadeses = programacionActividadeses;
-       this.asignacionAeCps = asignacionAeCps;
-       this.asignacionAeOeis = asignacionAeOeis;
     }
    
     public long getIdaccionEstrategica() {
@@ -54,13 +53,7 @@ public class AccionEstrategica  implements java.io.Serializable {
     public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
-    public Set getAsignacionAeCcs() {
-        return this.asignacionAeCcs;
-    }
     
-    public void setAsignacionAeCcs(Set asignacionAeCcs) {
-        this.asignacionAeCcs = asignacionAeCcs;
-    }
     public Set getProgramacionActividadeses() {
         return this.programacionActividadeses;
     }
@@ -68,24 +61,38 @@ public class AccionEstrategica  implements java.io.Serializable {
     public void setProgramacionActividadeses(Set programacionActividadeses) {
         this.programacionActividadeses = programacionActividadeses;
     }
-    public Set getAsignacionAeCps() {
-        return this.asignacionAeCps;
-    }
     
-    public void setAsignacionAeCps(Set asignacionAeCps) {
-        this.asignacionAeCps = asignacionAeCps;
-    }
-    public Set getAsignacionAeOeis() {
-        return this.asignacionAeOeis;
-    }
-    
-    public void setAsignacionAeOeis(Set asignacionAeOeis) {
-        this.asignacionAeOeis = asignacionAeOeis;
+    public OePei getOePei() {
+        return oePei;
     }
 
+    public void setOePei(OePei oePei) {
+        this.oePei = oePei;
+    }
 
+    public CategoriaPresupuestal getCategoriaPresupuestal() {
+        return categoriaPresupuestal;
+    }
 
+    public void setCategoriaPresupuestal(CategoriaPresupuestal categoriaPresupuestal) {
+        this.categoriaPresupuestal = categoriaPresupuestal;
+    }
 
+    public CentroCosto getCentroCosto() {
+        return centroCosto;
+    }
+
+    public void setCentroCosto(CentroCosto centroCosto) {
+        this.centroCosto = centroCosto;
+    }
+
+    public String getCorrelativo() {
+        return correlativo;
+    }
+
+    public void setCorrelativo(String correlativo) {
+        this.correlativo = correlativo;
+    }
 }
 
 
