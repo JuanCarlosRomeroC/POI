@@ -37,7 +37,9 @@ public class AccionEstrategicaDA  extends AbstractDA<AccionEstrategica> implemen
 
     @Override
     public List<AccionEstrategica> listar(long id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return list("FROM AccionEstrategica ae"
+                +" INNER JOIN FETCH ae.categoriaPresupuestal cp"
+                +" WHERE cp.idcategoriaPresupuestal="+id);
     }
 
     @Override

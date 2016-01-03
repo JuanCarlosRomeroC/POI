@@ -14,6 +14,7 @@ public class AccionEstrategica  implements java.io.Serializable {
      private String codigo;
      private String correlativo;
      private Set programacionActividadeses = new HashSet(0);
+     private Set subgrupos = new HashSet(0);
 
     public AccionEstrategica() {
     }
@@ -21,7 +22,7 @@ public class AccionEstrategica  implements java.io.Serializable {
     public AccionEstrategica(long idaccionEstrategica) {
         this.idaccionEstrategica = idaccionEstrategica;
     }
-    public AccionEstrategica(long idaccionEstrategica, OePei oePei ,CategoriaPresupuestal categoriaPresupuestal, CentroCosto centroCosto, String denominacion, String codigo,String correlativo , Set programacionActividadeses) {
+    public AccionEstrategica(long idaccionEstrategica, OePei oePei ,CategoriaPresupuestal categoriaPresupuestal, CentroCosto centroCosto, String denominacion, String codigo,String correlativo , Set programacionActividadeses, Set subgrupos) {
        this.idaccionEstrategica = idaccionEstrategica;
        this.oePei = oePei;
        this.categoriaPresupuestal = categoriaPresupuestal;
@@ -30,6 +31,7 @@ public class AccionEstrategica  implements java.io.Serializable {
        this.codigo = codigo;
        this.correlativo = correlativo;
        this.programacionActividadeses = programacionActividadeses;
+       this.subgrupos = subgrupos;
     }
    
     public long getIdaccionEstrategica() {
@@ -92,6 +94,14 @@ public class AccionEstrategica  implements java.io.Serializable {
 
     public void setCorrelativo(String correlativo) {
         this.correlativo = correlativo;
+    }
+
+    public Set getSubgrupos() {
+        return subgrupos;
+    }
+
+    public void setSubgrupos(Set subgrupos) {
+        this.subgrupos = subgrupos;
     }
 }
 

@@ -12,7 +12,6 @@ public class CategoriaPresupuestal  implements java.io.Serializable {
      private String numeracion;
      private Set programacionActividadeses = new HashSet(0);
      private Set accionEstrategicas = new HashSet(0);
-     private Set subgrupos = new HashSet(0);
 
     public CategoriaPresupuestal() {
     }
@@ -21,14 +20,13 @@ public class CategoriaPresupuestal  implements java.io.Serializable {
     public CategoriaPresupuestal(long idcategoriaPresupuestal) {
         this.idcategoriaPresupuestal = idcategoriaPresupuestal;
     }
-    public CategoriaPresupuestal(long idcategoriaPresupuestal, String tipoCategoria, String denominacion, String numeracion, Set programacionActividadeses, Set accionEstrategicas, Set subgrupos) {
+    public CategoriaPresupuestal(long idcategoriaPresupuestal, String tipoCategoria, String denominacion, String numeracion, Set programacionActividadeses, Set accionEstrategicas) {
        this.idcategoriaPresupuestal = idcategoriaPresupuestal;
        this.tipoCategoria = tipoCategoria;
        this.denominacion = denominacion;
        this.numeracion = numeracion;
        this.programacionActividadeses = programacionActividadeses;
        this.accionEstrategicas = accionEstrategicas;
-       this.subgrupos = subgrupos;
     }
    
     public long getIdcategoriaPresupuestal() {
@@ -65,14 +63,6 @@ public class CategoriaPresupuestal  implements java.io.Serializable {
     
     public void setProgramacionActividadeses(Set programacionActividadeses) {
         this.programacionActividadeses = programacionActividadeses;
-    }
-
-    public Set getSubgrupos() {
-        return this.subgrupos;
-    }
-    
-    public void setSubgrupos(Set subgrupos) {
-        this.subgrupos = subgrupos;
     }
 
     public Set getAccionEstrategicas() {

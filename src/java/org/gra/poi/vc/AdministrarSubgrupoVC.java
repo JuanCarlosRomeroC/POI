@@ -56,12 +56,12 @@ public class AdministrarSubgrupoVC {
 
     public void recuperarSubgrupo(long id) {
         setSubgrupo(getSubgrupoBL().buscar(id));
-        setId_categoriaPresupuestal(getSubgrupo().getCategoriaPresupuestal().getIdcategoriaPresupuestal());
+        setId_categoriaPresupuestal(getSubgrupo().getAccionEstrategica().getCategoriaPresupuestal().getIdcategoriaPresupuestal());
         setId_accionEstrategica(getAccionEstrategica().getIdaccionEstrategica());        
     }
 
     public void registrar() {
-        getSubgrupo().setCategoriaPresupuestal(getCategoriaPresupuestalBL().buscar(id_categoriaPresupuestal));
+        getSubgrupo().setAccionEstrategica(getAccionEstrategicaBL().buscar(id_accionEstrategica));
         Utilitario.setTareaEvento(new Tarea(Accion.REGISTRO, getSubgrupoBL().registrar(getSubgrupo())) {
             @Override
             public void procesoPost() {
@@ -75,7 +75,7 @@ public class AdministrarSubgrupoVC {
     }
 
     public void actualizar() {
-        getSubgrupo().setCategoriaPresupuestal(getCategoriaPresupuestalBL().buscar(id_categoriaPresupuestal));
+        getSubgrupo().setAccionEstrategica(getAccionEstrategicaBL().buscar(id_accionEstrategica));
         Utilitario.setTareaEvento(new Tarea(Accion.ACTUALIZACION, getSubgrupoBL().actualizar(getSubgrupo())) {
             @Override
             public void procesoPost() {

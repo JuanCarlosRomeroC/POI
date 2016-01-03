@@ -34,5 +34,11 @@
             </key>
             <one-to-many class="org.gra.poi.be.ProgramacionActividades" />
         </set>
+        <set name="subgrupos" table="subgrupo" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_accion_estategica" />
+            </key>
+            <one-to-many class="org.gra.poi.be.Subgrupo" />
+        </set>
     </class>
 </hibernate-mapping>

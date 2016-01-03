@@ -7,7 +7,7 @@ import org.gra.poi.be.*;
 import org.gra.poi.utl.*;
 
 @Repository
-public class ActividadOperativaDA  extends AbstractDA<ActividadOperativa> implements Serializable{
+public class ActividadOperativaDA extends AbstractDA<ActividadOperativa> implements Serializable {
 
     @Override
     public long registrar(ActividadOperativa bean) {
@@ -26,38 +26,51 @@ public class ActividadOperativaDA  extends AbstractDA<ActividadOperativa> implem
 
     @Override
     public List<ActividadOperativa> listar() {
-        return list(ActividadOperativa.class);
+         return list("FROM ActividadOperativa ao"
+                + " INNER JOIN FETCH ao.subgrupo sg"
+                + " INNER JOIN FETCH sg.accionEstrategica ae"
+                + " INNER JOIN FETCH ae.categoriaPresupuestal cp");
     }
 
     @Override
     public List<ActividadOperativa> listar(String ref) {
         return list("FROM ActividadOperativa ao"
-                + " WHERE CONCAT(ao.denominacion,ao.codigo) LIKE '%"+ref+"%'");
+                + " INNER JOIN FETCH ao.subgrupo sg"
+                + " INNER JOIN FETCH sg.accionEstrategica ae"
+                + " INNER JOIN FETCH ae.categoriaPresupuestal cp"
+                + " WHERE CONCAT(ao.denominacion,ao.codigo) LIKE '%" + ref + "%'");
     }
 
     @Override
     public List<ActividadOperativa> listar(long id) {
         return list("FROM ActividadOperativa ao"
-                +" INNER JOIN FETCH ao.subgrupo sg"
-                +" WHERE sg.idsubgrupo="+id);
+                + " INNER JOIN FETCH ao.subgrupo sg"
+                + " INNER JOIN FETCH sg.accionEstrategica ae"
+                + " INNER JOIN FETCH ae.categoriaPresupuestal cp"
+                + " WHERE sg.idsubgrupo=" + id);
     }
 
     @Override
     public ActividadOperativa buscar(long id) {
         return search("FROM ActividadOperativa ao"
-                + " WHERE ao.idactividadOperativa= "+id);
+                + " INNER JOIN FETCH ao.subgrupo sg"
+                + " INNER JOIN FETCH sg.accionEstrategica ae"
+                + " INNER JOIN FETCH ae.categoriaPresupuestal cp"
+                + " WHERE ao.idactividadOperativa= " + id);
     }
 
     @Override
     public ActividadOperativa buscar(String ref) {
         return search("FROM ActividadOperativa ao"
-                + " WHERE CONCAT(ao.denominacion,ao.codigo)= "+ref);
+                + " INNER JOIN FETCH ao.subgrupo sg"
+                + " INNER JOIN FETCH sg.accionEstrategica ae"
+                + " INNER JOIN FETCH ae.categoriaPresupuestal cp"
+                + " WHERE CONCAT(ao.denominacion,ao.codigo)= " + ref);
     }
 
     @Override
     public long id() {
         return maxId(ActividadOperativa.class);
     }
-    
-}
 
+}

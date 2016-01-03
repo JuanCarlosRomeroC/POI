@@ -10,7 +10,7 @@ public class Subgrupo  implements java.io.Serializable {
 
 
      private long idsubgrupo;
-     private CategoriaPresupuestal categoriaPresupuestal;
+     private AccionEstrategica accionEstrategica;
      private String denominacion;
      private String numeracion;
      private Set programacionActividadeses = new HashSet(0);
@@ -24,9 +24,9 @@ public class Subgrupo  implements java.io.Serializable {
     public Subgrupo(long idsubgrupo) {
         this.idsubgrupo = idsubgrupo;
     }
-    public Subgrupo(long idsubgrupo, CategoriaPresupuestal categoriaPresupuestal, String denominacion, String numeracion, Set programacionActividadeses, Set detallef5s, Set actividadOperativas) {
+    public Subgrupo(long idsubgrupo, AccionEstrategica accionEstrategica, String denominacion, String numeracion, Set programacionActividadeses, Set detallef5s, Set actividadOperativas) {
        this.idsubgrupo = idsubgrupo;
-       this.categoriaPresupuestal = categoriaPresupuestal;
+       this.accionEstrategica = accionEstrategica;
        this.denominacion = denominacion;
        this.numeracion = numeracion;
        this.programacionActividadeses = programacionActividadeses;
@@ -41,12 +41,12 @@ public class Subgrupo  implements java.io.Serializable {
     public void setIdsubgrupo(long idsubgrupo) {
         this.idsubgrupo = idsubgrupo;
     }
-    public CategoriaPresupuestal getCategoriaPresupuestal() {
-        return this.categoriaPresupuestal;
+    public AccionEstrategica getAccionEstrategica() {
+        return this.accionEstrategica;
     }
     
-    public void setCategoriaPresupuestal(CategoriaPresupuestal categoriaPresupuestal) {
-        this.categoriaPresupuestal = categoriaPresupuestal;
+    public void setAccionEstrategica(AccionEstrategica accionEstrategica) {
+        this.accionEstrategica = accionEstrategica;
     }
     public String getDenominacion() {
         return this.denominacion;

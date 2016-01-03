@@ -33,11 +33,5 @@
             </key>
             <one-to-many class="org.gra.poi.be.AccionEstrategica" />
         </set>
-        <set name="subgrupos" table="subgrupo" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="id_categoria_presupuestal" />
-            </key>
-            <one-to-many class="org.gra.poi.be.Subgrupo" />
-        </set>
     </class>
 </hibernate-mapping>

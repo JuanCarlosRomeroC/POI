@@ -26,31 +26,40 @@ public class SubgrupoDA  extends AbstractDA<Subgrupo> implements Serializable{
 
     @Override
     public List<Subgrupo> listar() {
-        return list(Subgrupo.class);
+        return list("FROM Subgrupo sg"
+                +" INNER JOIN FETCH sg.accionEstrategica ae"
+                +" INNER JOIN FETCH ae.categoriaPresupuestal cp");
     }
 
     @Override
     public List<Subgrupo> listar(String ref) {
         return list("FROM Subgrupo sg"
-                + " WHERE CONCAT(sg.denominacion,sg.numeracion) LIKE '%"+ref+"%'");
+                +" INNER JOIN FETCH sg.accionEstrategica ae"
+                +" INNER JOIN FETCH ae.categoriaPresupuestal cp"
+                +" WHERE CONCAT(sg.denominacion,sg.numeracion) LIKE '%"+ref+"%'");
     }
 
     @Override
     public List<Subgrupo> listar(long id) {
         return list("FROM Subgrupo sg"
-                +" INNER JOIN FETCH sg.categoriaPresupuestal cp"
-                +" WHERE cp.idcategoriaPresupuestal="+id);
+                +" INNER JOIN FETCH sg.accionEstrategica ae"
+                +" INNER JOIN FETCH ae.categoriaPresupuestal cp"
+                +" WHERE ae.idaccionEstrategica="+id);
     }
 
     @Override
     public Subgrupo buscar(long id) {
         return search("FROM Subgrupo sg"
-                + " WHERE sg.idsubgrupo= "+id);
+                +" INNER JOIN FETCH sg.accionEstrategica ae"
+                +" INNER JOIN FETCH ae.categoriaPresupuestal cp"
+                +" WHERE sg.idsubgrupo= "+id);
     }
 
     @Override
     public Subgrupo buscar(String ref) {
         return search("FROM Subgrupo sg"
+                +" INNER JOIN FETCH sg.accionEstrategica ae"
+                +" INNER JOIN FETCH ae.categoriaPresupuestal cp"
                 + " WHERE CONCAT(sg.denominacion,sg.numeracion)= "+ref);
     }
 
