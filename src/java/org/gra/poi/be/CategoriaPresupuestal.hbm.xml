@@ -27,11 +27,11 @@
             </key>
             <one-to-many class="org.gra.poi.be.ProgramacionActividades" />
         </set>
-        <set name="asignacionAeCps" table="asignacion_ae_cp" inverse="true" lazy="true" fetch="select">
+        <set name="accionEstrategicas" table="accion_estrategica" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="id_categoria_presupuestal" />
             </key>
-            <one-to-many class="org.gra.poi.be.AsignacionAeCp" />
+            <one-to-many class="org.gra.poi.be.AccionEstrategica" />
         </set>
         <set name="subgrupos" table="subgrupo" inverse="true" lazy="true" fetch="select">
             <key>

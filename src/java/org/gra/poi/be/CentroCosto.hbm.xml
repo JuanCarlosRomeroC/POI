@@ -16,11 +16,11 @@
         <property name="abreviatura" type="string">
             <column name="abreviatura" length="30" />
         </property>
-        <set name="asignacionAeCcs" table="asignacion_ae_cc" inverse="true" lazy="true" fetch="select">
+        <set name="accionEstrategicas" table="accion_estrategica" inverse="true" lazy="true" fetch="select">
             <key>
-                <column name="id_centro_costo" />
+                <column name="id_categoria_presupuestal" />
             </key>
-            <one-to-many class="org.gra.poi.be.AsignacionAeCc" />
+            <one-to-many class="org.gra.poi.be.AccionEstrategica" />
         </set>
     </class>
 </hibernate-mapping>

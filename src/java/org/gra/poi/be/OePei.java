@@ -7,13 +7,11 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class OePei  implements java.io.Serializable {
-
-
      private long idoePei;
      private String denominacion;
      private String abreviatura;
      private String correlativo;
-     private Set asignacionAeOeis = new HashSet(0);
+     private Set accionEstrategicas = new HashSet(0);
      private Set detallef1s = new HashSet(0);
      private Set pois = new HashSet(0);
 
@@ -24,12 +22,12 @@ public class OePei  implements java.io.Serializable {
     public OePei(long idoePei) {
         this.idoePei = idoePei;
     }
-    public OePei(long idoePei, String denominacion, String abreviatura, String correlativo, Set asignacionAeOeis, Set detallef1s, Set pois) {
+    public OePei(long idoePei, String denominacion, String abreviatura, String correlativo, Set accionEstrategicas, Set detallef1s, Set pois) {
        this.idoePei = idoePei;
        this.denominacion = denominacion;
        this.abreviatura = abreviatura;
        this.correlativo = correlativo;
-       this.asignacionAeOeis = asignacionAeOeis;
+       this.accionEstrategicas = accionEstrategicas;
        this.detallef1s = detallef1s;
        this.pois = pois;
     }
@@ -62,13 +60,7 @@ public class OePei  implements java.io.Serializable {
     public void setCorrelativo(String correlativo) {
         this.correlativo = correlativo;
     }
-    public Set getAsignacionAeOeis() {
-        return this.asignacionAeOeis;
-    }
-    
-    public void setAsignacionAeOeis(Set asignacionAeOeis) {
-        this.asignacionAeOeis = asignacionAeOeis;
-    }
+
     public Set getDetallef1s() {
         return this.detallef1s;
     }
@@ -84,9 +76,13 @@ public class OePei  implements java.io.Serializable {
         this.pois = pois;
     }
 
+    public Set getAccionEstrategicas() {
+        return accionEstrategicas;
+    }
 
-
-
+    public void setAccionEstrategicas(Set accionEstrategicas) {
+        this.accionEstrategicas = accionEstrategicas;
+    }
 }
 
 

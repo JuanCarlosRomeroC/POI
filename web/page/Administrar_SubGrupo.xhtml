@@ -73,6 +73,20 @@
                         </f:facet>
 
                         <h:panelGrid id="controles" style="width: 100%;" columns="1" columnClasses="ui-grid-col-12" layout="grid" styleClass="ui-panelgrid-blank">   
+                            <div style="font-weight:bold;">ACTIVIDAD/OBRA</div>
+                            <p:selectOneMenu id="actObra" style="width: 300px;" value="#{administrarMetaOperativaVC.id_subgrupo}" >
+                                <p:ajax listener="#{administrarMetaOperativaVC.listarActividadesOperativas}" update="actOperativa" />
+                                <f:selectItem itemLabel="SELECCIONAR" itemValue="0" />
+                                <f:selectItems value="#{administrarMetaOperativaVC.listaSubgrupo}" var="isg" itemLabel="#{isg.denominacion}" itemValue="#{isg.idsubgrupo}"/>
+                            </p:selectOneMenu>
+                            
+                            <div style="font-weight:bold;">ACTIVIDAD OPERATIVA</div>
+                            <p:selectOneMenu id="actOperativa" style="width: 300px;" value="#{administrarMetaOperativaVC.id_actividadOperativa}" >
+                                <f:selectItem itemLabel="SELECCIONAR" itemValue="0" />
+                                <f:selectItems value="#{administrarMetaOperativaVC.listaActividadOperativa}" var="iao" itemLabel="#{iao.denominacion}" itemValue="#{iao.idactividadOperativa}"/>
+                            </p:selectOneMenu>
+                            
+                            
                             <div style="font-weight:bold;">CATEGORÍA PRESUPUESTAL</div>
                             <p:selectOneMenu id="catPres" style="width: 300px;" value="#{administrarSubgrupoVC.id_categoriaPresupuestal}">
                                 <f:selectItem itemLabel="SELECCIONAR" itemValue="0" />

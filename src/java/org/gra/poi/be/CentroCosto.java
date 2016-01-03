@@ -6,12 +6,10 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class CentroCosto  implements java.io.Serializable {
-
-
      private long idcentroCosto;
      private String denominacion;
      private String abreviatura;
-     private Set asignacionAeCcs = new HashSet(0);
+     private Set accionEstrategicas = new HashSet(0);
 
     public CentroCosto() {
     }
@@ -19,11 +17,11 @@ public class CentroCosto  implements java.io.Serializable {
     public CentroCosto(long idcentroCosto) {
         this.idcentroCosto = idcentroCosto;
     }
-    public CentroCosto(long idcentroCosto, String denominacion, String abreviatura, Set asignacionAeCcs) {
+    public CentroCosto(long idcentroCosto, String denominacion, String abreviatura, Set accionEstrategicas) {
        this.idcentroCosto = idcentroCosto;
        this.denominacion = denominacion;
        this.abreviatura = abreviatura;
-       this.asignacionAeCcs = asignacionAeCcs;
+       this.accionEstrategicas = accionEstrategicas;
     }
    
     public long getIdcentroCosto() {
@@ -47,12 +45,13 @@ public class CentroCosto  implements java.io.Serializable {
     public void setAbreviatura(String abreviatura) {
         this.abreviatura = abreviatura;
     }
-    public Set getAsignacionAeCcs() {
-        return this.asignacionAeCcs;
+
+    public Set getAccionEstrategicas() {
+        return accionEstrategicas;
     }
-    
-    public void setAsignacionAeCcs(Set asignacionAeCcs) {
-        this.asignacionAeCcs = asignacionAeCcs;
+
+    public void setAccionEstrategicas(Set accionEstrategicas) {
+        this.accionEstrategicas = accionEstrategicas;
     }
 }
 

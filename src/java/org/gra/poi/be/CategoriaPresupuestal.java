@@ -6,14 +6,12 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class CategoriaPresupuestal  implements java.io.Serializable {
-
-
      private long idcategoriaPresupuestal;
      private String tipoCategoria;
      private String denominacion;
      private String numeracion;
      private Set programacionActividadeses = new HashSet(0);
-     private Set asignacionAeCps = new HashSet(0);
+     private Set accionEstrategicas = new HashSet(0);
      private Set subgrupos = new HashSet(0);
 
     public CategoriaPresupuestal() {
@@ -23,13 +21,13 @@ public class CategoriaPresupuestal  implements java.io.Serializable {
     public CategoriaPresupuestal(long idcategoriaPresupuestal) {
         this.idcategoriaPresupuestal = idcategoriaPresupuestal;
     }
-    public CategoriaPresupuestal(long idcategoriaPresupuestal, String tipoCategoria, String denominacion, String numeracion, Set programacionActividadeses, Set asignacionAeCps, Set subgrupos) {
+    public CategoriaPresupuestal(long idcategoriaPresupuestal, String tipoCategoria, String denominacion, String numeracion, Set programacionActividadeses, Set accionEstrategicas, Set subgrupos) {
        this.idcategoriaPresupuestal = idcategoriaPresupuestal;
        this.tipoCategoria = tipoCategoria;
        this.denominacion = denominacion;
        this.numeracion = numeracion;
        this.programacionActividadeses = programacionActividadeses;
-       this.asignacionAeCps = asignacionAeCps;
+       this.accionEstrategicas = accionEstrategicas;
        this.subgrupos = subgrupos;
     }
    
@@ -68,13 +66,7 @@ public class CategoriaPresupuestal  implements java.io.Serializable {
     public void setProgramacionActividadeses(Set programacionActividadeses) {
         this.programacionActividadeses = programacionActividadeses;
     }
-    public Set getAsignacionAeCps() {
-        return this.asignacionAeCps;
-    }
-    
-    public void setAsignacionAeCps(Set asignacionAeCps) {
-        this.asignacionAeCps = asignacionAeCps;
-    }
+
     public Set getSubgrupos() {
         return this.subgrupos;
     }
@@ -83,9 +75,13 @@ public class CategoriaPresupuestal  implements java.io.Serializable {
         this.subgrupos = subgrupos;
     }
 
+    public Set getAccionEstrategicas() {
+        return accionEstrategicas;
+    }
 
-
-
+    public void setAccionEstrategicas(Set accionEstrategicas) {
+        this.accionEstrategicas = accionEstrategicas;
+    }
 }
 
 

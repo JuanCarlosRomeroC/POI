@@ -96,7 +96,7 @@ public class AdministrarAccionEstrategicaVC {
         getAccionEstrategica().setOePei(getOePeiBL().buscar(id_oePei));
         getAccionEstrategica().setCategoriaPresupuestal(getCategoriaPresupuestalBL().buscar(id_categoriaPresupuestal));
         getAccionEstrategica().setCentroCosto(getCentroCostoBL().buscar(id_centroCosto));
-        Utilitario.setTareaEvento(new Tarea(Accion.ACTUALIZACION, getAccionEstrategicaBL().registrar(getAccionEstrategica())) {
+        Utilitario.setTareaEvento(new Tarea(Accion.ACTUALIZACION, getAccionEstrategicaBL().actualizar(getAccionEstrategica())) {
             @Override
             public void procesoPost() {
                 if (getRepuesta() >= 0) {
