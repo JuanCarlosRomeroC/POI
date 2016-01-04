@@ -53,8 +53,9 @@ public class AdministrarSubgrupoVC {
     }
 
     public void listarAccionesEstrategicas() {
-        if(id_oePei !=0 && id_categoriaPresupuestal !=0){
-            
+        if (id_oePei != 0 && id_categoriaPresupuestal != 0) {
+            getListaAccionEstrategica().clear();
+            getListaAccionEstrategica().addAll(getAccionEstrategicaBL().listarCP_OE(getId_categoriaPresupuestal(), getId_oePei()));
         }
     }
 
