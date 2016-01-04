@@ -73,6 +73,13 @@
                         </f:facet>
 
                         <h:panelGrid id="controles" style="width: 100%;" columns="1" columnClasses="ui-grid-col-12" layout="grid" styleClass="ui-panelgrid-blank">   
+                            <div style="font-weight:bold;">OBJETIVO ESTRATÉGICO INSTITUCIONAL</div>
+                            <p:selectOneMenu id="oei" style="width: 300px;" value="#{administrarSubgrupoVC.id_oePei}" >
+                                <p:ajax listener="#{administrarSubgrupoVC.listarAccionesEstrategicas}" update="accionEstr" />
+                                <f:selectItem itemLabel="SELECCIONAR" itemValue="0" />
+                                <f:selectItems value="#{administrarSubgrupoVC.listaOePei}" var="ioe" itemLabel="#{ioe.denominacion}" itemValue="#{ioe.idoePei}"/>
+                            </p:selectOneMenu>
+                            
                             <div style="font-weight:bold;">CATEGORÍA PRESUPUESTAL</div>
                             <p:selectOneMenu id="catPres" style="width: 300px;" value="#{administrarSubgrupoVC.id_categoriaPresupuestal}" >
                                 <p:ajax listener="#{administrarSubgrupoVC.listarAccionesEstrategicas}" update="accionEstr" />
@@ -116,11 +123,25 @@
                         </f:facet>
 
                         <h:panelGrid id="controles" style="width: 100%;" columns="1" columnClasses="ui-grid-col-12" layout="grid" styleClass="ui-panelgrid-blank">   
+                            <div style="font-weight:bold;">OBJETIVO ESTRATÉGICO INSTITUCIONAL</div>
+                            <p:selectOneMenu id="oei" style="width: 300px;" value="#{administrarSubgrupoVC.id_oePei}" >
+                                <p:ajax listener="#{administrarSubgrupoVC.listarCategoriasPresupuestales}" update="catPres" />
+                                <f:selectItem itemLabel="SELECCIONAR" itemValue="" />
+                                <f:selectItems value="#{administrarSubgrupoVC.listaOePei}" var="ioe" itemLabel="#{ioe.denominacion}" itemValue="#{ioe.idoePei}"/>
+                            </p:selectOneMenu>
+                            
                             <div style="font-weight:bold;">CATEGORÍA PRESUPUESTAL</div>
-                            <p:selectOneMenu id="catPres" style="width: 300px;" value="#{administrarSubgrupoVC.id_categoriaPresupuestal}">
+                            <p:selectOneMenu id="catPres" style="width: 300px;" value="#{administrarSubgrupoVC.id_categoriaPresupuestal}" >
+                                <p:ajax listener="#{administrarSubgrupoVC.listarAccionesEstrategicas}" update="accionEstr" />
                                 <f:selectItem itemLabel="SELECCIONAR" itemValue="" />
                                 <f:selectItems value="#{administrarSubgrupoVC.listaCategoriaPresupuestal}" var="icp" itemLabel="#{icp.denominacion}" itemValue="#{icp.idcategoriaPresupuestal}"/>
                             </p:selectOneMenu>
+                            
+                            <div style="font-weight:bold;">ACCIÓN ESTRATÉGICA</div>
+                            <p:selectOneMenu id="accionEstr" style="width: 300px;" value="#{administrarSubgrupoVC.id_accionEstrategica}" >
+                                <f:selectItem itemLabel="SELECCIONAR" itemValue="" />
+                                <f:selectItems value="#{administrarSubgrupoVC.listaAccionEstrategica}" var="iae" itemLabel="#{iae.denominacion}" itemValue="#{iae.idaccionEstrategica}"/>
+                            </p:selectOneMenu> 
                             
                             <div style="font-weight:bold;">CÓDIGO</div>
                             <p:inputText id="codigo" value="#{administrarSubgrupoVC.subgrupo.numeracion}" required="true" maxlength="10"/>

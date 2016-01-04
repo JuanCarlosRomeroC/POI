@@ -46,7 +46,7 @@ public class SubgrupoDA  extends AbstractDA<Subgrupo> implements Serializable{
                 +" INNER JOIN FETCH ae.categoriaPresupuestal cp"
                 +" WHERE ae.idaccionEstrategica="+id);
     }
-
+    
     @Override
     public Subgrupo buscar(long id) {
         return search("FROM Subgrupo sg"

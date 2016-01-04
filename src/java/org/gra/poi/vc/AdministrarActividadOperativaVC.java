@@ -12,40 +12,55 @@ import org.gra.poi.utl.Utilitario;
 @ManagedBean
 @ViewScoped
 public class AdministrarActividadOperativaVC {
+
     @ManagedProperty(value = "#{actividadOperativa}")
-    private ActividadOperativa actividadOperativa;    
+    private ActividadOperativa actividadOperativa;
     @ManagedProperty(value = "#{actividadOperativaBL}")
-    private ActividadOperativaBL actividadOperativaBL;    
+    private ActividadOperativaBL actividadOperativaBL;
     private List<ActividadOperativa> listaActividadOperativa = new LinkedList<>();
-    
+
     @ManagedProperty(value = "#{subgrupo}")
-    private Subgrupo subgrupo;    
+    private Subgrupo subgrupo;
     @ManagedProperty(value = "#{subgrupoBL}")
-    private SubgrupoBL subgrupoBL;    
+    private SubgrupoBL subgrupoBL;
     private List<Subgrupo> listaSubgrupo = new LinkedList<>();
     private long id_subgrupo;
 
-    public void init(){
+@ManagedProperty(value = "#{accionEstrategica}")
+    private AccionEstrategica accionEstrategica;
+    @ManagedProperty(value = "#{accionEstrategicaBL}")
+    private AccionEstrategicaBL accionEstrategicaBL;
+    private List<AccionEstrategica> listaAccionEstrategica = new LinkedList<>();
+    private long id_accionEstrategica;
+
+    @ManagedProperty(value = "#{categoriaPresupuestal}")
+    private CategoriaPresupuestal categoriaPresupuestal;
+    @ManagedProperty(value = "#{categoriaPresupuestalBL}")
+    private CategoriaPresupuestalBL categoriaPresupuestalBL;
+    private List<CategoriaPresupuestal> listaCategoriaPresupuestal = new LinkedList<>();
+    private long id_categoriaPresupuestal;
+
+    public void init() {
         listarActividadesOperativas();
-        listarSubgrupos();        
+        listarSubgrupos();
     }
-    
-    public void listarActividadesOperativas(){
+
+    public void listarActividadesOperativas() {
         getListaActividadOperativa().clear();
         getListaActividadOperativa().addAll(getActividadOperativaBL().listar());
     }
-    
-    public void listarSubgrupos(){
+
+    public void listarSubgrupos() {
         getListaSubgrupo().clear();
         getListaSubgrupo().addAll(getSubgrupoBL().listar());
-    }   
-    
-    public void recuperarActividadOperativa(long id){
+    }
+
+    public void recuperarActividadOperativa(long id) {
         setActividadOperativa(getActividadOperativaBL().buscar(id));
         setId_subgrupo(getActividadOperativa().getSubgrupo().getIdsubgrupo());
     }
-    
-    public void registrar(){
+
+    public void registrar() {
         getActividadOperativa().setSubgrupo(getSubgrupoBL().buscar(id_subgrupo));
         Utilitario.setTareaEvento(new Tarea(Accion.REGISTRO, getActividadOperativaBL().registrar(getActividadOperativa())) {
             @Override
@@ -57,21 +72,23 @@ public class AdministrarActividadOperativaVC {
                 }
             }
         });
-    }    
-    public void actualizar(){
+    }
+
+    public void actualizar() {
         getActividadOperativa().setSubgrupo(getSubgrupoBL().buscar(id_subgrupo));
         Utilitario.setTareaEvento(new Tarea(Accion.ACTUALIZACION, getActividadOperativaBL().actualizar(getActividadOperativa())) {
             @Override
             public void procesoPost() {
                 if (getRepuesta() >= 0) {
-                    setActividadOperativa (new ActividadOperativa());
+                    setActividadOperativa(new ActividadOperativa());
                     setId_subgrupo(0);
                     listarActividadesOperativas();
                 }
             }
         });
     }
-    public void eliminar(){
+
+    public void eliminar() {
         Utilitario.setTareaEvento(new Tarea(Accion.ELIMINACION, getActividadOperativaBL().eliminar(getActividadOperativa())) {
             @Override
             public void procesoPost() {

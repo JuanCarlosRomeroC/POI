@@ -33,10 +33,18 @@ public class AdministrarSubgrupoVC {
     private List<CategoriaPresupuestal> listaCategoriaPresupuestal = new LinkedList<>();
     private long id_categoriaPresupuestal;
 
+    @ManagedProperty(value = "#{oePei}")
+    private OePei oePei;
+    @ManagedProperty(value = "#{oePeiBL}")
+    private OePeiBL oePeiBL;
+    private List<OePei> listaOePei = new LinkedList<>();
+    private long id_oePei;
+
     public void init() {
         listarSubgrupos();
         listarAccionesEstrategicas();
         listarCategoriasPresupuestales();
+        listarOePei();
     }
 
     public void listarSubgrupos() {
@@ -45,8 +53,9 @@ public class AdministrarSubgrupoVC {
     }
 
     public void listarAccionesEstrategicas() {
-        getListaAccionEstrategica().clear();
-        getListaAccionEstrategica().addAll(getAccionEstrategicaBL().listar());
+        if(id_oePei !=0 && id_categoriaPresupuestal !=0){
+            
+        }
     }
 
     public void listarCategoriasPresupuestales() {
@@ -54,10 +63,16 @@ public class AdministrarSubgrupoVC {
         getListaCategoriaPresupuestal().addAll(getCategoriaPresupuestalBL().listar());
     }
 
+    public void listarOePei() {
+        getListaOePei().clear();
+        getListaOePei().addAll(getOePeiBL().listar());
+    }
+
     public void recuperarSubgrupo(long id) {
         setSubgrupo(getSubgrupoBL().buscar(id));
-        setId_accionEstrategica(getSubgrupo().getAccionEstrategica().getIdaccionEstrategica()); 
-        setId_categoriaPresupuestal(getSubgrupo().getAccionEstrategica().getCategoriaPresupuestal().getIdcategoriaPresupuestal());               
+        setId_accionEstrategica(getSubgrupo().getAccionEstrategica().getIdaccionEstrategica());
+        setId_categoriaPresupuestal(getSubgrupo().getAccionEstrategica().getCategoriaPresupuestal().getIdcategoriaPresupuestal());
+        setId_oePei(getSubgrupo().getAccionEstrategica().getOePei().getIdoePei());
     }
 
     public void registrar() {
@@ -187,6 +202,38 @@ public class AdministrarSubgrupoVC {
 
     public void setId_categoriaPresupuestal(long id_categoriaPresupuestal) {
         this.id_categoriaPresupuestal = id_categoriaPresupuestal;
+    }
+
+    public OePei getOePei() {
+        return oePei;
+    }
+
+    public void setOePei(OePei oePei) {
+        this.oePei = oePei;
+    }
+
+    public OePeiBL getOePeiBL() {
+        return oePeiBL;
+    }
+
+    public void setOePeiBL(OePeiBL oePeiBL) {
+        this.oePeiBL = oePeiBL;
+    }
+
+    public List<OePei> getListaOePei() {
+        return listaOePei;
+    }
+
+    public void setListaOePei(List<OePei> listaOePei) {
+        this.listaOePei = listaOePei;
+    }
+
+    public long getId_oePei() {
+        return id_oePei;
+    }
+
+    public void setId_oePei(long id_oePei) {
+        this.id_oePei = id_oePei;
     }
     //</editor-fold>
 }
