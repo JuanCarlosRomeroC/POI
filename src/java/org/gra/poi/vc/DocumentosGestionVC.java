@@ -26,17 +26,21 @@ import org.primefaces.model.UploadedFile;
 public class DocumentosGestionVC implements Serializable {
 
     private final String file_path = "/resources/t/";
-    private String documento_gestion = "TASAS.pdf";
-    private ArrayList<DocumentosGestionReferencial> listaArchivos = new ArrayList<>();
-    
+    private String documento_gestion = "";
+    private String referencia_documento;
+        
     @ManagedProperty(value = "#{documentosGestionReferencial}")
     private DocumentosGestionReferencial documentosGestionReferencial;    
     @ManagedProperty(value = "#{documentosGestionReferencialBL}")
     private DocumentosGestionReferencialBL documentosGestionReferencialBL;    
-    private List<AccionEstrategica> listaDocumentosGestion = new LinkedList<>();
+    private ArrayList<DocumentosGestionReferencial> listaArchivos = new ArrayList<>();
 
     
     public void init() {
+        listarArchivos();
+    }
+    
+    public void listarArchivos(){
         getListaArchivos().clear();
         getListaArchivos().addAll(getDocumentosGestionReferencialBL().listar());
     }
@@ -51,8 +55,7 @@ public class DocumentosGestionVC implements Serializable {
             public void procesoPost() {
                 if (getRepuesta() >= 0) {
                     setDocumentosGestionReferencial(new DocumentosGestionReferencial());
-                    //setId_subgrupo(0);
-                    //listarActividadesOperativas();
+                    listarArchivos();
                 }
             }
         });
@@ -63,8 +66,7 @@ public class DocumentosGestionVC implements Serializable {
             public void procesoPost() {
                 if (getRepuesta() >= 0) {
                     setDocumentosGestionReferencial(new DocumentosGestionReferencial());
-                    //setId_subgrupo(0);
-                    //listarActividadesOperativas();
+                    listarArchivos();
                 }
             }
         });
@@ -75,8 +77,7 @@ public class DocumentosGestionVC implements Serializable {
             public void procesoPost() {
                 if (getRepuesta() >= 0) {
                     setDocumentosGestionReferencial(new DocumentosGestionReferencial());
-                    //setId_subgrupo(0);
-                    //listarActividadesOperativas();
+                    listarArchivos();
                 }
             }
         });
@@ -159,12 +160,13 @@ public class DocumentosGestionVC implements Serializable {
         this.documentosGestionReferencialBL = documentosGestionReferencialBL;
     }
 
-    public List<AccionEstrategica> getListaDocumentosGestion() {
-        return listaDocumentosGestion;
+    //</editor-fold>
+
+    public String getReferencia_documento() {
+        return referencia_documento;
     }
 
-    public void setListaDocumentosGestion(List<AccionEstrategica> listaDocumentosGestion) {
-        this.listaDocumentosGestion = listaDocumentosGestion;
+    public void setReferencia_documento(String referencia_documento) {
+        this.referencia_documento = referencia_documento;
     }
-    //</editor-fold>
 }
