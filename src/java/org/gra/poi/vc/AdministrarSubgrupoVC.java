@@ -56,8 +56,8 @@ public class AdministrarSubgrupoVC {
 
     public void recuperarSubgrupo(long id) {
         setSubgrupo(getSubgrupoBL().buscar(id));
-        setId_categoriaPresupuestal(getSubgrupo().getAccionEstrategica().getCategoriaPresupuestal().getIdcategoriaPresupuestal());
-        setId_accionEstrategica(getAccionEstrategica().getIdaccionEstrategica());        
+        setId_accionEstrategica(getSubgrupo().getAccionEstrategica().getIdaccionEstrategica()); 
+        setId_categoriaPresupuestal(getSubgrupo().getAccionEstrategica().getCategoriaPresupuestal().getIdcategoriaPresupuestal());               
     }
 
     public void registrar() {
@@ -67,7 +67,7 @@ public class AdministrarSubgrupoVC {
             public void procesoPost() {
                 if (getRepuesta() >= 0) {
                     setSubgrupo(new Subgrupo());
-                    setId_categoriaPresupuestal(0);
+                    setId_accionEstrategica(0);
                     listarSubgrupos();
                 }
             }
@@ -81,7 +81,7 @@ public class AdministrarSubgrupoVC {
             public void procesoPost() {
                 if (getRepuesta() >= 0) {
                     setSubgrupo(new Subgrupo());
-                    setId_categoriaPresupuestal(0);
+                    setId_accionEstrategica(0);
                     listarSubgrupos();
                 }
             }
