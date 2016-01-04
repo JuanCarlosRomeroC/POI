@@ -3,7 +3,7 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated 04/01/2016 10:07:46 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="org.gra.poi.rpt.OePei" table="oe_pei" schema="sbd" optimistic-lock="version">
+    <class name="org.gra.poi.be.OePei" table="oe_pei" schema="sbd" optimistic-lock="version">
         <id name="idoePei" type="long">
             <column name="idoe_pei" />
             <generator class="sequence">
@@ -23,19 +23,19 @@
             <key>
                 <column name="id_oe_pei" />
             </key>
-            <one-to-many class="org.gra.poi.rpt.AccionEstrategica" />
+            <one-to-many class="org.gra.poi.be.AccionEstrategica" />
         </set>
         <set name="detallef1s" table="detallef1" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="id_oe_pei" />
             </key>
-            <one-to-many class="org.gra.poi.rpt.Detallef1" />
+            <one-to-many class="org.gra.poi.be.Detallef1" />
         </set>
         <set name="detallePois" table="detalle_poi" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="id_oe_poi" />
             </key>
-            <one-to-many class="org.gra.poi.rpt.DetallePoi" />
+            <one-to-many class="org.gra.poi.be.DetallePoi" />
         </set>
     </class>
 </hibernate-mapping>

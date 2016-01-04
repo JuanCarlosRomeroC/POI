@@ -3,17 +3,17 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated 04/01/2016 10:07:46 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="org.gra.poi.rpt.Poi" table="poi" schema="sbd" optimistic-lock="version">
+    <class name="org.gra.poi.be.Poi" table="poi" schema="sbd" optimistic-lock="version">
         <id name="idpoi" type="long">
             <column name="idpoi" />
             <generator class="sequence">
                 <param name="sequence">sbd.poi_organo_idpoi_organo_seq</param>                
             </generator>
         </id>
-        <many-to-one name="documentosGestionReferencial" class="org.gra.poi.rpt.DocumentosGestionReferencial" fetch="select">
+        <many-to-one name="documentosGestionReferencial" class="org.gra.poi.be.DocumentosGestionReferencial" fetch="select">
             <column name="id_organigrama" />
         </many-to-one>
-        <many-to-one name="marcoPresupuestario" class="org.gra.poi.rpt.MarcoPresupuestario" fetch="select">
+        <many-to-one name="marcoPresupuestario" class="org.gra.poi.be.MarcoPresupuestario" fetch="select">
             <column name="id_marco_presupuestario" />
         </many-to-one>
         <property name="introduccion" type="string">
@@ -38,13 +38,13 @@
             <key>
                 <column name="id_poi" />
             </key>
-            <one-to-many class="org.gra.poi.rpt.ProgramacionActividades" />
+            <one-to-many class="org.gra.poi.be.ProgramacionActividades" />
         </set>
         <set name="detallePois" table="detalle_poi" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="id_poi" />
             </key>
-            <one-to-many class="org.gra.poi.rpt.DetallePoi" />
+            <one-to-many class="org.gra.poi.be.DetallePoi" />
         </set>
     </class>
 </hibernate-mapping>

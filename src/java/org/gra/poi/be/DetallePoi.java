@@ -1,5 +1,7 @@
 package org.gra.poi.be;
+import org.springframework.stereotype.Component;
 
+@Component
 public class DetallePoi  implements java.io.Serializable {
 
 

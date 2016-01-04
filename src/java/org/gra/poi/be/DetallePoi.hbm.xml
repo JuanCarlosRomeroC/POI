@@ -3,17 +3,17 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated 04/01/2016 10:07:46 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="org.gra.poi.rpt.DetallePoi" table="detalle_poi" schema="sbd" optimistic-lock="version">
+    <class name="org.gra.poi.be.DetallePoi" table="detalle_poi" schema="sbd" optimistic-lock="version">
         <id name="iddetallePoi" type="long">
             <column name="iddetalle_poi" />
             <generator class="sequence">
                 <param name="sequence">sbd.detalle_poi_iddetalle_poi_seq</param>                
             </generator>
         </id>
-        <many-to-one name="oePei" class="org.gra.poi.rpt.OePei" fetch="select">
+        <many-to-one name="oePei" class="org.gra.poi.be.OePei" fetch="select">
             <column name="id_oe_poi" />
         </many-to-one>
-        <many-to-one name="poi" class="org.gra.poi.rpt.Poi" fetch="select">
+        <many-to-one name="poi" class="org.gra.poi.be.Poi" fetch="select">
             <column name="id_poi" />
         </many-to-one>
     </class>
