@@ -1,4 +1,6 @@
 package org.gra.poi.be;
+// Generated 03/01/2016 06:23:57 PM by Hibernate Tools 4.3.1
+
 
 import java.util.HashSet;
 import java.util.Set;
@@ -6,6 +8,8 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class CentroCosto  implements java.io.Serializable {
+
+
      private long idcentroCosto;
      private String denominacion;
      private String abreviatura;
@@ -13,6 +17,7 @@ public class CentroCosto  implements java.io.Serializable {
 
     public CentroCosto() {
     }
+
 	
     public CentroCosto(long idcentroCosto) {
         this.idcentroCosto = idcentroCosto;
@@ -45,14 +50,17 @@ public class CentroCosto  implements java.io.Serializable {
     public void setAbreviatura(String abreviatura) {
         this.abreviatura = abreviatura;
     }
-
     public Set getAccionEstrategicas() {
-        return accionEstrategicas;
+        return this.accionEstrategicas;
     }
-
+    
     public void setAccionEstrategicas(Set accionEstrategicas) {
         this.accionEstrategicas = accionEstrategicas;
     }
+
+
+
+
 }
 
 

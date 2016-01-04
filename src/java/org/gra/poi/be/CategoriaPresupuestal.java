@@ -1,4 +1,6 @@
 package org.gra.poi.be;
+// Generated 03/01/2016 06:23:57 PM by Hibernate Tools 4.3.1
+
 
 import java.util.HashSet;
 import java.util.Set;
@@ -6,6 +8,8 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class CategoriaPresupuestal  implements java.io.Serializable {
+
+
      private long idcategoriaPresupuestal;
      private String tipoCategoria;
      private String denominacion;
@@ -64,14 +68,17 @@ public class CategoriaPresupuestal  implements java.io.Serializable {
     public void setProgramacionActividadeses(Set programacionActividadeses) {
         this.programacionActividadeses = programacionActividadeses;
     }
-
     public Set getAccionEstrategicas() {
-        return accionEstrategicas;
+        return this.accionEstrategicas;
     }
-
+    
     public void setAccionEstrategicas(Set accionEstrategicas) {
         this.accionEstrategicas = accionEstrategicas;
     }
+
+
+
+
 }
 
 

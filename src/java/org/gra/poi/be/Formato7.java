@@ -1,4 +1,6 @@
 package org.gra.poi.be;
+// Generated 03/01/2016 06:23:57 PM by Hibernate Tools 4.3.1
+
 
 import java.util.HashSet;
 import java.util.Set;

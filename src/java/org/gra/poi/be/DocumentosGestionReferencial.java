@@ -1,4 +1,6 @@
 package org.gra.poi.be;
+// Generated 03/01/2016 06:23:57 PM by Hibernate Tools 4.3.1
+
 
 import java.util.HashSet;
 import java.util.Set;
@@ -9,13 +11,13 @@ public class DocumentosGestionReferencial  implements java.io.Serializable {
 
 
      private long iddocumento;
+     private Institucion institucion;
      private String titulo;
      private byte[] fuente;
      private String nombre;
      private String extencion;
      private Long tamanio;
-     private Set poisForIdOrganigrama = new HashSet(0);
-     private Set poisForIdMarcoPresupuestario = new HashSet(0);
+     private Set pois = new HashSet(0);
 
     public DocumentosGestionReferencial() {
     }
@@ -24,15 +26,15 @@ public class DocumentosGestionReferencial  implements java.io.Serializable {
     public DocumentosGestionReferencial(long iddocumento) {
         this.iddocumento = iddocumento;
     }
-    public DocumentosGestionReferencial(long iddocumento, String titulo, byte[] fuente, String nombre, String extencion, Long tamanio, Set poisForIdOrganigrama, Set poisForIdMarcoPresupuestario) {
+    public DocumentosGestionReferencial(long iddocumento, Institucion institucion, String titulo, byte[] fuente, String nombre, String extencion, Long tamanio, Set pois) {
        this.iddocumento = iddocumento;
+       this.institucion = institucion;
        this.titulo = titulo;
        this.fuente = fuente;
        this.nombre = nombre;
        this.extencion = extencion;
        this.tamanio = tamanio;
-       this.poisForIdOrganigrama = poisForIdOrganigrama;
-       this.poisForIdMarcoPresupuestario = poisForIdMarcoPresupuestario;
+       this.pois = pois;
     }
    
     public long getIddocumento() {
@@ -41,6 +43,13 @@ public class DocumentosGestionReferencial  implements java.io.Serializable {
     
     public void setIddocumento(long iddocumento) {
         this.iddocumento = iddocumento;
+    }
+    public Institucion getInstitucion() {
+        return this.institucion;
+    }
+    
+    public void setInstitucion(Institucion institucion) {
+        this.institucion = institucion;
     }
     public String getTitulo() {
         return this.titulo;
@@ -77,19 +86,12 @@ public class DocumentosGestionReferencial  implements java.io.Serializable {
     public void setTamanio(Long tamanio) {
         this.tamanio = tamanio;
     }
-    public Set getPoisForIdOrganigrama() {
-        return this.poisForIdOrganigrama;
+    public Set getPois() {
+        return this.pois;
     }
     
-    public void setPoisForIdOrganigrama(Set poisForIdOrganigrama) {
-        this.poisForIdOrganigrama = poisForIdOrganigrama;
-    }
-    public Set getPoisForIdMarcoPresupuestario() {
-        return this.poisForIdMarcoPresupuestario;
-    }
-    
-    public void setPoisForIdMarcoPresupuestario(Set poisForIdMarcoPresupuestario) {
-        this.poisForIdMarcoPresupuestario = poisForIdMarcoPresupuestario;
+    public void setPois(Set pois) {
+        this.pois = pois;
     }
 
 

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 20-dic-2015 0:59:15 by Hibernate Tools 4.3.1 -->
+<!-- Generated 03/01/2016 06:23:58 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="org.gra.poi.be.MetaOperativa" table="meta_operativa" schema="sbd" optimistic-lock="version">
         <id name="idmetaOperativa" type="long">

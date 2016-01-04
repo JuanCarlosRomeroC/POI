@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 20-dic-2015 0:59:15 by Hibernate Tools 4.3.1 -->
+<!-- Generated 03/01/2016 06:23:58 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="org.gra.poi.be.DocumentosGestionReferencial" table="documentos_gestion_referencial" schema="sbd" optimistic-lock="version">
         <id name="iddocumento" type="long">
@@ -10,6 +10,9 @@
                 <param name="sequence">sbd.documentos_gestion_iddocumento_seq</param>                
             </generator>
         </id>
+        <many-to-one name="institucion" class="org.gra.poi.be.Institucion" fetch="select">
+            <column name="id_institucion" />
+        </many-to-one>
         <property name="titulo" type="string">
             <column name="titulo">
                 <comment>PLAN ESTAGICO INSTITUCIONAL (PEI) MARCO PRESUPUESTARIO ORGANIGRAMA MOF ROF MARCO PRESUPUESTARIO</comment>
@@ -27,15 +30,9 @@
         <property name="tamanio" type="java.lang.Long">
             <column name="tamanio" />
         </property>
-        <set name="poisForIdOrganigrama" table="poi" inverse="true" lazy="true" fetch="select">
+        <set name="pois" table="poi" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="id_organigrama" />
-            </key>
-            <one-to-many class="org.gra.poi.be.Poi" />
-        </set>
-        <set name="poisForIdMarcoPresupuestario" table="poi" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="id_marco_presupuestario" />
             </key>
             <one-to-many class="org.gra.poi.be.Poi" />
         </set>

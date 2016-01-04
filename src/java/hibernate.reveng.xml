@@ -40,4 +40,6 @@
   <table-filter match-name="meta_operativa"/>
   <table-filter match-name="actividad_operativa"/>
   <table-filter match-name="formato3"/>
+  <table-filter match-name="marco_presupuestario"/>
+  <table-filter match-name="detalle_marco_presupuestario"/>
 </hibernate-reverse-engineering>

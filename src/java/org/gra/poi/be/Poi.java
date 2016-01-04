@@ -1,6 +1,7 @@
 package org.gra.poi.be;
+// Generated 03/01/2016 06:23:57 PM by Hibernate Tools 4.3.1
 
-import java.util.Date;
+
 import java.util.HashSet;
 import java.util.Set;
 import org.springframework.stereotype.Component;
@@ -10,8 +11,8 @@ public class Poi  implements java.io.Serializable {
 
 
      private long idpoi;
-     private DocumentosGestionReferencial documentosGestionReferencialByIdOrganigrama;
-     private DocumentosGestionReferencial documentosGestionReferencialByIdMarcoPresupuestario;
+     private DocumentosGestionReferencial documentosGestionReferencial;
+     private MarcoPresupuestario marcoPresupuestario;
      private OePei oePei;
      private String introduccion;
      private String vision;
@@ -28,10 +29,10 @@ public class Poi  implements java.io.Serializable {
     public Poi(long idpoi) {
         this.idpoi = idpoi;
     }
-    public Poi(long idpoi, DocumentosGestionReferencial documentosGestionReferencialByIdOrganigrama, DocumentosGestionReferencial documentosGestionReferencialByIdMarcoPresupuestario, OePei oePei, String introduccion, String vision, String mision, String baseLegal, String funcionesGenerales, Integer periodo, Set programacionActividadeses) {
+    public Poi(long idpoi, DocumentosGestionReferencial documentosGestionReferencial, MarcoPresupuestario marcoPresupuestario, OePei oePei, String introduccion, String vision, String mision, String baseLegal, String funcionesGenerales, Integer periodo, Set programacionActividadeses) {
        this.idpoi = idpoi;
-       this.documentosGestionReferencialByIdOrganigrama = documentosGestionReferencialByIdOrganigrama;
-       this.documentosGestionReferencialByIdMarcoPresupuestario = documentosGestionReferencialByIdMarcoPresupuestario;
+       this.documentosGestionReferencial = documentosGestionReferencial;
+       this.marcoPresupuestario = marcoPresupuestario;
        this.oePei = oePei;
        this.introduccion = introduccion;
        this.vision = vision;
@@ -49,19 +50,19 @@ public class Poi  implements java.io.Serializable {
     public void setIdpoi(long idpoi) {
         this.idpoi = idpoi;
     }
-    public DocumentosGestionReferencial getDocumentosGestionReferencialByIdOrganigrama() {
-        return this.documentosGestionReferencialByIdOrganigrama;
+    public DocumentosGestionReferencial getDocumentosGestionReferencial() {
+        return this.documentosGestionReferencial;
     }
     
-    public void setDocumentosGestionReferencialByIdOrganigrama(DocumentosGestionReferencial documentosGestionReferencialByIdOrganigrama) {
-        this.documentosGestionReferencialByIdOrganigrama = documentosGestionReferencialByIdOrganigrama;
+    public void setDocumentosGestionReferencial(DocumentosGestionReferencial documentosGestionReferencial) {
+        this.documentosGestionReferencial = documentosGestionReferencial;
     }
-    public DocumentosGestionReferencial getDocumentosGestionReferencialByIdMarcoPresupuestario() {
-        return this.documentosGestionReferencialByIdMarcoPresupuestario;
+    public MarcoPresupuestario getMarcoPresupuestario() {
+        return this.marcoPresupuestario;
     }
     
-    public void setDocumentosGestionReferencialByIdMarcoPresupuestario(DocumentosGestionReferencial documentosGestionReferencialByIdMarcoPresupuestario) {
-        this.documentosGestionReferencialByIdMarcoPresupuestario = documentosGestionReferencialByIdMarcoPresupuestario;
+    public void setMarcoPresupuestario(MarcoPresupuestario marcoPresupuestario) {
+        this.marcoPresupuestario = marcoPresupuestario;
     }
     public OePei getOePei() {
         return this.oePei;

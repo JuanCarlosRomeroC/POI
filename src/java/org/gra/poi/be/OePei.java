@@ -1,12 +1,15 @@
 package org.gra.poi.be;
+// Generated 03/01/2016 06:23:57 PM by Hibernate Tools 4.3.1
 
-import java.util.Date;
+
 import java.util.HashSet;
 import java.util.Set;
 import org.springframework.stereotype.Component;
 
 @Component
 public class OePei  implements java.io.Serializable {
+
+
      private long idoePei;
      private String denominacion;
      private String abreviatura;
@@ -60,7 +63,13 @@ public class OePei  implements java.io.Serializable {
     public void setCorrelativo(String correlativo) {
         this.correlativo = correlativo;
     }
-
+    public Set getAccionEstrategicas() {
+        return this.accionEstrategicas;
+    }
+    
+    public void setAccionEstrategicas(Set accionEstrategicas) {
+        this.accionEstrategicas = accionEstrategicas;
+    }
     public Set getDetallef1s() {
         return this.detallef1s;
     }
@@ -76,13 +85,9 @@ public class OePei  implements java.io.Serializable {
         this.pois = pois;
     }
 
-    public Set getAccionEstrategicas() {
-        return accionEstrategicas;
-    }
 
-    public void setAccionEstrategicas(Set accionEstrategicas) {
-        this.accionEstrategicas = accionEstrategicas;
-    }
+
+
 }
 
 

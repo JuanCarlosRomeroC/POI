@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 03/01/2016 06:23:58 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="org.gra.poi.be.MarcoPresupuestario" table="marco_presupuestario" schema="sbd" optimistic-lock="version">
+        <id name="idmarcoPresupuestario" type="long">
+            <column name="idmarco_presupuestario" />
+            <generator class="sequence">
+                <param name="sequence">sbd.marco_presupuestario_idmarco_presupuestario_seq</param>                
+            </generator>
+        </id>
+        <many-to-one name="institucion" class="org.gra.poi.be.Institucion" fetch="select">
+            <column name="id_institucion" />
+        </many-to-one>
+        <property name="descripcion" type="string">
+            <column name="descripcion" />
+        </property>
+        <property name="importeTotal" type="java.lang.Double">
+            <column name="importe_total" precision="17" scale="17" />
+        </property>
+        <set name="detalleMarcoPresupuestarios" table="detalle_marco_presupuestario" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_mp" />
+            </key>
+            <one-to-many class="org.gra.poi.be.DetalleMarcoPresupuestario" />
+        </set>
+        <set name="pois" table="poi" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_marco_presupuestario" />
+            </key>
+            <one-to-many class="org.gra.poi.be.Poi" />
+        </set>
+    </class>
+</hibernate-mapping>

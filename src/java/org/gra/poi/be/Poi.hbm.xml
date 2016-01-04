@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 20-dic-2015 0:59:15 by Hibernate Tools 4.3.1 -->
+<!-- Generated 03/01/2016 06:23:58 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="org.gra.poi.be.Poi" table="poi" schema="sbd" optimistic-lock="version">
         <id name="idpoi" type="long">
@@ -10,10 +10,10 @@
                 <param name="sequence">sbd.poi_organo_idpoi_organo_seq</param>                
             </generator>
         </id>
-        <many-to-one name="documentosGestionReferencialByIdOrganigrama" class="org.gra.poi.be.DocumentosGestionReferencial" fetch="select">
+        <many-to-one name="documentosGestionReferencial" class="org.gra.poi.be.DocumentosGestionReferencial" fetch="select">
             <column name="id_organigrama" />
         </many-to-one>
-        <many-to-one name="documentosGestionReferencialByIdMarcoPresupuestario" class="org.gra.poi.be.DocumentosGestionReferencial" fetch="select">
+        <many-to-one name="marcoPresupuestario" class="org.gra.poi.be.MarcoPresupuestario" fetch="select">
             <column name="id_marco_presupuestario" />
         </many-to-one>
         <many-to-one name="oePei" class="org.gra.poi.be.OePei" fetch="select">

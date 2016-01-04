@@ -1,4 +1,6 @@
 package org.gra.poi.be;
+// Generated 03/01/2016 06:23:57 PM by Hibernate Tools 4.3.1
+
 
 import java.util.HashSet;
 import java.util.Set;
@@ -23,7 +25,7 @@ public class ActividadOperativa  implements java.io.Serializable {
     public ActividadOperativa(long idactividadOperativa) {
         this.idactividadOperativa = idactividadOperativa;
     }
-    public ActividadOperativa(long idactividadOperativa, Subgrupo subgrupo, String denominacion,String codigo, Set detallef9s, Set metaOperativas, Set detallef1s) {
+    public ActividadOperativa(long idactividadOperativa, Subgrupo subgrupo, String denominacion, String codigo, Set detallef9s, Set metaOperativas, Set detallef1s) {
        this.idactividadOperativa = idactividadOperativa;
        this.subgrupo = subgrupo;
        this.denominacion = denominacion;
@@ -54,6 +56,13 @@ public class ActividadOperativa  implements java.io.Serializable {
     public void setDenominacion(String denominacion) {
         this.denominacion = denominacion;
     }
+    public String getCodigo() {
+        return this.codigo;
+    }
+    
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
     public Set getDetallef9s() {
         return this.detallef9s;
     }
@@ -74,14 +83,6 @@ public class ActividadOperativa  implements java.io.Serializable {
     
     public void setDetallef1s(Set detallef1s) {
         this.detallef1s = detallef1s;
-    }
-
-    public String getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
     }
 
 

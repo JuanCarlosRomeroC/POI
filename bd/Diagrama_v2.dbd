@@ -74,7 +74,7 @@
       <TDBADiagramObject id="65" propertiesclass="TDiagramMetaTableProperties" objectname="sbd.documentos_gestion_referencial">
         <TDiagramMetaTableProperties>
           <Glyph>
-            <Geometry left="900" top="150" width="200" height="125"/>
+            <Geometry left="900" top="130" width="200" height="140"/>
           </Glyph>
         </TDiagramMetaTableProperties>
       </TDBADiagramObject>
@@ -130,7 +130,7 @@
       <TDiagramNote id="24" propertiesclass="TDiagramNoteProperties">
         <TDiagramNoteProperties>
           <Glyph>
-            <Geometry left="1160" top="140" width="300" height="130"/>
+            <Geometry left="1160" top="130" width="300" height="130"/>
           </Glyph>
           <Text>
 PLAN ESTAGICO INSTITUCIONAL (PEI)
@@ -146,8 +146,8 @@ PLAN ESTAGICO INSTITUCIONAL (PEI)
             <Geometry left="0" top="0" width="0" height="0"/>
             <Glyph>
               <Geometry>
-                <Point x="1260" y="220"/>
-                <Point x="1040" y="220"/>
+                <Point x="1370" y="210"/>
+                <Point x="1040" y="208"/>
               </Geometry>
             </Glyph>
           </Relation>
@@ -156,7 +156,7 @@ PLAN ESTAGICO INSTITUCIONAL (PEI)
       <TDiagramTextBox id="27" propertiesclass="TDiagramTextBoxProperties">
         <TDiagramTextBoxProperties>
           <Glyph>
-            <Geometry left="920" top="100" width="170" height="30"/>
+            <Geometry left="920" top="70" width="170" height="30"/>
             <Font name="Verdana" color="255" size="30"/>
           </Glyph>
           <Text>
@@ -284,7 +284,7 @@ Analizar bien la relacion de
       <TDBADiagramObject id="84" propertiesclass="TDiagramMetaTableProperties" objectname="sbd.institucion">
         <TDiagramMetaTableProperties>
           <Glyph>
-            <Geometry left="610" top="570" width="180" height="90"/>
+            <Geometry left="380" top="350" width="180" height="90"/>
           </Glyph>
         </TDiagramMetaTableProperties>
       </TDBADiagramObject>
@@ -504,20 +504,7 @@ Analizar bien la relacion de
             <Glyph>
               <Geometry>
                 <Point x="1000" y="400"/>
-                <Point x="1000" y="210"/>
-              </Geometry>
-            </Glyph>
-          </Relation>
-        </TDiagramForeignKeyProperties>
-      </TDBADiagramObject>
-      <TDBADiagramObject id="46" propertiesclass="TDiagramForeignKeyProperties" objectname="sbd.poi.fk_poi_02">
-        <TDiagramForeignKeyProperties>
-          <Relation>
-            <Geometry left="1040" top="1040" width="200" height="100"/>
-            <Glyph>
-              <Geometry>
-                <Point x="1000" y="400"/>
-                <Point x="1000" y="210"/>
+                <Point x="1000" y="200"/>
               </Geometry>
             </Glyph>
           </Relation>
@@ -708,7 +695,9 @@ Analizar bien la relacion de
             <Glyph>
               <Geometry>
                 <Point x="700" y="765"/>
-                <Point x="700" y="620"/>
+                <Point x="700" y="600"/>
+                <Point x="520" y="600"/>
+                <Point x="520" y="400"/>
               </Geometry>
             </Glyph>
           </Relation>
@@ -927,7 +916,74 @@ Analizar bien la relacion de
           </Relation>
         </TDiagramForeignKeyProperties>
       </TDBADiagramObject>
+      <TDBADiagramObject id="76" propertiesclass="TDiagramForeignKeyProperties" objectname="sbd.documentos_gestion_referencial.fk_documentos_01">
+        <TDiagramForeignKeyProperties>
+          <Relation>
+            <Geometry left="1392" top="1392" width="200" height="100"/>
+            <Glyph>
+              <Geometry>
+                <Point x="1060" y="170"/>
+                <Point x="470" y="170"/>
+                <Point x="470" y="400"/>
+              </Geometry>
+            </Glyph>
+          </Relation>
+        </TDiagramForeignKeyProperties>
+      </TDBADiagramObject>
+      <TDBADiagramObject id="77" propertiesclass="TDiagramMetaTableProperties" objectname="sbd.marco_presupuestario">
+        <TDiagramMetaTableProperties>
+          <Glyph>
+            <Geometry left="630" top="350" width="200" height="97"/>
+          </Glyph>
+        </TDiagramMetaTableProperties>
+      </TDBADiagramObject>
+      <TDBADiagramObject id="80" propertiesclass="TDiagramMetaTableProperties" objectname="sbd.detalle_marco_presupuestario">
+        <TDiagramMetaTableProperties>
+          <Glyph>
+            <Geometry left="630" top="200" width="200" height="111"/>
+          </Glyph>
+        </TDiagramMetaTableProperties>
+      </TDBADiagramObject>
+      <TDBADiagramObject id="81" propertiesclass="TDiagramForeignKeyProperties" objectname="sbd.detalle_marco_presupuestario.fk_dmp_01">
+        <TDiagramForeignKeyProperties>
+          <Relation>
+            <Geometry left="1456" top="1456" width="200" height="100"/>
+            <Glyph>
+              <Geometry>
+                <Point x="730" y="255"/>
+                <Point x="730" y="400"/>
+              </Geometry>
+            </Glyph>
+          </Relation>
+        </TDiagramForeignKeyProperties>
+      </TDBADiagramObject>
+      <TDBADiagramObject id="46" propertiesclass="TDiagramForeignKeyProperties" objectname="sbd.marco_presupuestario.fk_mp_01">
+        <TDiagramForeignKeyProperties>
+          <Relation>
+            <Geometry left="1440" top="1440" width="200" height="100"/>
+            <Glyph>
+              <Geometry>
+                <Point x="730" y="400"/>
+                <Point x="470" y="400"/>
+              </Geometry>
+            </Glyph>
+          </Relation>
+        </TDiagramForeignKeyProperties>
+      </TDBADiagramObject>
+      <TDBADiagramObject id="78" propertiesclass="TDiagramForeignKeyProperties" objectname="sbd.poi.fk_poi_02">
+        <TDiagramForeignKeyProperties>
+          <Relation>
+            <Geometry left="1456" top="1456" width="200" height="100"/>
+            <Glyph>
+              <Geometry>
+                <Point x="1000" y="400"/>
+                <Point x="730" y="400"/>
+              </Geometry>
+            </Glyph>
+          </Relation>
+        </TDiagramForeignKeyProperties>
+      </TDBADiagramObject>
     </Elements>
-    <Surface zoom="100" scrollx="0" scrolly="920"/>
+    <Surface zoom="100" scrollx="321" scrolly="0"/>
   </TDBADiagramController>
 </XMLDiagram>
