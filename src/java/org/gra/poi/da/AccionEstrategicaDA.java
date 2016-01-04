@@ -49,21 +49,21 @@ public class AccionEstrategicaDA  extends AbstractDA<AccionEstrategica> implemen
                 +" INNER JOIN FETCH ae.categoriaPresupuestal cp"
                 +" INNER JOIN FETCH ae.centroCosto cc"
                 +" INNER JOIN FETCH ae.oePei oe"
-                +" WHERE cp.idcategoriaPresupuestal="+id_cp+" and cc.idcentroCosto"+id_cc);
+                +" WHERE cp.idcategoriaPresupuestal="+id_cp+" and cc.idcentroCosto="+id_cc);
     }
     public List<AccionEstrategica> listarCP_OE(long id_cp,long id_oe) {
         return list("FROM AccionEstrategica ae"
                 +" INNER JOIN FETCH ae.categoriaPresupuestal cp"
                 +" INNER JOIN FETCH ae.centroCosto cc"
                 +" INNER JOIN FETCH ae.oePei oe"
-                +" WHERE cp.idcategoriaPresupuestal="+id_cp+" and oe.idoePei"+id_oe);
+                +" WHERE cp.idcategoriaPresupuestal="+id_cp+" and oe.idoePei="+id_oe);
     }
     public List<AccionEstrategica> listarCC_OE(long id_cc,long id_oe) {
         return list("FROM AccionEstrategica ae"
                 +" INNER JOIN FETCH ae.categoriaPresupuestal cp"
                 +" INNER JOIN FETCH ae.centroCosto cc"
                 +" INNER JOIN FETCH ae.oePei oe"
-                +" WHERE cc.idcentroCosto="+id_cc+" and oe.idoePei"+id_oe);
+                +" WHERE cc.idcentroCosto="+id_cc+" and oe.idoePei="+id_oe);
     }
 
     @Override

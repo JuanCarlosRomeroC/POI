@@ -26,10 +26,8 @@ import org.primefaces.model.UploadedFile;
 public class DocumentosGestionVC implements Serializable {
 
     private final String file_path = "/resources/t/";
-    private final String documento_gestion = "TASAS.pdf";
+    private String documento_gestion = "TASAS.pdf";
     private ArrayList<DocumentosGestionReferencial> listaArchivos = new ArrayList<>();
-    private DocumentosGestionReferencial archivo;
-    private int indice;
     
     @ManagedProperty(value = "#{documentosGestionReferencial}")
     private DocumentosGestionReferencial documentosGestionReferencial;    
@@ -94,14 +92,15 @@ public class DocumentosGestionVC implements Serializable {
     }
 
     public void subirArchivo(FileUploadEvent event) throws IOException {
-        UploadedFile fu = event.getFile();        
+        UploadedFile fu = event.getFile();  
+        documento_gestion = fu.getFileName();
         File f = writeUploadFile(documento_gestion, fu.getContents());
-        archivo = new DocumentosGestionReferencial();
-        archivo.setNombre(documento_gestion);
-        archivo.setTamanio(f.length());
-        archivo.setMime(fu.getContentType());
-        archivo.setExtencion("pdf");
-        getListaArchivos().add(archivo);
+        
+        documentosGestionReferencial.setNombre(documento_gestion);
+        documentosGestionReferencial.setTamanio(f.length());
+        documentosGestionReferencial.setMime(fu.getContentType());
+        documentosGestionReferencial.setExtencion("pdf");
+        getListaArchivos().add(documentosGestionReferencial);
     }
 
     public File writeUploadFile(String fn, byte[] d) throws IOException {
@@ -142,14 +141,6 @@ public class DocumentosGestionVC implements Serializable {
 
     public void setListaArchivos(ArrayList<DocumentosGestionReferencial> listaArchivos) {
         this.listaArchivos = listaArchivos;
-    }
-
-    public int getIndice() {
-        return indice;
-    }
-
-    public void setIndice(int indice) {
-        this.indice = indice;
     }
 
     public DocumentosGestionReferencial getDocumentosGestionReferencial() {
