@@ -16,6 +16,7 @@ public class DocumentosGestionReferencial  implements java.io.Serializable {
      private byte[] fuente;
      private String nombre;
      private String extencion;
+     private String mime;
      private Long tamanio;
      private Set pois = new HashSet(0);
 
@@ -26,13 +27,14 @@ public class DocumentosGestionReferencial  implements java.io.Serializable {
     public DocumentosGestionReferencial(long iddocumento) {
         this.iddocumento = iddocumento;
     }
-    public DocumentosGestionReferencial(long iddocumento, Institucion institucion, String titulo, byte[] fuente, String nombre, String extencion, Long tamanio, Set pois) {
+    public DocumentosGestionReferencial(long iddocumento, Institucion institucion, String titulo, byte[] fuente, String nombre, String extencion,String mime, Long tamanio, Set pois) {
        this.iddocumento = iddocumento;
        this.institucion = institucion;
        this.titulo = titulo;
        this.fuente = fuente;
        this.nombre = nombre;
        this.extencion = extencion;
+       this.mime = mime;
        this.tamanio = tamanio;
        this.pois = pois;
     }
@@ -92,6 +94,14 @@ public class DocumentosGestionReferencial  implements java.io.Serializable {
     
     public void setPois(Set pois) {
         this.pois = pois;
+    }
+
+    public String getMime() {
+        return mime;
+    }
+
+    public void setMime(String mime) {
+        this.mime = mime;
     }
 
 

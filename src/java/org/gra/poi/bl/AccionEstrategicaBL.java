@@ -54,6 +54,16 @@ public class AccionEstrategicaBL  extends AbstractBL<AccionEstrategica> implemen
     public List<AccionEstrategica> listar(long id) {
         return list(id);
     }
+    
+    public List<AccionEstrategica> listarCP_CC(long id_cp,long id_cc) {
+        return dao.listarCP_CC(id_cc, id_cc);
+    }
+    public List<AccionEstrategica> listarCP_OE(long id_cp,long id_oe) {
+        return dao.listarCP_OE(id_cp, id_oe);
+    }
+    public List<AccionEstrategica> listarCC_OE(long id_cc,long id_oe) {
+        return dao.listarCC_OE(id_cc, id_oe);
+    }
 
     @Override
     public AccionEstrategica buscar(long id) {

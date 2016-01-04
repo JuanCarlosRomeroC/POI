@@ -27,6 +27,9 @@
         <property name="extencion" type="string">
             <column name="extencion" length="5" />
         </property>
+        <property name="mime" type="string">
+            <column name="mime" length="30" />
+        </property>
         <property name="tamanio" type="java.lang.Long">
             <column name="tamanio" />
         </property>

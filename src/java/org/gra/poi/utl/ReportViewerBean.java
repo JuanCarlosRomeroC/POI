@@ -13,7 +13,7 @@ import org.hibernate.internal.SessionImpl;
 public class ReportViewerBean implements Serializable {
 
     public String file_path = "/resources/t/";
-    public String rsc_report_path = "/org/edessco/sva/rpt/";
+    public String rsc_report_path = "/org/rx/app/rpt/";
     private String report = "";
     private String existe = "";
 

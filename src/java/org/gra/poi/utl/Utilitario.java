@@ -40,6 +40,40 @@ public class Utilitario {
         return df.format(src);
     }
     
+    public static String getLengthPreformat(long sz) {
+        //<editor-fold defaultstate="collapsed" desc="CUERPO">     
+        if (sz >= 1024L && sz < Math.pow(1024, 2)) {
+            return numberFormat(getLengthKB(sz), "#.##") + " Kb";
+        } else if (sz >= Math.pow(1024, 2) && sz < Math.pow(1024, 3)) {
+            return numberFormat(getLengthMB(sz), "#.##") + " Mb";
+        } else if (sz >= Math.pow(1024, 3) && sz < Math.pow(1024, 4)) {
+            return numberFormat(getLengthGB(sz), "#.##") + " Gb";
+        } else if (sz >= Math.pow(1024, 4) && sz < Math.pow(1024, 5)) {
+            return numberFormat(getLengthTB(sz), "#.##") + " Tb";
+        } else if (sz > 0 && sz < 1024L) {
+            return numberFormat(sz, "#.##") + " b";
+        } else {
+            return "0,00 b";
+        }
+        //</editor-fold>
+    }
+    
+    private static double getLengthKB(long sz) {
+        return (sz / 1024.0);
+    }
+
+    private static double getLengthMB(long sz) {
+        return (getLengthKB(sz) / 1024.0);
+    }
+
+    private static double getLengthGB(long sz) {
+        return (getLengthMB(sz) / 1024.0);
+    }
+
+    private static double getLengthTB(long sz) {
+        return (getLengthGB(sz) / 1024.0);
+    }
+    
     public static String md5(String str) {
         //<editor-fold defaultstate="collapsed" desc="CUERPO">
         String output = "";
