@@ -55,6 +55,14 @@ public class UsuarioDA  extends AbstractDA<Usuario> implements Serializable{
     }
 
     @Override
+    public Usuario autenticar(String u, String p) {
+        return search("from Usuario u "
+                + " inner join fetch u.empleado e"
+                + " where u.nombre='" + u + "'"
+                + " and u.clave='" + Utilitario.md5(p) + "'");
+    }
+
+    @Override
     public long id() {
         return maxId(Usuario.class);
     }

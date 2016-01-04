@@ -54,16 +54,16 @@
                     <div class="login_f_content">
                         <h:panelGrid columns="2" cellpadding="5" class="margin_center">
                             <h:outputLabel for="username" value="USUARIO:" />
-                            <p:inputText id="username" required="true" value="" style="width: 150px;"
+                            <p:inputText id="username" required="true" value="#{indexVC.usuario.nombre}" style="width: 150px;"
                                          class="imput_txt_uc" label="username" placeholder="INGRESE USUARIO" />
 
                             <h:outputLabel for="password" value="CLAVE:" />
-                            <p:password id="password" required="true" value="" style="width: 150px;"
+                            <p:password id="password" required="true" value="#{indexVC.usuario.clave}" style="width: 150px;"
                                         label="password" placeholder="INGRESE CLAVE"/>                                     
                         </h:panelGrid> 
                     </div>
                     <h:panelGrid columns="2" class="login_f_content_b">                                    
-                        <p:commandButton value="Ingresar" update=":msg" icon="ui-icon-check"/>
+                        <p:commandButton value="Ingresar" update=":msg" icon="ui-icon-check" action="#{indexVC.login}"/>
                         <p:button value="Salir" href="index.xhtml" icon="ui-icon-gear"/>
                     </h:panelGrid>
                     <f:facet name="footer">

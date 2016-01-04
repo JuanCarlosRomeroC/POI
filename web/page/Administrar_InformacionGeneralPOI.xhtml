@@ -1,0 +1,178 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"      
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./../template/layout.xhtml">
+            <ui:define name="content">
+                
+                <f:metadata>  
+                    <f:viewAction action="#{administrarPOIVC.init()}" />
+                </f:metadata>
+                
+                <p:growl id="msg" sticky="true" showDetail="true" life="2000"/>
+
+                <h:form id="form_admin">
+                    <p:panel id="control" style="margin: 0 auto; "> 
+                        <f:facet name="header">
+                            ADMINISTRAR PLAN OPERATIVO INSTITUCIONAL
+                        </f:facet>
+                        <p:panelGrid columns="4" columnClasses="ui-grid-col-3,ui-grid-col-3,ui-grid-col-3,ui-grid-col-3" layout="grid" styleClass="ui-panelgrid-blank">
+                            <h:outputText value="" />
+                            <h:outputText value="" />
+                            <h:outputText value="" />
+                            <p:commandButton value="NUEVO" icon="ui-icon-plusthick" type="button" onclick="PF('dialog_nuevo').show();" />
+                        </p:panelGrid> 
+
+                        <div style="font-weight:bold;">LISTA DE POI'S</div>
+                        <p:dataTable rows="10" reflow="true" value="#{administrarPOIVC.listaPoi}" var="p"
+                                     paginator="true" paginatorPosition="bottom" rowIndexVar="rowIndex"
+                                     paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                     rowsPerPageTemplate="5,10,15">
+                            <p:column headerText="N°" style="width: 30px;text-align: center;">
+                                <h:outputText value="#{rowIndex+1}" />
+                            </p:column>
+
+                            <p:column headerText="PERIODO" style="text-align: left;">
+                                <h:outputText value="POI #{p.periodo}" />
+                            </p:column>
+                            
+                            <p:column headerText="" style="width: 30px;">
+                                <p:commandButton title="EDITAR" icon="ui-icon-pencil" immediate="True" oncomplete="PF('dialog_editar').show();"
+                                                 update="form_edit:controles" actionListener="#{administrarPOIVC.recuperarPoi(p.idpoi)}"/>    
+                            </p:column>
+                            
+                            <p:column headerText="" style="width: 30px;">                                
+                                <p:commandButton title="ELIMINAR" icon="ui-icon-close" immediate="True" oncomplete="PF('dialog_eliminar').show();" 
+                                                 update="" actionListener="#{administrarPOIVC.recuperarPoi(p.idpoi)}"/>
+                            </p:column>
+                        </p:dataTable>
+
+                        <f:facet name="footer">
+                            GOBIERNO REGIONAL DE AYACUCHO
+                        </f:facet>
+                    </p:panel>
+                </h:form>
+
+                <h:form id="form_new"><!-- FORM NUEVO -->
+                    <p:dialog  id="dialog_nuevo" widgetVar="dialog_nuevo" modal="true" resizable="false" draggable="false">
+                        <f:facet name="header">
+                            REGISTRAR META OPERATIVA
+                        </f:facet>
+
+                        <h:panelGrid id="controles" style="width: 100%;" columns="1" columnClasses="ui-grid-col-12" layout="grid" styleClass="ui-panelgrid-blank"> 
+                            <div style="font-weight:bold;">INTRODUCCION</div>
+                            <p:inputTextarea id="introduccion" value="#{administrarPOIVC.poi.introduccion}" required="true" style="width: 100%; resize: none;height: 30px;"/>
+                            
+                            <div style="font-weight:bold;">MISION</div>
+                            <p:inputTextarea id="mision" value="#{administrarPOIVC.poi.mision}" required="true" style="width: 100%; resize: none;height: 30px;"/>
+                            
+                            <div style="font-weight:bold;">VISION</div>
+                            <p:inputTextarea id="vision" value="#{administrarPOIVC.poi.vision}" required="true" style="width: 100%; resize: none;height: 30px;"/>                              
+                        </h:panelGrid>
+
+                        <f:facet name="footer">
+                            <p:panelGrid columns="2" columnClasses="ui-grid-col-6,ui-grid-col-6" layout="grid" styleClass="ui-panelgrid-blank">
+                                <p:commandButton value="REGISTRAR" icon="ui-icon-disk" validateClient="true"
+                                                 oncomplete="if (args &amp;&amp; !args.validationFailed){PF('dialog_nuevo').hide();}"
+                                                 actionListener="#{administrarMetaOperativaVC.registrar}" 
+                                                 update="msg,controles,form_admin:control"/> 
+
+                                <p:commandButton value="CANCELAR" icon="ui-icon-closethick" update="msg,controles"                                                 
+                                                 process="@this">
+                                    <p:resetInput target="msg,controles" />
+                                </p:commandButton>
+                            </p:panelGrid>                                
+                        </f:facet>
+                    </p:dialog> 
+                </h:form>
+                
+                <h:form id="form_edit"><!-- FORM EDITAR -->
+                    <p:dialog  id="dialog_editar" widgetVar="dialog_editar" modal="true" resizable="false" draggable="false">
+                        <f:facet name="header">
+                            EDITAR META OPERATIVA
+                        </f:facet>
+
+                        <h:panelGrid id="controles" style="width: 100%;" columns="1" columnClasses="ui-grid-col-12" layout="grid" styleClass="ui-panelgrid-blank"> 
+                            <div style="font-weight:bold;">OBJETIVO ESTRATÉGICO INSTITUCIONAL</div>
+                            <p:selectOneMenu id="oei" style="width: 300px;" value="#{administrarMetaOperativaVC.id_oePei}" >
+                                <p:ajax listener="#{administrarMetaOperativaVC.listarAccionesEstrategicas}" update="accionEstr" />
+                                <f:selectItem itemLabel="SELECCIONAR" itemValue="" />
+                                <f:selectItems value="#{administrarMetaOperativaVC.listaOePei}" var="ioe" itemLabel="#{ioe.denominacion}" itemValue="#{ioe.idoePei}"/>
+                            </p:selectOneMenu>
+
+                            <div style="font-weight:bold;">CATEGORÍA PRESUPUESTAL</div>
+                            <p:selectOneMenu id="catPres" style="width: 300px;" value="#{administrarMetaOperativaVC.id_categoriaPresupuestal}" >
+                                <p:ajax listener="#{administrarMetaOperativaVC.listarAccionesEstrategicas}" update="accionEstr" />
+                                <f:selectItem itemLabel="SELECCIONAR" itemValue="" />
+                                <f:selectItems value="#{administrarMetaOperativaVC.listaCategoriaPresupuestal}" var="icp" itemLabel="#{icp.denominacion}" itemValue="#{icp.idcategoriaPresupuestal}"/>
+                            </p:selectOneMenu>
+
+                            <div style="font-weight:bold;">ACCIÓN ESTRATÉGICA</div>                            
+                            <p:selectOneMenu id="accionEstr" style="width: 300px;" value="#{administrarMetaOperativaVC.id_accionEstrategica}" >
+                                <p:ajax listener="#{administrarMetaOperativaVC.listarSubgrupos()}" update="acObra" />
+                                <f:selectItem itemLabel="SELECCIONAR" itemValue="" />
+                                <f:selectItems value="#{administrarMetaOperativaVC.listaAccionEstrategica}" var="iae" itemLabel="#{iae.denominacion}" itemValue="#{iae.idaccionEstrategica}"/>
+                            </p:selectOneMenu>
+
+                            <div style="font-weight:bold;">ACTIVIDAD/OBRA</div>
+                            <p:selectOneMenu id="acObra" style="width: 300px;" value="#{administrarMetaOperativaVC.id_subgrupo}">
+                                <p:ajax listener="#{administrarMetaOperativaVC.listarActividadesOperativas()}" update="actOperativa" />
+                                <f:selectItem itemLabel="SELECCIONAR" itemValue="" />
+                                <f:selectItems value="#{administrarMetaOperativaVC.listaSubgrupo}" var="isg" itemLabel="#{isg.denominacion}" itemValue="#{isg.idsubgrupo}"/>
+                            </p:selectOneMenu>
+                            
+                            <div style="font-weight:bold;">ACTIVIDAD OPERATIVA</div>
+                            <p:selectOneMenu id="actOperativa" style="width: 300px;" value="#{administrarMetaOperativaVC.id_actividadOperativa}" >
+                                <f:selectItem itemLabel="SELECCIONAR" itemValue="" />
+                                <f:selectItems value="#{administrarMetaOperativaVC.listaActividadOperativa}" var="iao" itemLabel="#{iao.denominacion}" itemValue="#{iao.idactividadOperativa}"/>
+                            </p:selectOneMenu>
+                            
+                            <div style="font-weight:bold;">DENOMINACIÓN</div>
+                            <p:inputTextarea id="denominacion" value="#{administrarMetaOperativaVC.metaOperativa.denominacion}" required="true"/> 
+                        </h:panelGrid>
+
+                        <f:facet name="footer">
+                            <p:panelGrid columns="2" columnClasses="ui-grid-col-6,ui-grid-col-6" layout="grid" styleClass="ui-panelgrid-blank">
+                                <p:commandButton value="GUARDAR" icon="ui-icon-disk" validateClient="true"
+                                                 oncomplete="if (args &amp;&amp; !args.validationFailed){PF('dialog_editar').hide();}"
+                                                 actionListener="#{administrarMetaOperativaVC.actualizar}" 
+                                                 update="msg,controles,form_admin:control"/> 
+
+                                <p:commandButton value="CANCELAR" icon="ui-icon-closethick" update="msg,controles"                                                 
+                                                 process="@this">
+                                    <p:resetInput target="msg,controles" />
+                                </p:commandButton>
+                            </p:panelGrid>                               
+                        </f:facet>
+                    </p:dialog> 
+                </h:form>
+                
+                <h:form id="form_del"><!-- FORM ELIMINAR -->
+                    <p:confirmDialog widgetVar="dialog_eliminar" id="dialog_eliminar" 
+                                     message="¿ESTÁ SEGURO QUE DESEA ELIMINAR EL REGISTRO?" 
+                                     header="ELIMINAR REGISTRO">
+
+                        <p:panelGrid columns="2" columnClasses="ui-grid-col-6,ui-grid-col-6" layout="grid" styleClass="ui-panelgrid-blank">
+                            <p:commandButton value="SI" icon="ui-icon-check" oncomplete="PF('dialog_eliminar').hide()"                                             
+                                             actionListener="#{administrarMetaOperativaVC.eliminar}" 
+                                             update="msg,form_admin:control"/> 
+
+                            <p:commandButton value="NO" icon="ui-icon-closethick" update="msg"                                                 
+                                             process="@this" oncomplete="PF('dialog_eliminar').hide()">
+                                <p:resetInput target="msg" />
+                            </p:commandButton>
+                        </p:panelGrid>     
+
+                    </p:confirmDialog>
+                </h:form>                
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>
