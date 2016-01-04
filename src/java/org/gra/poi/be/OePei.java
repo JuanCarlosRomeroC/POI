@@ -1,12 +1,10 @@
 package org.gra.poi.be;
-// Generated 03/01/2016 06:23:57 PM by Hibernate Tools 4.3.1
+// Generated 04/01/2016 10:07:34 AM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
 import java.util.Set;
-import org.springframework.stereotype.Component;
 
-@Component
 public class OePei  implements java.io.Serializable {
 
 
@@ -16,7 +14,7 @@ public class OePei  implements java.io.Serializable {
      private String correlativo;
      private Set accionEstrategicas = new HashSet(0);
      private Set detallef1s = new HashSet(0);
-     private Set pois = new HashSet(0);
+     private Set detallePois = new HashSet(0);
 
     public OePei() {
     }
@@ -25,14 +23,14 @@ public class OePei  implements java.io.Serializable {
     public OePei(long idoePei) {
         this.idoePei = idoePei;
     }
-    public OePei(long idoePei, String denominacion, String abreviatura, String correlativo, Set accionEstrategicas, Set detallef1s, Set pois) {
+    public OePei(long idoePei, String denominacion, String abreviatura, String correlativo, Set accionEstrategicas, Set detallef1s, Set detallePois) {
        this.idoePei = idoePei;
        this.denominacion = denominacion;
        this.abreviatura = abreviatura;
        this.correlativo = correlativo;
        this.accionEstrategicas = accionEstrategicas;
        this.detallef1s = detallef1s;
-       this.pois = pois;
+       this.detallePois = detallePois;
     }
    
     public long getIdoePei() {
@@ -77,12 +75,12 @@ public class OePei  implements java.io.Serializable {
     public void setDetallef1s(Set detallef1s) {
         this.detallef1s = detallef1s;
     }
-    public Set getPois() {
-        return this.pois;
+    public Set getDetallePois() {
+        return this.detallePois;
     }
     
-    public void setPois(Set pois) {
-        this.pois = pois;
+    public void setDetallePois(Set detallePois) {
+        this.detallePois = detallePois;
     }
 
 

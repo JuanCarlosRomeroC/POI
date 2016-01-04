@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 03/01/2016 06:23:58 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated 04/01/2016 10:07:46 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="org.gra.poi.be.OePei" table="oe_pei" schema="sbd" optimistic-lock="version">
+    <class name="org.gra.poi.rpt.OePei" table="oe_pei" schema="sbd" optimistic-lock="version">
         <id name="idoePei" type="long">
             <column name="idoe_pei" />
             <generator class="sequence">
@@ -23,19 +23,19 @@
             <key>
                 <column name="id_oe_pei" />
             </key>
-            <one-to-many class="org.gra.poi.be.AccionEstrategica" />
+            <one-to-many class="org.gra.poi.rpt.AccionEstrategica" />
         </set>
         <set name="detallef1s" table="detallef1" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="id_oe_pei" />
             </key>
-            <one-to-many class="org.gra.poi.be.Detallef1" />
+            <one-to-many class="org.gra.poi.rpt.Detallef1" />
         </set>
-        <set name="pois" table="poi" inverse="true" lazy="true" fetch="select">
+        <set name="detallePois" table="detalle_poi" inverse="true" lazy="true" fetch="select">
             <key>
-                <column name="id_oe_pei" />
+                <column name="id_oe_poi" />
             </key>
-            <one-to-many class="org.gra.poi.be.Poi" />
+            <one-to-many class="org.gra.poi.rpt.DetallePoi" />
         </set>
     </class>
 </hibernate-mapping>

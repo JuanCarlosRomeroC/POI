@@ -1,19 +1,16 @@
 package org.gra.poi.be;
-// Generated 03/01/2016 06:23:57 PM by Hibernate Tools 4.3.1
+// Generated 04/01/2016 10:07:34 AM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
 import java.util.Set;
-import org.springframework.stereotype.Component;
 
-@Component
 public class Poi  implements java.io.Serializable {
 
 
      private long idpoi;
      private DocumentosGestionReferencial documentosGestionReferencial;
      private MarcoPresupuestario marcoPresupuestario;
-     private OePei oePei;
      private String introduccion;
      private String vision;
      private String mision;
@@ -21,6 +18,7 @@ public class Poi  implements java.io.Serializable {
      private String funcionesGenerales;
      private Integer periodo;
      private Set programacionActividadeses = new HashSet(0);
+     private Set detallePois = new HashSet(0);
 
     public Poi() {
     }
@@ -29,11 +27,10 @@ public class Poi  implements java.io.Serializable {
     public Poi(long idpoi) {
         this.idpoi = idpoi;
     }
-    public Poi(long idpoi, DocumentosGestionReferencial documentosGestionReferencial, MarcoPresupuestario marcoPresupuestario, OePei oePei, String introduccion, String vision, String mision, String baseLegal, String funcionesGenerales, Integer periodo, Set programacionActividadeses) {
+    public Poi(long idpoi, DocumentosGestionReferencial documentosGestionReferencial, MarcoPresupuestario marcoPresupuestario, String introduccion, String vision, String mision, String baseLegal, String funcionesGenerales, Integer periodo, Set programacionActividadeses, Set detallePois) {
        this.idpoi = idpoi;
        this.documentosGestionReferencial = documentosGestionReferencial;
        this.marcoPresupuestario = marcoPresupuestario;
-       this.oePei = oePei;
        this.introduccion = introduccion;
        this.vision = vision;
        this.mision = mision;
@@ -41,6 +38,7 @@ public class Poi  implements java.io.Serializable {
        this.funcionesGenerales = funcionesGenerales;
        this.periodo = periodo;
        this.programacionActividadeses = programacionActividadeses;
+       this.detallePois = detallePois;
     }
    
     public long getIdpoi() {
@@ -63,13 +61,6 @@ public class Poi  implements java.io.Serializable {
     
     public void setMarcoPresupuestario(MarcoPresupuestario marcoPresupuestario) {
         this.marcoPresupuestario = marcoPresupuestario;
-    }
-    public OePei getOePei() {
-        return this.oePei;
-    }
-    
-    public void setOePei(OePei oePei) {
-        this.oePei = oePei;
     }
     public String getIntroduccion() {
         return this.introduccion;
@@ -119,6 +110,13 @@ public class Poi  implements java.io.Serializable {
     
     public void setProgramacionActividadeses(Set programacionActividadeses) {
         this.programacionActividadeses = programacionActividadeses;
+    }
+    public Set getDetallePois() {
+        return this.detallePois;
+    }
+    
+    public void setDetallePois(Set detallePois) {
+        this.detallePois = detallePois;
     }
 
 

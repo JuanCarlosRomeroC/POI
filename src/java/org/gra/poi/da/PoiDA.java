@@ -26,7 +26,7 @@ public class PoiDA  extends AbstractDA<Poi> implements Serializable{
 
     @Override
     public List<Poi> listar() {
-        return list(Poi.class);
+        return list("FROM Poi poi");
     }
 
     @Override
