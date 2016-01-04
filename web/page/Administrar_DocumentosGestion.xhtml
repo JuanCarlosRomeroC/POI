@@ -21,7 +21,7 @@
                 <h:form id="form_admin">
                     <p:panel id="control" style="margin: 0 auto; "> 
                         <f:facet name="header">
-                            ADMINISTRAR DOCUMENTOS DE GESTIÓN REFERENCIAL
+                            ADMINISTRAR DOCUMENTOS DE GESTION REFERENCIAL
                         </f:facet>
                         <p:panelGrid columns="4" columnClasses="ui-grid-col-3,ui-grid-col-3,ui-grid-col-3,ui-grid-col-3" layout="grid" styleClass="ui-panelgrid-blank">
                             <h:outputText value="" />
@@ -69,22 +69,32 @@
                 <h:form id="form_new"><!-- FORM NUEVO -->
                     <p:dialog  widgetVar="dialog_nuevo" modal="true" resizable="false" draggable="false">
                         <f:facet name="header">
-                            REGISTRAR DOCUMENTO DE GESTIÓN
+                            REGISTRAR DOCUMENTO GESTION
                         </f:facet>
 
                         <h:panelGrid id="controles" columns="1" columnClasses="ui-grid-col-12" layout="grid" styleClass="ui-panelgrid-blank">      
-                            <div style="font-weight:bold;">TÍTULO</div>
+                            <div style="font-weight:bold;">TITULO</div>
                             <p:inputText id="titulo" value="#{documentosGestionVC.documentosGestionReferencial.titulo}" required="true" />
                             
+                            <div style="font-weight:bold;">REFERENCIA DOCUMENTO</div>
+                            <p:selectOneMenu id="refDoc" value="#{documentosGestionVC.referencia_documento}">
+                                <f:selectItem itemLabel="SELECCIONAR" itemValue="" />
+                                <f:selectItem itemLabel="MOF" itemValue="MOF" />
+                                <f:selectItem itemLabel="ROF" itemValue="ROF" />
+                                <f:selectItem itemLabel="PIA" itemValue="PIA" />
+                                <f:selectItem itemLabel="ORGANIGRAMA" itemValue="ORGANIGRAMA" />
+                                <f:selectItem itemLabel="DIRECTIVA POI" itemValue="DIRECTIVA_POI" />
+                            </p:selectOneMenu>
+                            
                             <div style="font-weight:bold;">ARCHIVOS FUENTE</div>
-                            <p:fileUpload mode="advanced" dragDropSupport="true" auto="false" label="SELECCIONAR" uploadLabel="SUBIR" cancelLabel="CANCELAR"
+                            <p:fileUpload mode="advanced" dragDropSupport="true" auto="true" label="SELECCIONAR" uploadLabel="SUBIR" cancelLabel="CANCELAR"
                                           fileUploadListener="#{documentosGestionVC.subirArchivo}"
                                           multiple="false" fileLimit="1" update="controles" sizeLimit="716800" allowTypes="/(\.|\/)(pdf)$/" style="width: 100%;margin-bottom: 5px;"/> 
                             
                             <div style="font-weight:bold;">NOMBRE</div>
                             <p:inputText id="nombre" value="#{documentosGestionVC.documentosGestionReferencial.nombre}" required="true" maxlength="80"/>
                             
-                            <div style="font-weight:bold;">EXTENSIÓN</div>
+                            <div style="font-weight:bold;">EXTENCION</div>
                             <p:inputText id="extencion" value="#{documentosGestionVC.documentosGestionReferencial.extencion}" required="true" maxlength="5"/>
                             
                         </h:panelGrid>
@@ -107,11 +117,11 @@
                 <h:form id="form_edit"><!-- FORM EDITAR -->
                     <p:dialog  id="dialog_editar" widgetVar="dialog_editar" modal="true" resizable="false" draggable="false">
                         <f:facet name="header">
-                            EDITAR DOCUMENTO DE GESTION
+                            EDITAR COSUMENTO DE GESTION
                         </f:facet>
 
                         <h:panelGrid id="controles" style="width: 100%;" columns="1" columnClasses="ui-grid-col-12" layout="grid" styleClass="ui-panelgrid-blank">      
-                            <div style="font-weight:bold;">TÍTULO</div>
+                            <div style="font-weight:bold;">TITULO</div>
                             <p:inputText id="titulo" value="#{documentosGestionVC.documentosGestionReferencial.titulo}" required="true" />
                             
                             <div style="font-weight:bold;">ARCHIVOS FUENTE</div>
@@ -122,7 +132,7 @@
                             <div style="font-weight:bold;">NOMBRE</div>
                             <p:inputText id="nombre" value="#{documentosGestionVC.documentosGestionReferencial.nombre}" required="true" maxlength="80"/>
                             
-                            <div style="font-weight:bold;">EXTENSIÓN</div>
+                            <div style="font-weight:bold;">EXTENCION</div>
                             <p:inputText id="extencion" value="#{documentosGestionVC.documentosGestionReferencial.extencion}" required="true" maxlength="5"/>
                         </h:panelGrid>
 
