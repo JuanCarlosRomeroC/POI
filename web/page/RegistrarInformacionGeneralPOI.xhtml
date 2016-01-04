@@ -17,65 +17,27 @@
                         <f:facet name="header">
                             REGISTRAR INFORMACIÓN GENERAL POI
                         </f:facet>
-
-                        <h:panelGrid columns="2" cellpadding="10">
-                            <div style="font-weight:bold;height: 100px;">IMTRODUCCIÓN</div>
-                            <h:inputTextarea id="introduccion" style="width: 800px; height: 100px; resize: none;"/> 
-
-                            <div style="font-weight:bold;height: 100px;">BASE LEGAL</div>
-                            <h:inputTextarea id="base_legal" style="width: 800px; height: 100px; resize: none;"/> 
-                        </h:panelGrid>
-
-                        <h:panelGrid columns="2" cellpadding="10">
-                            <h:panelGrid columns="2" cellpadding="10">
-                                <div style="font-weight:bold;height: 100px;width: 120px; margin: -14px;">MISIÓN</div>
-                                <h:inputTextarea id="mision" style="width: 340px; height: 100px; resize: none;"/>  
-                            </h:panelGrid>
-
-                            <h:panelGrid columns="2" cellpadding="10">
-                                <div style="font-weight:bold;height: 100px;">VISIÓN</div>
-                                <h:inputTextarea id="vision" style="width: 340px; height: 100px; resize: none;"/>   
-                            </h:panelGrid>
-                        </h:panelGrid>                        
-
-                        <h:panelGrid columns="1" cellpadding="10">
-                            <div style="font-weight:bold;">OBJETIVOS ESTRAGICOS</div>
-                            <p:dataTable var="car" rows="10"
-                                         paginator="true" paginatorPosition="bottom"
-                                         paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-                                         rowsPerPageTemplate="5,10,15">
-                                <p:column headerText="N°" style="width: 70px;text-align: center;">
-                                    <h:outputText value="" />
-                                </p:column>
-
-                                <p:column headerText="ABREVIATURA" style="width: 120px;text-align: center;">
-                                    <h:outputText value="" />
-                                </p:column>
-
-                                <p:column headerText="CORRELATIVO" style="width: 120px;text-align: center;">
-                                    <h:outputText value="" />
-                                </p:column>
-
-                                <p:column headerText="DENOMINACION" style="text-align: left;">
-                                    <h:outputText value="" />
-                                </p:column>
-                            </p:dataTable>
-                        </h:panelGrid>
-
-                        <h:panelGrid columns="2" cellpadding="10">
+                        <h:panelGrid id="controles" columns="1" columnClasses="ui-grid-col-12" layout="grid" styleClass="ui-panelgrid-blank">      
+                            <div style="font-weight:bold;">INTRODUCCION</div>
+                            <p:inputTextarea id="introduccion" value="#{administrarMetaOperativaVC.metaOperativa.denominacion}" required="true"/> 
                             
-                            <div style="font-weight:bold;">ARCHIVO FUENTE</div>
-                            <p:fileUpload mode="advanced" dragDropSupport="false" style="width: 170px"
-                                          update="" sizeLimit="100000" fileLimit="3" allowTypes="/(\.|\/)(gif|jpe?g|png)$/" />
+                            <div style="font-weight:bold;">REFERENCIA DOCUMENTO</div>
+                            <p:selectOneMenu id="refDoc" value="#{documentosGestionVC.referencia_documento}">
+                                <f:selectItem itemLabel="SELECCIONAR" itemValue="" />
+                                <f:selectItem itemLabel="MOF" itemValue="MOF" />
+                                <f:selectItem itemLabel="ROF" itemValue="ROF" />
+                                <f:selectItem itemLabel="PIA" itemValue="PIA" />
+                                <f:selectItem itemLabel="ORGANIGRAMA" itemValue="ORGANIGRAMA" />
+                                <f:selectItem itemLabel="DIRECTIVA POI" itemValue="DIRECTIVA_POI" />
+                            </p:selectOneMenu>
+                            
+                            <div style="font-weight:bold;">NOMBRE</div>
+                            <p:inputText id="nombre" value="#{documentosGestionVC.documentosGestionReferencial.nombre}" required="true" maxlength="80"/>
+                            
+                            <div style="font-weight:bold;">EXTENCION</div>
+                            <p:inputText id="extencion" value="#{documentosGestionVC.documentosGestionReferencial.extencion}" required="true" maxlength="5"/>
+                            
                         </h:panelGrid>
-
-                        <h:panelGrid columns="2" cellpadding="10">
-                            <div style="font-weight:bold;height: 100px;">FUNCIONES GENERALES</div>
-                            <h:inputTextarea id="fun_generales" style="width: 800px; height: 100px; resize: none;"/> 
-                        </h:panelGrid>
-
-
-
                         <f:facet name="footer">
                             <p:panelGrid columns="4" columnClasses="ui-grid-col-3,ui-grid-col-3,ui-grid-col-3,ui-grid-col-3" layout="grid" styleClass="ui-panelgrid-blank">
                                 <h:outputText value="" />
